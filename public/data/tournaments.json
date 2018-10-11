@@ -7,6 +7,7 @@
         "placesOccupied": 5,
         "placesAvailable": 8,
         "status": "future",
+        "playersIds": [1, 4, 5, 20, 19],
         "winner": ""
     },
     {
@@ -17,6 +18,7 @@
         "placesOccupied": 8,
         "placesAvailable": 8,
         "status": "finished",
+        "playersIds": [7, 6, 12, 2, 18, 14, 1, 10],
         "winner": "Mari"
     },
     {
@@ -27,6 +29,7 @@
         "placesOccupied": 6,
         "placesAvailable": 8,
         "status": "in progress",
+        "playersIds": [17, 16, 11, 3, 5, 4],
         "winner": ""
     },
     {
@@ -37,6 +40,7 @@
         "placesOccupied": 2,
         "placesAvailable": 8,
         "status": "future",
+        "playersIds": [4, 7],
         "winner": ""
     },
     {
@@ -47,6 +51,7 @@
         "placesOccupied": 8,
         "placesAvailable": 8,
         "status": "finished",
+        "playersIds": [16, 17, 15, 9, 13, 4, 2, 1],
         "winner": "Kimbell"
     }
 ]
