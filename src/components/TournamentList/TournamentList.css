@@ -1,0 +1,20 @@
+.tournamentListContainer {
+    border: 1px solid black;
+    width: 90%;
+    height: 100px;
+    padding: 10px;
+    background: white;
+    box-shadow: 5px 10px #888888;
+}
+
+.tournamentStatus_future {
+    background: yellow;
+}
+
+.tournamentStatus_active {
+    background: green;
+}
+
+.tournamentStatus_finished {
+    background: blue;
+}

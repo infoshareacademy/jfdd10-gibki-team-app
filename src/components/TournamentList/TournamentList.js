@@ -1,19 +1,29 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from "react";
+import "./TournamentList.css";
 
-class TournamenList extends Component {
+import TournamentListItem from "../TournamentListItem/TournamentListItem";
 
-    static propTypes = {
-      /**
-       */
+class TournamentList extends Component {
+  state = {
+    tournaments: []
+  };
 
-    }
-  
-    render() {
-      return (
-          
-      )
-    }
+  componentDidMount() {
+    fetch("/data/tournaments.json")
+      .then(response => response.json())
+      .then(arrayOfTournaments =>
+        
+        this.setState({ tournaments: arrayOfTournaments })
+      );
   }
-  
-  export default TournamentList
+
+  render() {
+    return this.state.tournaments.map(tournament => (
+      <div className="tournamentListContainer">
+        <TournamentListItem tournament={tournament}/>
+      </div>
+    ));
+  }
+}
+
+export default TournamentList;
