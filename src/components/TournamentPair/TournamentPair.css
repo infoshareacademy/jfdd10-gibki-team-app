@@ -1,0 +1,25 @@
+.TournamentPair-container {
+    display: flex;
+    width: 50%;
+    height: 2em;
+    
+}
+.TournamentPair-player-box {
+    /* flex-grow: 5; */
+    width: 40%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: lightsalmon;
+    outline: 1px solid black;
+}
+.TournamentPair-score-box {
+    flex-grow: 1;
+    width: 10%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align: center;
+    background: lightgreen;
+    outline: 1px solid black;
+}
