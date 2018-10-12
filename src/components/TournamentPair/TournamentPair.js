@@ -1,8 +1,16 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import './TournamentPair.css';
 
 class TournamentPair extends Component {
 
+static propTypes = {
+    gameId: PropTypes.number,
+    playerOne: PropTypes.string,
+    playerTwo: PropTypes.string,
+    scoreOne: PropTypes.number,
+    scoreTwo: PropTypes.number,
+}
 
 render() {
     return (
