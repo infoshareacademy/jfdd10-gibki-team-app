@@ -1,0 +1,9 @@
+.list {
+display: flex;
+justify-content: space-between;
+background-color: lightblue;
+padding: 10px;
+}
+.name {
+    margin-left: 20px;
+}
