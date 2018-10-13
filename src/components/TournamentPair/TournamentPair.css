@@ -5,7 +5,7 @@
 }
 .TournamentPair-player-box,
 .TournamentPair-player-box-winner,
-.TournamentPair-player-loser {
+.TournamentPair-player-box-loser {
     width: 40%;
     display:flex;
     justify-content:center;
