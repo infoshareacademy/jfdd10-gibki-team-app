@@ -12,14 +12,21 @@ class TournamentPair extends Component {
         scoreTwo: PropTypes.number,
     }
 
+pickWinner = (score1, score2) => {
+    return score1 > score2 ? "winner" : "loser"
+}
+
     render() {
+        const scoreOne = this.props.scoreOne;
+        const scoreTwo = this.props.scoreTwo;
+        
         if (this.props.scoreOne && this.props.scoreTwo) {
             return (
                 <div className="TournamentPair-container">
-                    <div className="TournamentPair-player-box"><span>{this.props.playerOne}</span></div>
-                    <div className="TournamentPair-score-box"><span>{this.props.scoreOne}</span></div>
-                    <div className="TournamentPair-score-box"><span>{this.props.scoreTwo}</span></div>
-                    <div className="TournamentPair-player-box"><span>{this.props.playerTwo}</span></div>
+                    <div className={`TournamentPair-player-box-${this.pickWinner({scoreOne},{scoreTwo})}`}><span>{this.props.playerOne}</span></div>
+                    <div className="TournamentPair-score-box-after"><span>{this.props.scoreOne}</span></div>
+                    <div className="TournamentPair-score-box-after"><span>{this.props.scoreTwo}</span></div>
+                    <div className={`TournamentPair-player-box-${this.pickWinner({scoreOne},{scoreTwo})}`}><span>{this.props.playerTwo}</span></div>
                 </div>
             )
         }
