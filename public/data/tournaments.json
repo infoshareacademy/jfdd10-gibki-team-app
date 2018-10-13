@@ -28,7 +28,7 @@
         "address": "Gdynia",
         "placesOccupied": 6,
         "placesAvailable": 8,
-        "status": "in progress",
+        "status": "future",
         "playersIds": [17, 16, 11, 3, 5, 4],
         "winner": ""
     },
@@ -50,7 +50,7 @@
         "address": "Sopot",
         "placesOccupied": 8,
         "placesAvailable": 8,
-        "status": "finished",
+        "status": "in progress",
         "playersIds": [16, 17, 15, 9, 13, 4, 2, 1],
         "winner": "Kimbell"
     }
