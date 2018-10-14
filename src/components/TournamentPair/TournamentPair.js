@@ -5,9 +5,8 @@ import './TournamentPair.css';
 class TournamentPair extends Component {
 
     static propTypes = {
-        gameId: PropTypes.number,
-        playerOne: PropTypes.string.isRequired,
-        playerTwo: PropTypes.string.isRequired,
+        playerOne: PropTypes.string,
+        playerTwo: PropTypes.string,
         scoreOne: PropTypes.number,
         scoreTwo: PropTypes.number,
     }
@@ -19,23 +18,23 @@ class TournamentPair extends Component {
         return (this.props.scoreTwo > this.props.scoreOne) ? "TournamentPair-player-box-winner" : "TournamentPair-player-box-loser"
     }
     isPlayerAssigned = (player) => {
-        return player !== '' ? "TournamentPair-player-box-assigned" : "TournamentPair-player-box"
+        return (typeof (player) === 'string' && player !== '') ? "TournamentPair-player-box-assigned" : "TournamentPair-player-box"
     }
     isPlayerOneAssigned = () => {
-        return this.props.playerOne !== '' ? this.props.playerOne : '?'
+        return (this.props.playerOne !== '' && this.props.playerOne) ? this.props.playerOne : '?'
     }
     isPlayerTwoAssigned = () => {
-        return this.props.playerTwo !== '' ? this.props.playerTwo : '?'
+        return (this.props.playerTwo !== '' && this.props.playerTwo) ? this.props.playerTwo : '?'
     }
 
     render() {
-        if (Number.isInteger(this.props.scoreOne) === true && Number.isInteger(this.props.scoreTwo) === true) {
+        if (Number.isInteger(this.props.scoreOne) === true && Number.isInteger(this.props.scoreTwo) === true && (this.props.playerOne) && (this.props.playerTwo)) {
             return (
                 <div className="TournamentPair-container">
-                    <div className={`${this.pickWinner()}`}><span>{this.props.playerOne}</span></div>
+                    <div className={`${this.pickWinner()}`}><span>{this.isPlayerOneAssigned()}</span></div>
                     <div className="TournamentPair-score-box"><span>{this.props.scoreOne}</span></div>
                     <div className="TournamentPair-score-box"><span>{this.props.scoreTwo}</span></div>
-                    <div className={`${this.pickLoser()}`}><span>{this.props.playerTwo}</span></div>
+                    <div className={`${this.pickLoser()}`}><span>{this.isPlayerTwoAssigned()}</span></div>
                 </div>
             )
         }
