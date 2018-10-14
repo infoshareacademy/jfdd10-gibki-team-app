@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 // import TournamentInfo from '../TournamentInfo/TournamentInfo'
 // import PlayerList from '../PlayerList/PlayerList'
 import ScoreList from '../ScoreList/ScoreList'
@@ -9,18 +9,22 @@ class TournamentView extends Component {
 
     state = {
         tournaments: [],
-        tournamentStatus: 'finished',
+        tournamentStatus: 'finished', //temporary value - will be taken from tournaments
         players: []
     }
 
-    // componentDidMount() {
-    //     fetch(process.env.PUBLIC_URL + "/data/tournaments.json")
-    //         .then(response => response.json())
-    //         .then(arrayOfTournaments => this.setState({ tournaments: arrayOfTournaments }));
-    //     // fetch(process.env.PUBLIC_URL + "/data/players.json")
-    //     //     .then(response => response.json())
-    //     //     .then(arrayOfPlayers => this.setState({ players: arrayOfPlayers }));
-    // }
+    static propTypes = {
+        tournamentId: PropTypes.number.isRequired
+    }
+
+    componentDidMount() {
+        fetch(process.env.PUBLIC_URL + "/data/tournaments.json")
+            .then(response => response.json())
+            .then(arrayOfTournaments => this.setState({ tournaments: arrayOfTournaments }));
+        fetch(process.env.PUBLIC_URL + "/data/players.json")
+            .then(response => response.json())
+            .then(arrayOfPlayers => this.setState({ players: arrayOfPlayers }));
+    }
     
 render() {
     console.log(this.state.tournaments)
