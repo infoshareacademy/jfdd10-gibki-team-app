@@ -8,18 +8,30 @@ import './TournamentView.css';
 class TournamentView extends Component {
 
     state = {
-        tournament: [],
-        tournamentStatus: 'finished'
+        tournaments: [],
+        tournamentStatus: 'finished',
+        players: []
     }
 
-    render() {
-        return (
-            <div className="TournamentView-container">
-                {/* <TournamentInfo/> */}
-                {this.state.tournamentStatus === 'future' ? 'PlayerList component' : <ScoreList />}
-            </div>
-        )
-    }
+    // componentDidMount() {
+    //     fetch(process.env.PUBLIC_URL + "/data/tournaments.json")
+    //         .then(response => response.json())
+    //         .then(arrayOfTournaments => this.setState({ tournaments: arrayOfTournaments }));
+    //     // fetch(process.env.PUBLIC_URL + "/data/players.json")
+    //     //     .then(response => response.json())
+    //     //     .then(arrayOfPlayers => this.setState({ players: arrayOfPlayers }));
+    // }
+    
+render() {
+    console.log(this.state.tournaments)
+console.log(this.state.players)
+    return (
+        <div className="TournamentView-container">
+            {/* <TournamentInfo/> */}
+            {this.state.tournamentStatus === 'future' ? 'PlayerList component' : <ScoreList />}
+        </div>
+    )
+}
 }
 
 export default TournamentView
