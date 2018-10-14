@@ -12,12 +12,29 @@ class TournamentPair extends Component {
         scoreTwo: PropTypes.number,
     }
 
-pickWinner = () => {
-    return (this.props.scoreOne > this.props.scoreTwo) ? "TournamentPair-player-box-winner" : "TournamentPair-player-box-loser"
-}
-pickLoser = () => {
-    return (this.props.scoreTwo > this.props.scoreOne) ? "TournamentPair-player-box-winner" : "TournamentPair-player-box-loser"
-}
+    // static defaultProps = {
+    //     playerOne: '?',
+    //     playerTwo: '?',
+    //     scoreOne: '?',
+    //     scoreTwo: '?'
+    // }
+
+    // scoreValidation = (score) => {
+    //     return isNaN(score) ? '?' : this.props.scoreOne
+    // }
+
+    pickWinner = () => {
+        return (this.props.scoreOne > this.props.scoreTwo) ? "TournamentPair-player-box-winner" : "TournamentPair-player-box-loser"
+    }
+    pickLoser = () => {
+        return (this.props.scoreTwo > this.props.scoreOne) ? "TournamentPair-player-box-winner" : "TournamentPair-player-box-loser"
+    }
+    isPlayerOneAssigned = () => {
+        return this.props.playerOne !== '' ? this.props.playerOne : '?'
+    }
+    isPlayerTwoAssigned = () => {
+        return this.props.playerTwo !== '' ? this.props.playerTwo : '?'
+    }
 
     render() {
         if (this.props.scoreOne && this.props.scoreTwo) {
@@ -27,6 +44,16 @@ pickLoser = () => {
                     <div className="TournamentPair-score-box-after"><span>{this.props.scoreOne}</span></div>
                     <div className="TournamentPair-score-box-after"><span>{this.props.scoreTwo}</span></div>
                     <div className={`${this.pickLoser()}`}><span>{this.props.playerTwo}</span></div>
+                </div>
+            )
+        }
+        else {
+            return (
+                <div className="TournamentPair-container">
+                    <div className={`${this.pickWinner()}`}><span>{this.isPlayerOneAssigned()}</span></div>
+                    <div className="TournamentPair-score-box-after"><span>{this.props.scoreOne}</span></div>
+                    <div className="TournamentPair-score-box-after"><span>{this.props.scoreTwo}</span></div>
+                    <div className={`${this.pickLoser()}`}><span>{this.isPlayerTwoAssigned()}</span></div>
                 </div>
             )
         }
