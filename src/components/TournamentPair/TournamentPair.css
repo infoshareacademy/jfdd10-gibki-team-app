@@ -5,12 +5,17 @@
 }
 .TournamentPair-player-box,
 .TournamentPair-player-box-winner,
-.TournamentPair-player-box-loser {
+.TournamentPair-player-box-loser,
+.TournamentPair-player-box-assigned {
     width: 40%;
     display:flex;
     justify-content:center;
     align-items:center;
     outline: 1px solid black;
+    background: lightgoldenrodyellow;
+}
+.TournamentPair-player-box-assigned {
+    background: lightblue;
 }
 .TournamentPair-player-box-winner {
     background: lightgreen;
@@ -18,7 +23,7 @@
 .TournamentPair-player-box-loser {
     background: lightcoral;
 }
-.TournamentPair-score-box-after {
+.TournamentPair-score-box {
     flex-grow: 1;
     width: 10%;
     display:flex;
