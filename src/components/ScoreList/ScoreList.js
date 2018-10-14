@@ -10,6 +10,7 @@ class ScoreList extends Component {
     }
 
     render() {
+        console.log(this.props.games);
         return (
             <div className="ScoreList-container">
                 <div>
