@@ -7,8 +7,15 @@
         "placesOccupied": 5,
         "placesAvailable": 8,
         "status": "future",
-        "playersIds": [1, 4, 5, 20, 19],
-        "winner": ""
+        "playersIds": [
+            1,
+            4,
+            5,
+            20,
+            19
+        ],
+        "winnerId": "",
+        "games": [{},{},{},{},{},{},{}]
     },
     {
         "id": 2,
@@ -18,8 +25,68 @@
         "placesOccupied": 8,
         "placesAvailable": 8,
         "status": "finished",
-        "playersIds": [7, 6, 12, 2, 18, 14, 1, 10],
-        "winner": "Mari"
+        "playersIds": [
+            7,
+            6,
+            12,
+            2,
+            18,
+            14,
+            1,
+            10
+        ],
+        "winnerId": "6",
+        "games": [
+            {
+                "no": 1,
+                "playerOneId": 7,
+                "playerTwoId": 6,
+                "playerOneScore": 1,
+                "playerTwoScore": 2
+            },
+            {
+                "no": 2,
+                "playerOneId": 12,
+                "playerTwoId": 2,
+                "playerOneScore": 4,
+                "playerTwoScore": 3
+            },
+            {
+                "no": 3,
+                "playerOneId": 12,
+                "playerTwoId": 2,
+                "playerOneScore": 2,
+                "playerTwoScore": 7
+            },
+            {
+                "no": 4,
+                "playerOneId": 1,
+                "playerTwoId": 10,
+                "playerOneScore": 5,
+                "playerTwoScore": 1
+            },
+            {
+                "no": 5,
+                "playerOneId": 6,
+                "playerTwoId": 2,
+                "playerOneScore": 3,
+                "playerTwoScore": 2
+            },
+            {
+                "no": 6,
+                "playerOneId": 2,
+                "playerTwoId": 1,
+                "playerOneScore": 2,
+                "playerTwoScore": 3
+            },
+            {
+                "no": 7,
+                "playerOneId": 6,
+                "playerTwoId": 1,
+                "playerOneScore": 1,
+                "playerTwoScore": 0
+            }
+        ]
     },
     {
         "id": 3,
@@ -29,8 +96,16 @@
         "placesOccupied": 6,
         "placesAvailable": 8,
         "status": "future",
-        "playersIds": [17, 16, 11, 3, 5, 4],
-        "winner": ""
+        "playersIds": [
+            17,
+            16,
+            11,
+            3,
+            5,
+            4
+        ],
+        "winnerId": "",
+        "games": [{},{},{},{},{},{},{}]
     },
     {
         "id": 4,
@@ -40,8 +115,12 @@
         "placesOccupied": 2,
         "placesAvailable": 8,
         "status": "future",
-        "playersIds": [4, 7],
-        "winner": ""
+        "playersIds": [
+            4,
+            7
+        ],
+        "winnerId": "",
+        "games": [{},{},{},{},{},{},{}]
     },
     {
         "id": 5,
@@ -51,7 +130,67 @@
         "placesOccupied": 8,
         "placesAvailable": 8,
         "status": "in progress",
-        "playersIds": [16, 17, 15, 9, 13, 4, 2, 1],
-        "winner": ""
+        "playersIds": [
+            16,
+            17,
+            15,
+            9,
+            13,
+            4,
+            2,
+            1
+        ],
+        "winnerId": "",
+        "games": [
+            {
+                "no": 1,
+                "playerOneId": 16,
+                "playerTwoId": 17,
+                "playerOneScore": 1,
+                "playerTwoScore": 2
+            },
+            {
+                "no": 2,
+                "playerOneId": 15,
+                "playerTwoId": 9,
+                "playerOneScore": 4,
+                "playerTwoScore": 3
+            },
+            {
+                "no": 3,
+                "playerOneId": 13,
+                "playerTwoId": 4,
+                "playerOneScore": 2,
+                "playerTwoScore": 0
+            },
+            {
+                "no": 4,
+                "playerOneId": 2,
+                "playerTwoId": 1,
+                "playerOneScore": "",
+                "playerTwoScore": ""
+            },
+            {
+                "no": 5,
+                "playerOneId": 17,
+                "playerTwoId": 15,
+                "playerOneScore": "",
+                "playerTwoScore": ""
+            },
+            {
+                "no": 6,
+                "playerOneId": 13,
+                "playerTwoId": "",
+                "playerOneScore": "",
+                "playerTwoScore": ""
+            },
+            {
+                "no": 7,
+                "playerOneId": "",
+                "playerTwoId": "",
+                "playerOneScore": "",
+                "playerTwoScore": ""
+            }
+        ]
     }
 ]

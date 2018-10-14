@@ -6,8 +6,8 @@ class TournamentPair extends Component {
 
     static propTypes = {
         gameId: PropTypes.number,
-        playerOne: PropTypes.string,
-        playerTwo: PropTypes.string,
+        playerOne: PropTypes.string.isRequired,
+        playerTwo: PropTypes.string.isRequired,
         scoreOne: PropTypes.number,
         scoreTwo: PropTypes.number,
     }
