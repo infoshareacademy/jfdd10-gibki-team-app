@@ -51,6 +51,10 @@ h2{
     background-color: rgb(33, 248, 61)
 }
 
+.player-data{
+	padding: 10px;
+}
+
 
 @-webkit-keyframes Gradient {
 	0% {
@@ -95,7 +99,7 @@ h2{
         width: 100%;
     }
 
-    .player-info{
+    .player-info, .player-data{
         height: 100%;
         width: 50%;
     }

@@ -21,11 +21,15 @@ class PlayerInfo extends Component {
           <div className="player-info">
             <div>
               <h2>Player:</h2>
-              <h2 className="nick">{this.props.name}</h2>
-            </div>
-            <div>
               <h2>Ranking:</h2>
               <h2>Points:</h2>
+              
+            </div>
+            
+            <div className="player-data">
+            <h2 className="nick">{this.props.name}</h2>
+            <h2>&#9733;</h2>
+            <h2>14</h2>
             </div>
           </div>
         </div>
