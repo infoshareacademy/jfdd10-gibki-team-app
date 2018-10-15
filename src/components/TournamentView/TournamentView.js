@@ -8,11 +8,9 @@ import './TournamentView.css';
 class TournamentView extends Component {
 
     state = {
-        tournaments: [],
-        // tournament: [],
-        // games: [],
-
-        tournamentStatus: 'finished', //temporary value - will be taken from tournaments
+        tournament: null,
+        games: [],
+        tournamentStatus: '', 
         players: []
     }
 
@@ -21,35 +19,24 @@ class TournamentView extends Component {
     }
 
     componentDidMount() {
-        fetch(process.env.PUBLIC_URL + "/data/tournaments.json")
-            .then(response => response.json())
-            .then(arrayOfTournaments => this.setState({ tournaments: arrayOfTournaments }));
-            console.log(this.state.tournaments)
+        const tournamentsPromise = fetch(process.env.PUBLIC_URL + "/data/tournaments.json")
+            .then(response => response.json());
+        const playersPromise = fetch(process.env.PUBLIC_URL + "/data/players.json")
+            .then(response => response.json());
         
-            fetch(process.env.PUBLIC_URL + "/data/players.json")
-            .then(response => response.json())
-            .then(arrayOfPlayers => this.setState({ players: arrayOfPlayers }));
-            console.log(this.state.players)
+        Promise.all([tournamentsPromise, playersPromise]).then(
+            data => {
+                const searchedTournament = data[0].find(tournament => tournament.id === this.props.tournamentId)
+                this.setState({tournament:searchedTournament, players: data[1], games: searchedTournament.games, tournamentStatus: searchedTournament.status })
+                console.log(this.state)
+        })
     }
-
+       
     render() {
-        const tournamentId = this.props.tournamentId
-        
-        const tournament = this.state.tournaments.filter( 
-            tournament => tournament.id === tournamentId
-        )[0]
-        console.log(tournament) 
-        // console.log(tournament.games)
-
-        const games = tournament
-        console.log(games)
-
-        // const tournamentStatus = tournament.status
-        // console.log(tournamentStatus)
         return (
             <div className="TournamentView-container">
                 {/* <TournamentInfo/> */}
-                {this.state.tournamentStatus === 'future' ? 'PlayerList component' : <ScoreList games={games} />}
+                {/* {this.state.tournamentStatus === 'future' ? 'PlayerList component' : <ScoreList games={games} />} */}
             </div>
         )
     }
