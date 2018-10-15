@@ -6,7 +6,7 @@ import './ScoreList.css';
 class ScoreList extends Component {
 
     static propTypes = {
-        games: PropTypes.arrayOf.isRequired
+        games: PropTypes.array.isRequired
     }
 
     render() {
