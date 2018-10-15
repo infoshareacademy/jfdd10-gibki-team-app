@@ -26,30 +26,30 @@ class PlayerInfo extends Component {
 
   render() {
     return (
-      <header className="playerHeader">
-        <h1>Player Info</h1>
-        <div className="player-container">
+      <header className="playerInfo-Header">
+        <h1 className="playerInfo-h1" >Player Info</h1>
+        <div className="playerInfo-container">
           <img
-            className="player-image"
+            className="playerInfo-image"
             src={this.props.image}
             alt="User Avatar"
           />
-          <div className="player-info">
+          <div className="playerInfo-info">
             <div>
-              <h2>Player:</h2>
-              <h2>Ranking:</h2>
-              <h2>Points:</h2>
+              <h2 className="playerInfo-h2">Player:</h2>
+              <h2 className="playerInfo-h2">Ranking:</h2>
+              <h2 className="playerInfo-h2">Points:</h2>
               
             </div>
             
-            <div className="player-data">
-            <h2 className="nick">{this.props.name}</h2>
-            <h2>
+            <div className="playerInfo-data">
+            <h2 className="playerInfo-nick">{this.props.name}</h2>
+            <h2 className="playerInfo-h2">
               { this.getStars(this.props.ranking).map(
                 el => el === true ? <span>&#9733;</span> : <span>&#9734;</span>
               ) }
             </h2>
-            <h2>{this.props.points}</h2>
+            <h2 className="playerInfo-h2">{this.props.points}</h2>
             </div>
           </div>
         </div>
