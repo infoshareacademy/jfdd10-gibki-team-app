@@ -6,29 +6,31 @@ import './ScoreList.css';
 class ScoreList extends Component {
 
     static propTypes = {
-        games: PropTypes.array.isRequired
+        games: PropTypes.array.isRequired,
+        players: PropTypes.array.isRequired
     }
 
+getPlayerName = (playerId) => {
+     return this.props.players.find(player => player.id === playerId).name
+}
+
+getGameTitle = (index) => {
+    if (index === 0) {return 'Round 1'}
+    if (index === 4) {return 'Semi-finals'}
+    if (index === 6) {return 'Final'}
+}
+
     render() {
-        console.log(this.props.games);
-        return (
+                return (
             <div className="ScoreList-container">
-                <div>
-                    <h2>Round 1</h2>
-                    <TournamentPair playerOne={'Ben'} playerTwo={'John'} scoreOne={1} scoreTwo={2}/>
-                    <TournamentPair playerOne={'Ben'} playerTwo={'John'} scoreOne={1} scoreTwo={2}/>
-                    <TournamentPair playerOne={'Ben'} playerTwo={'John'} scoreOne={1} scoreTwo={2}/>
-                    <TournamentPair playerOne={'Ben'} playerTwo={'John'} scoreOne={1} scoreTwo={2}/>
-                </div>
-                <div>
-                    <h2>Semi-finals</h2>
-                    <TournamentPair playerOne={'Ben'} playerTwo={'John'} scoreOne={1} scoreTwo={2}/>
-                    <TournamentPair playerOne={'Ben'} playerTwo={'John'} scoreOne={1} scoreTwo={2}/>
-                </div>
-                <div>
-                    <h2>Final</h2>
-                    <TournamentPair playerOne={'Ben'} playerTwo={'John'} scoreOne={1} scoreTwo={2}/>
-                </div>
+            {
+                this.props.games.map( (el, index) => {
+                    return <div key={el.no}>
+                                <h2>{this.getGameTitle(index)}</h2> 
+                                <TournamentPair playerOne={this.getPlayerName(el.playerOneId)} playerTwo={this.getPlayerName(el.playerTwoId)} scoreOne={el.playerOneScore} scoreTwo={el.playerTwoScore}/>
+                            </div>
+                })
+            }
             </div>
         )
     }

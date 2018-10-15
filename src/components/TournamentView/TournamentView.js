@@ -26,7 +26,6 @@ class TournamentView extends Component {
             data => {
                 const searchedTournament = data[0].find(tournament => tournament.id === this.props.tournamentId)
                 this.setState({tournament:searchedTournament, players: data[1], games: searchedTournament.games, tournamentStatus: searchedTournament.status })
-                console.log(this.state)
         })
     }
        
@@ -34,7 +33,7 @@ class TournamentView extends Component {
         return (
             <div className="TournamentView-container">
                 {/* <TournamentInfo/> */}
-                {this.state.tournamentStatus === 'future' ? 'PlayerList component' : <ScoreList games={this.state.games} />}
+                {this.state.tournamentStatus === 'future' ? 'PlayerList component' : <ScoreList games={this.state.games} players={this.state.players}/>}
             </div>
         )
     }
