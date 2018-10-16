@@ -10,6 +10,20 @@ class TournamentInfo extends Component {
     status: PropTypes.string.isRequired
   };
 
+  getAvailablePlaces = (number, size) => {
+    const placesArray = [];
+
+    for(let i = 1; i <= size; i ++) {
+      if (i <= number) {
+        placesArray.push(true);
+      }
+      else{
+        placesArray.push(false)
+      }
+    }
+    return placesArray
+  }
+
   render() {
     return (
       <header className="tournamentInfo-Header">
@@ -32,7 +46,13 @@ class TournamentInfo extends Component {
               <h2 className="tournamentInfo-h2">{this.props.date}</h2>
               <h2 className="tournamentInfo-h2">{this.props.city}</h2>
               <h2 className="tournamentInfo-h2">{this.props.points}</h2>
-              <h2 className="tournamentInfo-h2">{this.props.places}</h2>
+              <h2 className="tournamentInfo-h2">
+              {this.getAvailablePlaces(this.props.placesAvailable, this.props.placesTotal).map(
+                el => el === true ? <span>&#x25C6;</span> : <span>&#x25C7;</span>
+              )}
+              
+              {/* {this.props.places} */}
+              </h2>
               <h2 className="tournamentInfo-h2">{this.props.status}</h2>
             </div>
           </div>
