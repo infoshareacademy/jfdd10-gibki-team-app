@@ -5,7 +5,7 @@ import './PlayerListItem.css'
 class PlayerListItem extends Component {
      static propTypes = {
         name: PropTypes.string,
-        id: PropTypes.string,
+        id: PropTypes.number,
         image: PropTypes.string
 
     }

@@ -3,15 +3,20 @@ import PropTypes from 'prop-types'
 import PlayerListItem from '../PlayerListItem/PlayerListItem'
  
 class PlayerList extends Component {
+    
      static propTypes = {
-        players: PropTypes.array
+        tournamentPlayers: PropTypes.array
     }
+
+
+
+
      render() {
         return (
             <div>
                 <ul>
-                    {this.props.players.map(
-                        player => (
+                    {this.props.tournamentPlayers.map(
+                        player =>  
                             <PlayerListItem 
                             name={player.name}
                             id={player.id}
@@ -19,7 +24,6 @@ class PlayerList extends Component {
                             key={player.id}  
                             />
                         )
-                    )
                     }
                 </ul>
             </div>
