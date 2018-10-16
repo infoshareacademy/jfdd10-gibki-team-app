@@ -9,7 +9,8 @@ class TournamentView extends Component {
         tournament: null,
         games: [],
         tournamentStatus: '', 
-        players: []
+        players: [],
+        tournamentPlayers: []
     }
 
     static propTypes = {
@@ -25,7 +26,11 @@ class TournamentView extends Component {
         Promise.all([tournamentsPromise, playersPromise]).then(
             data => {
                 const searchedTournament = data[0].find(tournament => tournament.id === this.props.tournamentId)
-                this.setState({tournament:searchedTournament, players: data[1], games: searchedTournament.games, tournamentStatus: searchedTournament.status })
+                const searchedTournamentPlayers = searchedTournament.playersIds.map(id => {
+                    return data[1].find(player => player.id === id) 
+                })
+                console.log(searchedTournamentPlayers)
+                this.setState({tournament:searchedTournament, players: data[1], games: searchedTournament.games, tournamentStatus: searchedTournament.status, tournamentPlayers: searchedTournamentPlayers })
         })
     }
        
