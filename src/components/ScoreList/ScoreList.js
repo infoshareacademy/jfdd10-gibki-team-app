@@ -10,9 +10,10 @@ class ScoreList extends Component {
         players: PropTypes.array.isRequired
     }
 
-getPlayerName = (playerId) => {
-     return this.props.players.find(player => player.id === playerId).name
-}
+    getPlayerName = (playerId) => {
+        const player = this.props.players.find(player => player.id === playerId)
+        return (player && player.name) || ''
+     }
 
 getGameTitle = (index) => {
     if (index === 0) {return 'Round 1'}
