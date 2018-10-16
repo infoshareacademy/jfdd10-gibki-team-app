@@ -8,10 +8,9 @@
 }
 
 .tournamentListItem_left {
-    width: 80%;
+    width: 60%;
 }
 
-;
-.tournamentListItem_left {}
-
-;
+.tournamentListItem_right {
+    width: 20%;
+}

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import "./TournamentList.css";
-
 import TournamentListItem from "../TournamentListItem/TournamentListItem";
+import "./TournamentList.css";
 
 class TournamentList extends Component {
   state = {
@@ -12,7 +11,6 @@ class TournamentList extends Component {
     fetch("/data/tournaments.json")
       .then(response => response.json())
       .then(arrayOfTournaments =>
-        
         this.setState({ tournaments: arrayOfTournaments })
       );
   }
@@ -20,7 +18,9 @@ class TournamentList extends Component {
   render() {
     return this.state.tournaments.map(tournament => (
       <div className="tournamentListContainer">
-        <TournamentListItem tournament={tournament}/>
+        {tournament.status === "future" ? "Future tournaments" : "Other"}
+
+        {/* <TournamentListItem tournament={tournament} /> */}
       </div>
     ));
   }

@@ -15,15 +15,11 @@ class TournamentListItem extends Component {
         }
       >
         <div className="tournamentListItem_left">
-          <div key={this.props.tournament.id}>
-            {this.props.tournament.name}
-          </div>
+          <div key={this.props.tournament.id}>{this.props.tournament.name}</div>
         </div>
         <div className="tournamentListItem_right">
+          <div>Status: {this.props.tournament.status}</div>
           <button>Details</button>
-        </div>
-        <div>
-          Status: {this.props.tournament.status}
         </div>
       </div>
     );
