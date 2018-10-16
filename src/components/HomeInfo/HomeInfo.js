@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-
+import PropTypes from "prop-types";
+import "./HomeInfo.css";
 class HomeInfo extends Component {
-    state = {  }
+    static propTypes = {
+      
+      };
     render() { 
         return ( 
 
-        <header>
-            <h1>Enter the Tournament and Have Some Fun!</h1>
+        <header className="HomeInfo-Header">
+            <h1 className="HomeInfo-H1">Enter the Tournament and Have Some Fun!</h1>
         </header>
          );
     }
