@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import ScoreList from '../ScoreList/ScoreList'
 import './TournamentView.css';
 import PlayerList from '../PlayerList/PlayerList'
+import TournamentInfo from '../TournamentInfo/TournamentInfo'
 class TournamentView extends Component {
 
     state = {
@@ -41,7 +42,7 @@ class TournamentView extends Component {
     render() {
         return (
             <div className="TournamentView-container">
-                {/* <TournamentInfo/> */}
+                <TournamentInfo/>
                 {this.state.tournamentStatus === 'future' ? <PlayerList tournamentPlayers={this.state.tournamentPlayers}/> : <ScoreList games={this.state.games} players={this.state.players}/>}
             </div>
         )
