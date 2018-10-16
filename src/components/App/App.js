@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import TournamentList from "./components/TournamentList/TournamentList"
-
+import TournamentView from '../TournamentView/TournamentView'
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <TournamentList/>
+        <TournamentView tournamentId={2}/>
       </div>
     );
   }
