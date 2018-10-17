@@ -1,6 +1,5 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
 import HomeView from "../HomeView/HomeView";
 import TournamentView from "../TournamentView/TournamentView";
 import PlayerView from "../PlayerView/PlayerView";
@@ -11,7 +10,6 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          {/* <TournamentView tournamentId={2} /> */}
           <HomeView />
           <Route path="/" component={HomeView} />
           <Route path="/TournamentView" component={TournamentView} />
