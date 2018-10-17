@@ -22,7 +22,11 @@ class TournamentList extends Component {
         var firstDate = moment(t1.date, 'DD/MM/YYYY');
         var secondDate = moment(t2.date, 'DD/MM/YYYY');
         return -firstDate.diff(secondDate)
-      })
+      }).filter(
+        tournament => {
+          return this.props.playerId === undefined ? true : tournament.playersIds.includes(this.props.playerId)
+        }
+      )
       .map(tournament => (
         <div className="tournamentListContainer">
           <TournamentListItem tournament={tournament} key={tournament.id}/>
