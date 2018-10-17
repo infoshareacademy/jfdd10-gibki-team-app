@@ -28,8 +28,8 @@ class TournamentList extends Component {
         }
       )
       .map(tournament => (
-        <div className="tournamentListContainer">
-          <TournamentListItem tournament={tournament} key={tournament.id}/>
+        <div className="tournamentListContainer" key={tournament.id}>
+          <TournamentListItem tournament={tournament || {}} />
         </div>
       ));
   }
