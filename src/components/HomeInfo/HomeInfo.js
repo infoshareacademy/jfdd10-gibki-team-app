@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import "./HomeInfo.css";
 class HomeInfo extends Component {
     static propTypes = {
