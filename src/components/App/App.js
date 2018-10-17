@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TournamentView tournamentId={5}/>
+        <TournamentView tournamentId={1}/>
       </div>
     );
   }
