@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import "./TournamentInfo.css";
 
 class TournamentInfo extends Component {
@@ -36,6 +37,7 @@ class TournamentInfo extends Component {
             src={this.props.image}
             alt="Tournament view"
           />
+          <button><Link to="/">Home</Link></button>
           <div className="tournamentInfo-info">
             <div className="tournamentInfo-DataNames">
               <h2 className="tournamentInfo-h2">Date:</h2>
