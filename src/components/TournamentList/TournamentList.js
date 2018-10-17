@@ -9,7 +9,7 @@ class TournamentList extends Component {
   };
 
   componentDidMount() {
-    fetch("/data/tournaments.json")
+    fetch(process.env.PUBLIC_URL + "/data/tournaments.json")
       .then(response => response.json())
       .then(arrayOfTournaments =>
         this.setState({ tournaments: arrayOfTournaments })

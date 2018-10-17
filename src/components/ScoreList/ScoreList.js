@@ -11,7 +11,8 @@ class ScoreList extends Component {
     }
 
 getPlayerName = (playerId) => {
-     return this.props.players.find(player => player.id === playerId).name
+    const player = this.props.players.find(player => player.id === playerId)
+    return (player && player.name) || ''
 }
 
 getGameTitle = (index) => {

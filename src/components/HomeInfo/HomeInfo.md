@@ -1,0 +1,7 @@
+HomeInfo View
+
+
+```js
+<HomeInfo />
+
+```
