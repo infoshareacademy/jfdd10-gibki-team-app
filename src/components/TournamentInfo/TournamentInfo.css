@@ -7,6 +7,9 @@
 	-moz-animation: Gradient 15s ease infinite;
 	animation: Gradient 15s ease infinite;
 	display: block;
+	text-align: center;
+	margin-top: 10px,
+	font-sizee
 }
 
 .tournamentInfo-container {
