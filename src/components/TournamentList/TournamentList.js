@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import Moments from "moment.js";
+import moment from "moment";
 import TournamentListItem from "../TournamentListItem/TournamentListItem";
 import "./TournamentList.css";
-
 
 class TournamentList extends Component {
   state = {
@@ -20,15 +19,13 @@ class TournamentList extends Component {
   render() {
     return this.state.tournaments
       .sort((t1, t2) => {
-        if (t1 < t2) {
-          return -1;
-        } else if (t1 > t2) {
-          return 1;
-        } else return 0;
+        var firstDate = moment(t1.date, 'DD/MM/YYYY');
+        var secondDate = moment(t2.date, 'DD/MM/YYYY');
+        return -firstDate.diff(secondDate)
       })
       .map(tournament => (
         <div className="tournamentListContainer">
-          <TournamentListItem tournament={tournament} />
+          <TournamentListItem tournament={tournament} key={tournament.id}/>
         </div>
       ));
   }
