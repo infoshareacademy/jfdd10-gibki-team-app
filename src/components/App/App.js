@@ -11,7 +11,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Route exact path="/" component={HomeView} />
-          <Route path="/TournamentView" component={TournamentView} />
+          <Route path="/TournamentView/:tournamentId" component={TournamentView} />
           <Route path="/PlayerView" component={PlayerView} />
         </div>
       </Router>
