@@ -31,7 +31,7 @@ class PlayerView extends Component {
         }
         return ( 
             <div>
-                <PlayerInfo name={player.name} />
+                <PlayerInfo name={player.name} image={player.image} ranking={player.ranking} points={player.points}/>
             </div>
          );
     }
