@@ -3,7 +3,7 @@
         "id": 1,
         "name": "Piłkarzyki - Wielkie Starcie",
         "date": "28/10/2018",
-        "adress": "Gdańsk",
+        "address": "Gdańsk",
         "placesOccupied": 5,
         "placesAvailable": 8,
         "status": "future",
