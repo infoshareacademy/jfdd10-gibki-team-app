@@ -6,7 +6,8 @@ import PlayerListItem from '../PlayerListItem/PlayerListItem'
 class PlayerList extends Component {
     
      static propTypes = {
-        tournamentPlayers: PropTypes.array
+        tournamentPlayers: PropTypes.array,
+        playerListHeader: PropTypes.string
     }
 
 
@@ -15,6 +16,7 @@ class PlayerList extends Component {
      render() {
         return (
             <div>
+                <h1>{this.props.playerListHeader}</h1>
                 <ul>
                     {this.props.tournamentPlayers.map(
                         player =>  

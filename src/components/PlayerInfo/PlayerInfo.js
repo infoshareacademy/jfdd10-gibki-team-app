@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./PlayerInfo.css";
 
@@ -34,6 +35,8 @@ class PlayerInfo extends Component {
             src={this.props.image}
             alt="User Avatar"
           />
+          <button><Link to="/">Home</Link></button>
+          <button><Link to="/PlayersView">Players</Link></button>
           <div className="playerInfo-info">
             <div>
               <h2 className="playerInfo-h2">Player:</h2>

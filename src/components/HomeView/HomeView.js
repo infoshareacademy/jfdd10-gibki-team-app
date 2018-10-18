@@ -8,6 +8,7 @@ class HomeView extends Component {
     return (
       <div className="HomeView-container">
         <HomeInfo/>
+        <h1>Tournaments list</h1>
         <TournamentList />
       </div>
     );
