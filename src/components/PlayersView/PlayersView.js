@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import PlayerList from '../PlayerList/PlayerList'
 import "./PlayersView.css";
 
@@ -24,7 +25,8 @@ class PlayersView extends Component {
     render() { 
         return (
             <div className="playersView">
-                <PlayerList tournamentPlayers={this.state.players} />
+            <button><Link to="/">Home</Link></button>
+                <PlayerList tournamentPlayers={this.state.players} playerListHeader={"Players"}/>
             </div>
           );
     }
