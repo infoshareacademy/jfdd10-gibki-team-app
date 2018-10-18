@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./TournamentListItem.css";
 
@@ -7,6 +8,7 @@ class TournamentListItem extends Component {
     tournament: PropTypes.shape(PropTypes.object)
   };
   render() {
+    console.log(this.props.tournament.id);
     return (
       <div
         className={
@@ -19,7 +21,11 @@ class TournamentListItem extends Component {
         </div>
         <div className="tournamentListItem_right">
           <div>Status: {this.props.tournament.status}</div>
-          <button>Details</button>
+          <button><Link to={{
+            pathname: `/TournamentView/${this.props.tournament.id}`,
+            state: {tournamentId: this.props.tournament.id}
+          }
+          }>Details</Link></button>
           <div></div>
         </div>
       </div>

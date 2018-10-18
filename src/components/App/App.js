@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
-import TournamentView from '../TournamentView/TournamentView'
-import PlayerView from '../PlayerView/PlayerView'
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import HomeView from "../HomeView/HomeView";
+import TournamentView from "../TournamentView/TournamentView";
+import PlayerView from "../PlayerView/PlayerView";
 import "./App.css";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <TournamentView tournamentId={1}/>
-        <PlayerView playerId={1}/>
-        <TournamentView tournamentId={2} />
-        <HomeView />
-      </div>
+      <Router>
+        <div className="App">
+          <Route exact path="/" component={HomeView} />
+          <Route path="/TournamentView/:tournamentId" component={TournamentView} />
+          <Route path="/PlayerView" component={PlayerView} />
+        </div>
+      </Router>
     );
   }
 }
