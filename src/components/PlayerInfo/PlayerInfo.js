@@ -36,6 +36,7 @@ class PlayerInfo extends Component {
             alt="User Avatar"
           />
           <button><Link to="/">Home</Link></button>
+          <button><Link to="/PlayersView">Players</Link></button>
           <div className="playerInfo-info">
             <div>
               <h2 className="playerInfo-h2">Player:</h2>
