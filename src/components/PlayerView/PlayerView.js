@@ -5,7 +5,8 @@ import TournamentList from '../TournamentList/TournamentList';
 
 class PlayerView extends Component {
     state = { 
-        players: []
+        players: [],
+        playerId: null
      }
 
      static propTypes = {
@@ -26,7 +27,7 @@ class PlayerView extends Component {
     }
 
     render() { 
-        const player = this.state.players.find(player => player.id === this.props.playerId)
+        const player = this.state.players.find(player => player.id === this.props.location.state.playerId)
         if (player === undefined){
             return <div>PLayer Not Found</div>
         }

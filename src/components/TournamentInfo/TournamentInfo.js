@@ -38,6 +38,11 @@ class TournamentInfo extends Component {
             alt="Tournament view"
           />
           <button><Link to="/">Home</Link></button>
+          <button><Link to={{
+            pathname: "/PlayerView/1",
+            state: {playerId: 1}
+          }
+          }>Player</Link></button>
           <div className="tournamentInfo-info">
             <div className="tournamentInfo-DataNames">
               <h2 className="tournamentInfo-h2">Date:</h2>
