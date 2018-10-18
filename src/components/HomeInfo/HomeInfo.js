@@ -11,11 +11,7 @@ class HomeInfo extends Component {
 
         <header className="HomeInfo-Header">
             <h1 className="HomeInfo-H1">Enter the Tournament and Have Some Fun!</h1>
-            <button><Link to={{
-            pathname: "/PlayerView/1", //na sztywno
-            state: {playerId: 1} //na sztywno
-          }
-          }>Player</Link></button>
+            <button><Link to={"/PlayersView"}>Players</Link></button>
         </header>
          );
     }
