@@ -39,8 +39,8 @@ class TournamentInfo extends Component {
           />
           <button><Link to="/">Home</Link></button>
           <button><Link to={{
-            pathname: "/PlayerView/1",
-            state: {playerId: 1}
+            pathname: "/PlayerView/1", //na sztywno
+            state: {playerId: 1} //na sztywno
           }
           }>Player</Link></button>
           <div className="tournamentInfo-info">
