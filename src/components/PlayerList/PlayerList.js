@@ -14,6 +14,7 @@ class PlayerList extends Component {
      render() {
         return (
             <div>
+                <h1>Players taking part</h1>
                 <ul>
                     {this.props.tournamentPlayers.map(
                         player =>  

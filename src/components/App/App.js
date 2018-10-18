@@ -12,7 +12,7 @@ class App extends Component {
         <div className="App">
           <Route exact path="/" component={HomeView} />
           <Route path="/TournamentView/:tournamentId" component={TournamentView} />
-          <Route path="/PlayerView" component={PlayerView} />
+          <Route path="/PlayerView/:playerId" component={PlayerView} />
         </div>
       </Router>
     );
@@ -20,3 +20,4 @@ class App extends Component {
 }
 
 export default App;
+
