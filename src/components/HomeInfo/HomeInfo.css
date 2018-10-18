@@ -6,7 +6,8 @@
 	-webkit-animation: Gradient 15s ease infinite;
 	-moz-animation: Gradient 15s ease infinite;
 	animation: Gradient 15s ease infinite;
-	display: block;
+    display: block;
+    text-align: center;
 }
 
 .image-container{
