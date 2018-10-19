@@ -28,6 +28,10 @@ class PlayerInfo extends Component {
   render() {
     return (
       <header className="playerInfo-Header">
+      <div className="tournamentInfo-top-row">
+      <button><Link to="/">Home</Link></button>
+      <button><Link to="/PlayersView">Players</Link></button>
+      </div>
         <h1 className="playerInfo-h1" >Player Info</h1>
         <div className="playerInfo-container">
           <img
@@ -35,8 +39,7 @@ class PlayerInfo extends Component {
             src={this.props.image}
             alt="User Avatar"
           />
-          <button><Link to="/">Home</Link></button>
-          <button><Link to="/PlayersView">Players</Link></button>
+          
           <div className="playerInfo-info">
             <div>
               <h2 className="playerInfo-h2">Player:</h2>

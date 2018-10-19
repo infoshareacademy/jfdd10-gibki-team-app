@@ -11,6 +11,10 @@
 	margin-top: 10px,
 	font-sizee
 }
+.tournamentInfo-top-row{
+	display: flex;
+	justify-content: flex-end;
+}
 
 .tournamentInfo-container {
 	display: block;
@@ -37,21 +41,21 @@
 .tournamentInfo-image {
     margin: 15px;
     border-radius: 10%;
-	width: 70%;
-	height: 50%;
+	width: 40%;
+	max-height: 30%;
 }
 
 .tournamentInfo-info {
     display: flex;
     justify-content: space-between;
-    
+    width: 100%;
 	padding: 10px;
 	box-sizing: border-box;
 	background-color: rgb(33, 248, 61)
 }
 
 .tournamentInfo-data {
-    width: 70%
+    width: 50%
 }
 
 @-webkit-keyframes Gradient {
@@ -98,10 +102,12 @@
 	}
 	.tournamentInfo-info, .tournament-data {
 		height: 100%;
+		width: 50%;
 	
     }
     
     .tournamentInfo-image{
-        width: 50%;
+		width: 30%;
+
     }
 }

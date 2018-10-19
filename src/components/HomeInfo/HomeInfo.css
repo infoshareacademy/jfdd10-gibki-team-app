@@ -1,5 +1,5 @@
 .HomeInfo-Header{
-    width: 100%;
+	width: 100%;
 	color: #fff;
 	background: linear-gradient(-45deg, rgb(228, 238, 82), rgb(98, 223, 135), #23A6D5, #23D5AB);
 	background-size: 400% 400%;
@@ -7,7 +7,10 @@
 	-moz-animation: Gradient 15s ease infinite;
 	animation: Gradient 15s ease infinite;
     display: block;
-    text-align: center;
+	text-align: center;
+}
+.HomeInfo-H1{
+	margin-top: 0px;
 }
 
 .image-container{

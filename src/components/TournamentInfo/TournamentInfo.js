@@ -10,7 +10,8 @@ class TournamentInfo extends Component {
     address: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     placesOccupied: PropTypes.number.isRequired,
-    placesAvailable: PropTypes.number.isRequired
+    placesAvailable: PropTypes.number.isRequired,
+    image: PropTypes.image
   };
 
   getAvailablePlaces = (number, size) => {
@@ -30,6 +31,11 @@ class TournamentInfo extends Component {
   render() {
     return (
       <header className="tournamentInfo-Header">
+      
+      <div className="tournamentInfo-top-row">
+       <button><Link to="/">Home</Link></button>
+      <button><Link to={"/PlayersView"}>Players</Link></button>
+      </div>
         <h1>{this.props.name}</h1>
         <div className="tournamentInfo-container">
           <img
@@ -37,8 +43,7 @@ class TournamentInfo extends Component {
             src={this.props.image}
             alt="Tournament view"
           />
-          <button><Link to="/">Home</Link></button>
-          <button><Link to={"/PlayersView"}>Players</Link></button>
+         
           <div className="tournamentInfo-info">
             <div className="tournamentInfo-DataNames">
               <h2 className="tournamentInfo-h2">Date:</h2>

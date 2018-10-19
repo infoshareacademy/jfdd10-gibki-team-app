@@ -15,7 +15,8 @@
           19
       ],
       "winnerId": null,
-      "games": [{},{},{},{},{},{},{}]
+      "games": [{},{},{},{},{},{},{}],
+      "image": "https://clipground.com/images/foosball-clipart-10.jpg"
   },
   {
       "id": 2,
@@ -86,7 +87,8 @@
               "playerOneScore": 1,
               "playerTwoScore": 0
           }
-      ]
+      ],
+      "image": "https://clipground.com/images/foosball-clipart-10.jpg"
   },
   {
       "id": 3,
@@ -105,7 +107,8 @@
           4
       ],
       "winnerId": null,
-      "games": [{},{},{},{},{},{},{}]
+      "games": [{},{},{},{},{},{},{}],
+      "image": "https://banner2.kisspng.com/20180204/yre/kisspng-table-tennis-racket-clip-art-soccer-table-cliparts-5a777ba64e9940.6460879115177798783219.jpg"
   },
   {
       "id": 4,
@@ -120,7 +123,8 @@
           7
       ],
       "winnerId": null,
-      "games": [{},{},{},{},{},{},{}]
+      "games": [{},{},{},{},{},{},{}],
+      "image": "https://clipground.com/images/foosball-clipart-10.jpg"
   },
   {
       "id": 5,
@@ -191,6 +195,6 @@
               "playerOneScore": null,
               "playerTwoScore": null
           }
-      ]
-  }
+      ],
+      "image": "https://banner2.kisspng.com/20180225/ajw/kisspng-billiard-table-pool-billiards-clip-art-cartoon-vector-billiard-tables-5a92f7b70fcb25.0030421615195811110647.jpg"  }
 ]
