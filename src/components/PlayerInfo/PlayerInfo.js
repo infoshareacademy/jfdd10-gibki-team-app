@@ -29,8 +29,8 @@ class PlayerInfo extends Component {
     return (
       <header className="playerInfo-Header">
       <div className="tournamentInfo-top-row">
-      <button><Link to="/">Home</Link></button>
-      <button><Link to="/PlayersView">Players</Link></button>
+      <button className="Info-button"><Link to="/">Home</Link></button>
+      <button className="Info-button"><Link to="/PlayersView">Players</Link></button>
       </div>
         <h1 className="playerInfo-h1" >Player Info</h1>
         <div className="playerInfo-container">

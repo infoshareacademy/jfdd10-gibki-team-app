@@ -24,6 +24,7 @@
 
 .playerInfo-h2 {
 	margin-bottom: 0px;
+	text-align: left;
 }
 
 .playerInfo-nick {
@@ -34,26 +35,26 @@
 .playerInfo-image {
 	margin: 15px;
 	border-radius: 50%;
-	width: 50%;
+	width: 40%;
 	-moz-box-shadow: 2px 2px 2px 2px white;
 	-webkit-box-shadow: 2px 2px 2px 2px white;
 	box-shadow: 2px 2px 2px 2px white;
 }
 
-.playerInfo-nick {
-	align-self: center;
-}
+
 
 .playerInfo-info {
 	display: flex;
 	justify-content: space-between;
 	padding: 10px;
 	box-sizing: border-box;
-	background-color: rgb(33, 248, 61)
+	background-color: rgb(33, 248, 61);
+	text-align: start;
 }
 
 .playerInfo-data {
-	padding: 10px;
+	padding-right: 20px; 
+	margin-top: 12.45px;
 }
 
 @-webkit-keyframes Gradient {
@@ -101,6 +102,10 @@
 	.playerInfo-info, .player-data {
 		height: 100%;
 		width: 50%;
+	}
+
+	.playerInfo-image{
+		width: 25%;
 	}
 }
 

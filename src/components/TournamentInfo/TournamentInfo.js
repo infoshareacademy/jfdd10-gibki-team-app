@@ -33,10 +33,10 @@ class TournamentInfo extends Component {
       <header className="tournamentInfo-Header">
       
       <div className="tournamentInfo-top-row">
-       <button><Link to="/">Home</Link></button>
-      <button><Link to={"/PlayersView"}>Players</Link></button>
+       <button className="Info-button"><Link to="/">Home</Link></button>
+      <button className="Info-button"><Link to={"/PlayersView"}>Players</Link></button>
       </div>
-        <h1>{this.props.name}</h1>
+        <h1 className="playerInfo-h1">{this.props.name}</h1>
         <div className="tournamentInfo-container">
           <img
             className="tournamentInfo-image"
