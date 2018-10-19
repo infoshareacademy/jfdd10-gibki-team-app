@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import PlayerListItem from '../PlayerListItem/PlayerListItem'
+
  
 class PlayerList extends Component {
     
@@ -26,6 +27,7 @@ class PlayerList extends Component {
                             key={player.id}  
                             />
                         )
+                        
                     }
                 </ul>
             </div>

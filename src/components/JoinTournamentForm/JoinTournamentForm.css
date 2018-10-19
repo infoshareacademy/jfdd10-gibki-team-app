@@ -1,0 +1,13 @@
+.AddPlayer {
+display: flex;
+justify-content: space-between;
+background-color: lightgreen;
+width: 50%;
+margin-left: 40px;
+margin-top: 20px;
+outline: 1px solid black;
+padding: 20px;
+}
+.AddPlayer-name {
+font-size: 18px;
+}
