@@ -9,7 +9,9 @@ outline: 1px solid black;
 .name {
     margin-left: 20px;
     font-size: 18px;
+    width: 150px;
 }
+
 .ulList {
     padding: 0px;
 }
