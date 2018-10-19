@@ -10,7 +10,7 @@ class HomeInfo extends Component {
 
         <header className="HomeInfo-Header">
          <div className="tournamentInfo-top-row">
-         <button><Link to={"/PlayersView"}>Players</Link></button>
+         <button className="Info-button"><Link to={"/PlayersView"}>Players</Link></button>
          </div>
             <h1 className="HomeInfo-H1">Enter the Tournament and Have Some Fun!</h1>
             <div class="image-container">

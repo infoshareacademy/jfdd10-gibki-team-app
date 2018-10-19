@@ -49,7 +49,7 @@ class PlayerInfo extends Component {
             </div>
             
             <div className="playerInfo-data">
-            <h2 className="playerInfo-nick">{this.props.name}</h2>
+            <h2 className="playerInfo-h2">{this.props.name}</h2>
             {this.props.ranking !== undefined && <h2 className="playerInfo-h2">
               { this.getStars(this.props.ranking).map(
                 el => el === true ? <span>&#9733;</span> : <span>&#9734;</span>

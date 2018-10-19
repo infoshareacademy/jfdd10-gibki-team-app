@@ -25,7 +25,7 @@ class PlayersView extends Component {
     render() { 
         return (
             <div className="playersView">
-            <button><Link to="/">Home</Link></button>
+            <button className="Info-button"><Link to="/">Home</Link></button>
                 <PlayerList tournamentPlayers={this.state.players} playerListHeader={"Players"}/>
             </div>
           );

@@ -54,7 +54,7 @@
 
 .playerInfo-data {
 	padding-right: 20px; 
-	margin-top: 12.45px;
+	
 }
 
 @-webkit-keyframes Gradient {
@@ -103,6 +103,7 @@
 		
 		width: 50%;
 		font-size: 20px;
+		margin-top: 0px;
 	}
 
 	.playerInfo-image{
