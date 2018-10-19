@@ -20,6 +20,7 @@
 	font-size: 15px;
 	border: 0px;
 	border-radius: 10%;
+	margin: 5px;
 
 }
 .Info-button a{
@@ -32,7 +33,7 @@
 
 /* visited link */
 .Info-button a:visited {
-    color: orange;
+    color: white;
 }
 
 /* mouse over link */
@@ -41,7 +42,7 @@
 }
 
 /* selected link */
-a:active {
+.Info-button a:active {
     color: rgb(255, 0, 217)190, 190, 255);
 }
 
@@ -136,7 +137,7 @@ a:active {
 	.tournamentInfo-info, .tournament-data {
 	
 		width: 50%;
-		font-size: 25px;
+		font-size: 20px;
 	
 	}
 	
@@ -144,10 +145,11 @@ a:active {
     
     .tournamentInfo-image{
 		width: 30%;
+		margin-bottom: 30px;
 
 	}
 	
-	.Info-button button{
+	.Info-button{
 		background-color: rgb(117, 74, 169);
 		padding: 5px;
 		font-size: 25px;

@@ -100,12 +100,14 @@
 		width: 100%;
 	}
 	.playerInfo-info, .player-data {
-		height: 100%;
+		
 		width: 50%;
+		font-size: 20px;
 	}
 
 	.playerInfo-image{
 		width: 25%;
+		margin-bottom: 30px;
 	}
 }
 
