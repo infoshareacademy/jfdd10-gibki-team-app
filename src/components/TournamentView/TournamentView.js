@@ -38,7 +38,7 @@ class TournamentView extends Component {
         return (
             <div className="TournamentView-container">
                 <TournamentInfo name={this.state.tournament.name} date={this.state.tournament.date} address={this.state.tournament.address} status={this.state.tournament.status} placesAvailable={this.state.tournament.placesAvailable} placesOccupied={this.state.tournament.placesOccupied}/>
-                {this.state.tournamentStatus === 'future' ? <div> <PlayerList tournamentPlayers={this.state.tournamentPlayers}/>  <JoinTournamentForm/></div>: <ScoreList games={this.state.games} players={this.state.players}/>}
+                {this.state.tournamentStatus === 'future' ? <div><JoinTournamentForm/> <PlayerList tournamentPlayers={this.state.tournamentPlayers}/>  </div>: <ScoreList games={this.state.games} players={this.state.players}/>}
             </div>
         )
     }

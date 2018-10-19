@@ -6,8 +6,8 @@ class JoinTournamentForm extends Component {
 
 render () {
     return (
-        <div>
-            <form className="AddPlayer">
+        <div className="AddPlayer">
+            <form className="AddPlayerForm">
                
                <div className="TournamentForm">
                    <label className="AddPlayer-name" for="name">Your name </label>
