@@ -61,7 +61,7 @@ class ControlledExpansionPanels extends React.Component {
             <Typography>
               Nulla facilisi. Phasellus sollicitudin nulla et quam mattis
               feugiat. Aliquam eget maximus est, id dignissim quam.
-              <button>
+              <button className="Info-button">
                 <Link
                   to={{
                     pathname: `/TournamentView/${this.props.tournament.id}`,
