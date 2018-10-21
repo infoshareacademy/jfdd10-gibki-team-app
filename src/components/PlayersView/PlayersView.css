@@ -9,6 +9,11 @@
 	display: block;
 }
 
+.playersView-top-row{
+	display: flex;
+	justify-content: flex-end;	
+}
+
 .playersView-Header {
 	width: 100%;
 	color: #fff;
@@ -30,6 +35,11 @@
 .playersView-avatar{
 	width: 15%;
 	align-self: center;
+}
+
+.playersView-img-container{
+	display: flex;
+	justify-content: center;
 }
 
 
