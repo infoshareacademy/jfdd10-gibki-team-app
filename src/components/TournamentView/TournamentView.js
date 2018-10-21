@@ -4,6 +4,7 @@ import ScoreList from '../ScoreList/ScoreList'
 import './TournamentView.css';
 import PlayerList from '../PlayerList/PlayerList'
 import TournamentInfo from '../TournamentInfo/TournamentInfo'
+import JoinTournamentForm from '../JoinTournamentForm/JoinTournamentForm'
 class TournamentView extends Component {
 
     state = {
@@ -36,8 +37,10 @@ class TournamentView extends Component {
     render() {
         return (
             <div className="TournamentView-container">
+
                 <TournamentInfo name={this.state.tournament.name} date={this.state.tournament.date} address={this.state.tournament.address} status={this.state.tournament.status} placesAvailable={this.state.tournament.placesAvailable} placesOccupied={this.state.tournament.placesOccupied} image={this.state.tournament.image}/>
-                {this.state.tournamentStatus === 'future' ? <PlayerList tournamentPlayers={this.state.tournamentPlayers} playerListHeader={"Players taking part"}/> : <ScoreList games={this.state.games} players={this.state.players}/>}
+                {this.state.tournamentStatus === 'future' ? <div className="PlayerList"><JoinTournamentForm/> <PlayerList tournamentPlayers={this.state.tournamentPlayers} playerListHeader={"Players taking part"}/> </div> : <ScoreList games={this.state.games} players={this.state.players}/>}
+
             </div>
         )
     }
