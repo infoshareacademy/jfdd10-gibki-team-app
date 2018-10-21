@@ -13,7 +13,7 @@ class PlayerListItem extends Component {
     return (
       <div className="list">
         <p className="name">{this.props.name}</p>
-        <button>
+        <button className="Info-button">
           <Link
             to={{
               pathname: `/PlayerView/${this.props.id}`,
