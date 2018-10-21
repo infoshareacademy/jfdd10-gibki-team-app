@@ -1,20 +1,30 @@
-.tournamentListContainer {
-    border: 1px solid black;
-    width: 90%;
-    height: 100px;
-    padding: 10px;
-    background: white;
-    box-shadow: 5px 10px #888888;
+.tournamentList_title {
+    margin: 10px 0;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
 }
 
-.tournamentStatus_future {
-    background: yellow;
+/* .tournamentStatus_future {
+    background: #B9E2D6;
 }
 
 .tournamentStatus_active {
-    background: green;
+    background: #D6E893;
 }
 
 .tournamentStatus_finished {
-    background: blue;
+    background: #BEC9D3
 }
+
+.tournamentStatus_future_dscr {
+    background: #C8ECE1;
+}
+
+.tournamentStatus_active_dscr {
+    background: #E9F7B6;
+}
+
+.tournamentStatus_finished_dscr {
+    background: #D2E0E9;
+} */

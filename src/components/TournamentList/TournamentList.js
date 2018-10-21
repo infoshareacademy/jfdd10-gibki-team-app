@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import moment from "moment";
+// import moment from "moment";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
@@ -63,7 +63,50 @@ class TabsWrappedLabel extends React.Component {
         </AppBar>
         {value === "one" && (
           <TabContainer>
+            <div className="tournamentList_title">Active tournaments:</div>
             {this.state.tournaments
+              .filter(tournament => {
+                return tournament.status === "active" && {};
+              })
+              .filter(tournament => {
+                return this.props.playerId === undefined
+                  ? true
+                  : tournament.playersIds.includes(this.props.playerId);
+              })
+              .map(tournament => (
+                <TournamentListItem tournament={tournament || {}} key={tournament.id} />
+              ))}
+            <div className="tournamentList_title">Future tournaments:</div>
+            {this.state.tournaments
+              .filter(tournament => {
+                return tournament.status === "future" && {};
+              })
+              .filter(tournament => {
+                return this.props.playerId === undefined
+                  ? true
+                  : tournament.playersIds.includes(this.props.playerId);
+              })
+              .map(tournament => (
+                
+                  <TournamentListItem tournament={tournament || {}} key={tournament.id} />
+              
+              ))}
+            <div className="tournamentList_title">Finished tournaments:</div>
+            {this.state.tournaments
+              .filter(tournament => {
+                return tournament.status === "finished" && {};
+              })
+              .filter(tournament => {
+                return this.props.playerId === undefined
+                  ? true
+                  : tournament.playersIds.includes(this.props.playerId);
+              })
+              .map(tournament => (
+                <TournamentListItem tournament={tournament || {}} key={tournament.id} />
+              ))}
+
+            {/* SORT BY DATE:
+              {this.state.tournaments
               .sort((t1, t2) => {
                 var firstDate = moment(t1.date, "DD/MM/YYYY");
                 var secondDate = moment(t2.date, "DD/MM/YYYY");
@@ -75,10 +118,8 @@ class TabsWrappedLabel extends React.Component {
                   : tournament.playersIds.includes(this.props.playerId);
               })
               .map(tournament => (
-                <div className="tournamentListContainer" key={tournament.id}>
-                  <TournamentListItem tournament={tournament || {}} />
-                </div>
-              ))}
+                <TournamentListItem tournament={tournament || {}} key={tournament.id} />
+              ))} */}
           </TabContainer>
         )}
         {value === "two" && (
@@ -93,9 +134,7 @@ class TabsWrappedLabel extends React.Component {
                   : tournament.playersIds.includes(this.props.playerId);
               })
               .map(tournament => (
-                <div className="tournamentListContainer" key={tournament.id}>
-                  <TournamentListItem tournament={tournament || {}} />
-                </div>
+                <TournamentListItem tournament={tournament || {}} key={tournament.id} />
               ))}
           </TabContainer>
         )}
@@ -111,9 +150,7 @@ class TabsWrappedLabel extends React.Component {
                   : tournament.playersIds.includes(this.props.playerId);
               })
               .map(tournament => (
-                <div className="tournamentListContainer" key={tournament.id}>
-                  <TournamentListItem tournament={tournament || {}} />
-                </div>
+                <TournamentListItem tournament={tournament || {}} key={tournament.id} />
               ))}
           </TabContainer>
         )}
@@ -129,9 +166,7 @@ class TabsWrappedLabel extends React.Component {
                   : tournament.playersIds.includes(this.props.playerId);
               })
               .map(tournament => (
-                <div className="tournamentListContainer" key={tournament.id}>
-                  <TournamentListItem tournament={tournament || {}} />
-                </div>
+                <TournamentListItem tournament={tournament || {}} key={tournament.id} />
               ))}
           </TabContainer>
         )}
