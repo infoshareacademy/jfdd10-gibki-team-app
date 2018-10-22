@@ -7,9 +7,47 @@
 	-moz-animation: Gradient 15s ease infinite;
 	animation: Gradient 15s ease infinite;
 	display: block;
-	text-align: center;
-	margin-top: 10px,
-	font-sizee
+
+}
+.tournamentInfo-top-row{
+	display: flex;
+	justify-content: flex-end;
+}
+
+.Info-button{
+	background-color: rgb(117, 74, 169);
+	padding: 2px;
+	font-size: 15px;
+	border: 0px;
+	border-radius: 10%;
+	margin: 5px;
+
+}
+.Info-button a{
+	text-decoration: none;
+}
+/* unvisited link */
+.Info-button a:link {
+	color: white;
+}
+
+/* visited link */
+.Info-button a:visited {
+    color: white;
+}
+
+/* mouse over link */
+.Info-button a:hover {
+    color: white;
+}
+
+/* selected link */
+.Info-button a:active {
+    color: rgb(255, 0, 217)190, 190, 255);
+}
+
+.Info-button:hover{
+	background-color: #23A6D5;
 }
 
 .tournamentInfo-container {
@@ -37,21 +75,21 @@
 .tournamentInfo-image {
     margin: 15px;
     border-radius: 10%;
-	width: 70%;
-	height: 50%;
+	width: 40%;
+	max-height: 30%;
 }
 
 .tournamentInfo-info {
     display: flex;
     justify-content: space-between;
-    
 	padding: 10px;
 	box-sizing: border-box;
-	background-color: rgb(33, 248, 61)
+	background-color: rgb(33, 248, 61);
+	text-align: start;
 }
 
 .tournamentInfo-data {
-    width: 70%
+   padding-right: 20px; 
 }
 
 @-webkit-keyframes Gradient {
@@ -93,15 +131,31 @@
 @media screen and (min-width: 760px) {
 	.tournamentInfo-container {
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-around;
 		width: 100%;
 	}
 	.tournamentInfo-info, .tournament-data {
-		height: 100%;
 	
-    }
+		width: 50%;
+		font-size: 20px;
+	
+	}
+	
+
     
     .tournamentInfo-image{
-        width: 50%;
-    }
+		width: 30%;
+		margin-bottom: 30px;
+
+	}
+	
+	.Info-button{
+		background-color: rgb(117, 74, 169);
+		padding: 5px;
+		font-size: 25px;
+		font-weight: bold;
+		border: 0px;
+		border-radius: 10%;
+	
+	}
 }

@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import PlayerListItem from '../PlayerListItem/PlayerListItem'
+
  
 class PlayerList extends Component {
     
@@ -14,9 +15,9 @@ class PlayerList extends Component {
 
      render() {
         return (
-            <div>
+            <Fragment>
                 <h1>{this.props.playerListHeader}</h1>
-                <ul>
+                <ul className="ulList">
                     {this.props.tournamentPlayers.map(
                         player =>  
                             <PlayerListItem 
@@ -26,9 +27,10 @@ class PlayerList extends Component {
                             key={player.id}  
                             />
                         )
+                        
                     }
                 </ul>
-            </div>
+            </Fragment>
         )
     }
 }

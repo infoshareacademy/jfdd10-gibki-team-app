@@ -1,0 +1,14 @@
+.AddPlayer {
+  background-color: lightgreen;
+  width: 80%;
+  margin-top: 20px;
+  outline: 1px solid black;
+  padding: 20px 10px 20px 10px;
+}
+.AddPlayer-name {
+  font-size: 18px;
+  margin-left: 10px;
+}
+.AddPlayer-input {
+  margin-left: 30px;
+}
