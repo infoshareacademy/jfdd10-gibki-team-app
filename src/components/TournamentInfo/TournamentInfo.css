@@ -19,7 +19,7 @@
 	padding: 2px;
 	font-size: 15px;
 	border: 0px;
-	border-radius: 10%;
+	border-radius: 10px;
 	margin: 5px;
 
 }
@@ -84,7 +84,7 @@
     justify-content: space-between;
 	padding: 10px;
 	box-sizing: border-box;
-	background-color: rgb(33, 248, 61);
+	background-color: rgba(33, 248, 61, 0.3);
 	text-align: start;
 }
 
@@ -141,6 +141,10 @@
 	
 	}
 	
+	.tournamentInfo-info{
+		border:  3px  solid rgba(33, 248, 61, 0.6);
+	border-radius: 20px;
+	}
 
     
     .tournamentInfo-image{
