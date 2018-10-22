@@ -84,7 +84,7 @@
     justify-content: space-between;
 	padding: 10px;
 	box-sizing: border-box;
-	background-color: rgba(33, 248, 61, 0.3);
+	background-color: rgba(33, 248, 61, 0.4);
 	text-align: start;
 }
 
@@ -137,7 +137,7 @@
 	.tournamentInfo-info, .tournament-data {
 	
 		width: 50%;
-		font-size: 20px;
+		font-size: 15px;
 	
 	}
 	
@@ -156,7 +156,7 @@
 	.Info-button{
 		background-color: rgb(117, 74, 169);
 		padding: 5px;
-		font-size: 25px;
+		font-size: 23px;
 		font-weight: bold;
 		border: 0px;
 		border-radius: 10%;
