@@ -39,41 +39,65 @@ class ControlledExpansionPanels extends React.Component {
     });
   };
 
+  getAvailablePlaces = (number, size) => {
+    const placesArray = [];
+
+    for(let i = 1; i <= size; i ++) {
+      if (i <= number) {
+        placesArray.push(true);
+      }
+      else{
+        placesArray.push(false)
+      }
+    }
+    return placesArray
+  }
+
   render() {
     const { classes } = this.props;
     const { expanded } = this.state;
 
     return (
-     
-        <ExpansionPanel
-          expanded={expanded === this.props.tournament.id}
-          onChange={this.handleChange(this.props.tournament.id)}
-        >
-          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography className={classes.heading}>
-              {this.props.tournament.name}
-            </Typography>
-            <Typography className={classes.secondaryHeading}>
-              {this.props.tournament.date}
-            </Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography>
+      <ExpansionPanel
+        expanded={expanded === this.props.tournament.id}
+        onChange={this.handleChange(this.props.tournament.id)}
+      >
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+          <Typography className={classes.heading}>
+            {this.props.tournament.name}
+          </Typography>
+          <Typography className={classes.secondaryHeading}>
+            {this.props.tournament.date}
+          </Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
             {this.props.tournament.description}
-              <button className="Info-button">
-                <Link
-                  to={{
-                    pathname: `/TournamentView/${this.props.tournament.id}`,
-                    state: { tournamentId: this.props.tournament.id }
-                  }}
-                >
-                  Details
-                </Link>
-              </button>
-            </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-     
+            <br />
+            <br />
+            Places available:{" "}
+            {this.props.tournament.placesAvailable === this.props.tournament.placesOccupied
+              ? "none"
+              : this.getAvailablePlaces(
+                  this.props.tournament.placesOccupied,
+                  this.props.tournament.placesAvailable
+                ).map(
+                  el =>
+                    el === true ? <span>&#x25C6;</span> : <span>&#x25C7;</span>
+                )}
+            <button className="Info-button">
+              <Link
+                to={{
+                  pathname: `/TournamentView/${this.props.tournament.id}`,
+                  state: { tournamentId: this.props.tournament.id }
+                }}
+              >
+                Details
+              </Link>
+            </button>
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
     );
   }
 }
