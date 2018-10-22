@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "Piłkarzyki - Wielkie Starcie",
+    "description": "Turniej dla początkujących graczy - dołącz i baw się z nami.",
     "date": "28/11/2018",
     "address": "Gdańsk",
     "placesOccupied": 5,
@@ -16,6 +17,7 @@
   {
     "id": 2,
     "name": "Table Soccer",
+    "description": "Gramy w piłkarzyki! Na każdej przerwie obiadowej spotykamy się przy stole!",
     "date": "18/09/2018",
     "address": "Gdańsk",
     "placesOccupied": 8,
@@ -80,6 +82,7 @@
   {
     "id": 3,
     "name": "Table Tenis",
+    "description": "Zagraj z nami w ping-ponga. Dla zwycięzcy nagroda w postaci piwa!",
     "date": "10/11/2018",
     "address": "Gdynia",
     "placesOccupied": 6,
@@ -93,7 +96,8 @@
 
   {
     "id": 4,
-    "name": "Table Soccer - Revange",
+    "name": "Table Soccer - Revenge",
+    "description": "Kolejna edycja turnieju w piłkarzyki.",
     "date": "28/11/2018",
     "address": "Gdańsk",
     "placesOccupied": 2,
@@ -108,6 +112,7 @@
   {
     "id": 5,
     "name": "Pool & Fun",
+    "description": "Cotygodniowe spotkania i gra w bilarda.",
     "date": "28/10/2018",
     "address": "Sopot",
     "placesOccupied": 8,
