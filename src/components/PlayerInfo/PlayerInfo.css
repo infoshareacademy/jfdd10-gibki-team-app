@@ -46,10 +46,12 @@
 .playerInfo-info {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	padding: 10px;
 	box-sizing: border-box;
-	background-color: rgb(33, 248, 61);
+	background-color: rgba(33, 248, 61, 0.4);
 	text-align: start;
+
 }
 
 .playerInfo-data {
@@ -102,8 +104,13 @@
 	.playerInfo-info, .player-data {
 		
 		width: 50%;
-		font-size: 20px;
+		font-size: 15px;
 		margin-top: 0px;
+	}
+
+	.playerInfo-info{
+		border:  3px  solid rgba(33, 248, 61, 0.6);
+	border-radius: 20px;
 	}
 
 	.playerInfo-image{

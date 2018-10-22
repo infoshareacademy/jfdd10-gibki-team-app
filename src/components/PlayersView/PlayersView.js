@@ -40,10 +40,13 @@ class PlayersView extends Component {
             </div>
           </div>
         </header>
+        <div className="playerView-list">
+
         <PlayerList
           tournamentPlayers={this.state.players}
           // playerListHeader={"Players"}
         />
+        </div>
       </div>
     );
   }
