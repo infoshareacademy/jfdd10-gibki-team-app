@@ -82,8 +82,8 @@ class ControlledExpansionPanels extends React.Component {
                   this.props.tournament.placesOccupied,
                   this.props.tournament.placesAvailable
                 ).map(
-                  el =>
-                    el === true ? <span>&#x25C6;</span> : <span>&#x25C7;</span>
+                  (el, index) =>
+                    el === true ? <span key={index}>&#x25C6;</span> : <span key={index}>&#x25C7;</span>
                 )}
             <button className="Info-button">
               <Link

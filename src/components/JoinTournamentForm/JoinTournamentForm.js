@@ -10,7 +10,7 @@ render () {
             <form className="AddPlayerForm">
                
                <div className="TournamentForm">
-                   <label className="AddPlayer-name" for="name">Your name </label>
+                   <label className="AddPlayer-name" htmlFor="name">Your name </label>
                    <input className="AddPlayer-input" id="name" />
                    <button disabled={true} className="JoinButton">Join</button>
                </div>
