@@ -8,7 +8,7 @@ class PlayerInfo extends Component {
     name: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     ranking: PropTypes.string,
-    points: PropTypes.number
+    points: PropTypes.string
   };
 
   getStars = (number) => {
