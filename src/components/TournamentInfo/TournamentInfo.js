@@ -5,13 +5,13 @@ import "./TournamentInfo.css";
 
 class TournamentInfo extends Component {
   static propTypes = {
-    name: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-    address: PropTypes.string.isRequired,
-    status: PropTypes.string.isRequired,
-    placesOccupied: PropTypes.number.isRequired,
-    placesAvailable: PropTypes.number.isRequired,
-    image: PropTypes.image
+    name: PropTypes.string,
+    date: PropTypes.string,
+    address: PropTypes.string,
+    status: PropTypes.string,
+    placesOccupied: PropTypes.number,
+    placesAvailable: PropTypes.number,
+    image: PropTypes.string
   };
 
   getAvailablePlaces = (number, size) => {
@@ -59,7 +59,7 @@ class TournamentInfo extends Component {
               <h2 className="tournamentInfo-h2">
               {(this.props.placesAvailable === this.props.placesOccupied) ? 'none' :            
                 this.getAvailablePlaces(this.props.placesOccupied, this.props.placesAvailable).map(
-                el => el === true ? <span>&#x25C6;</span> : <span>&#x25C7;</span>
+                (el, index) => el === true ? <span key={index}>&#x25C6;</span> : <span key={index}>&#x25C7;</span>
               )}
               
               {/* {this.props.places} */}

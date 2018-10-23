@@ -17,7 +17,7 @@ class TournamentView extends Component {
     }
 
     static propTypes = {
-        tournamentId: PropTypes.number.isRequired
+        tournamentId: PropTypes.number
     }
 
     componentDidMount() {
