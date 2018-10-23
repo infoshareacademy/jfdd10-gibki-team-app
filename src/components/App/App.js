@@ -21,7 +21,7 @@ const THEME = createMuiTheme({
 class App extends Component {
   render() {
     return (
-      <MuiThemeProvider theme={THEME}>
+      <MuiThemeProvider theme={THEME} key={Date.now()}>
         <Router>
           <div className="App">
             <Route exact path="/" component={HomeView} />
