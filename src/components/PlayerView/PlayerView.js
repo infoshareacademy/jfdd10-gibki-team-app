@@ -10,7 +10,7 @@ class PlayerView extends Component {
      }
 
      static propTypes = {
-         playerId: PropTypes.number.isRequired
+         playerId: PropTypes.number
      }
 
      componentDidMount() {
