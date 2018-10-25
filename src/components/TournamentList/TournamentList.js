@@ -39,19 +39,19 @@ class TabsWrappedLabel extends React.Component {
     this.setState({ value });
   };
 
-  componentDidMount() {
-    fetch("https://first-project-fe601.firebaseio.com/tournaments.json")
-      .then(response => response.json())
-      .then(tournaments => {
-        const arrayOfTournaments = Object.entries(tournaments || {}).map(
-          ([id, value]) => ({
-            id,
-            ...value
-          })
-        );
-        this.setState({ tournaments: arrayOfTournaments });
-      });
-  }
+  
+
+
+
+
+
+
+
+
+
+
+
+  
   
   render() {
     const { classes } = this.props;

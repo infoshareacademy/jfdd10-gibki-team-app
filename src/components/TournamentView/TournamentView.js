@@ -21,10 +21,25 @@ class TournamentView extends Component {
     }
 
     componentDidMount() {
-        const tournamentsPromise = fetch(process.env.PUBLIC_URL + "/data/tournaments.json")
-            .then(response => response.json());
-        const playersPromise = fetch(process.env.PUBLIC_URL + "/data/players.json")
-            .then(response => response.json());
+        const tournamentsPromise = fetch("https://first-project-fe601.firebaseio.com/tournaments.json")
+            .then(response => response.json())
+            .then(tournaments => {
+                Object.entries(tournaments || {}).map(
+                  ([id, value]) => ({
+                    id,
+                    ...value
+                  })
+                )});
+
+        const playersPromise = fetch("https://first-project-fe601.firebaseio.com/players.json")
+            .then(response => response.json())
+            .then(players => {
+                Object.entries(players || {}).map(
+                  ([id, value]) => ({
+                    id,
+                    ...value
+                  })
+                )});
         
         Promise.all([tournamentsPromise, playersPromise]).then(
             data => {
@@ -34,6 +49,21 @@ class TournamentView extends Component {
                 this.setState({tournament:searchedTournament, players: data[1], games: searchedTournament.games, tournamentStatus: searchedTournament.status, tournamentPlayers: searchedTournamentPlayers})
         })
     }
+
+    // componentDidMount() {
+    //     fetch("https://first-project-fe601.firebaseio.com/players.json")
+    //       .then(response => response.json())
+    //       .then(players => {
+    //         const arrayOfPlayers = Object.entries(players || {}).map(
+    //           ([id, value]) => ({
+    //             id,
+    //             ...value
+    //           })
+    //         );
+    //         this.setState({ players: arrayOfPlayers });
+    //       });
+    //   }
+
     render() {
         return (
             <div className="TournamentView-container">
