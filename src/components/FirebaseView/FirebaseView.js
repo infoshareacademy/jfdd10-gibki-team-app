@@ -20,7 +20,12 @@ class FirebaseView extends Component {
           this.state.email,
           this.state.password
         ).then(
-          () => this.setState({ error: null })
+          (data) => {
+              firebase.database().ref('/players/' + data.user.uid).set({
+                  name: 'Anonymous'
+              })
+              this.setState({ error: null })
+          }
         ).catch(
           error => this.setState({ error })
         )
