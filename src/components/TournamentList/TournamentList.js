@@ -39,17 +39,19 @@ class TabsWrappedLabel extends React.Component {
     this.setState({ value });
   };
 
-  
-
-
-
-
-
-
-
-
-
-
+  componentDidMount() {
+    fetch(process.env.PUBLIC_URL + "/data/tournaments.json")
+      .then(response => response.json())
+      .then(tournaments => {
+        const arrayOfTournaments = Object.entries(tournaments || {}).map(
+          ([id, value]) => ({
+            id,
+            ...value
+          })
+        );
+        this.setState({ tournaments: arrayOfTournaments });
+      });
+  }
 
   
   
@@ -80,7 +82,10 @@ class TabsWrappedLabel extends React.Component {
                   : tournament.playersIds.includes(this.props.playerId);
               })
               .map(tournament => (
-                <TournamentListItem tournament={tournament || {}} key={tournament.id} />
+                <TournamentListItem
+                  tournament={tournament || {}}
+                  key={tournament.id}
+                />
               ))}
             <div className="tournamentList_title">Future tournaments:</div>
             {this.state.tournaments
@@ -93,9 +98,10 @@ class TabsWrappedLabel extends React.Component {
                   : tournament.playersIds.includes(this.props.playerId);
               })
               .map(tournament => (
-                
-                  <TournamentListItem tournament={tournament || {}} key={tournament.id} />
-              
+                <TournamentListItem
+                  tournament={tournament || {}}
+                  key={tournament.id}
+                />
               ))}
             <div className="tournamentList_title">Finished tournaments:</div>
             {this.state.tournaments
@@ -108,7 +114,10 @@ class TabsWrappedLabel extends React.Component {
                   : tournament.playersIds.includes(this.props.playerId);
               })
               .map(tournament => (
-                <TournamentListItem tournament={tournament || {}} key={tournament.id} />
+                <TournamentListItem
+                  tournament={tournament || {}}
+                  key={tournament.id}
+                />
               ))}
 
             {/* SORT BY DATE:
@@ -140,7 +149,10 @@ class TabsWrappedLabel extends React.Component {
                   : tournament.playersIds.includes(this.props.playerId);
               })
               .map(tournament => (
-                <TournamentListItem tournament={tournament || {}} key={tournament.id} />
+                <TournamentListItem
+                  tournament={tournament || {}}
+                  key={tournament.id}
+                />
               ))}
           </TabContainer>
         )}
@@ -156,7 +168,10 @@ class TabsWrappedLabel extends React.Component {
                   : tournament.playersIds.includes(this.props.playerId);
               })
               .map(tournament => (
-                <TournamentListItem tournament={tournament || {}} key={tournament.id} />
+                <TournamentListItem
+                  tournament={tournament || {}}
+                  key={tournament.id}
+                />
               ))}
           </TabContainer>
         )}
@@ -172,7 +187,10 @@ class TabsWrappedLabel extends React.Component {
                   : tournament.playersIds.includes(this.props.playerId);
               })
               .map(tournament => (
-                <TournamentListItem tournament={tournament || {}} key={tournament.id} />
+                <TournamentListItem
+                  tournament={tournament || {}}
+                  key={tournament.id}
+                />
               ))}
           </TabContainer>
         )}
