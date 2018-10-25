@@ -16,7 +16,7 @@ class FirebaseView extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        firebase.auth().signInWithEmailAndPassword(
+        firebase.auth().createUserWithEmailAndPassword(
           this.state.email,
           this.state.password
         ).then(
@@ -24,6 +24,8 @@ class FirebaseView extends Component {
         ).catch(
           error => this.setState({ error })
         )
+        this.setState({email: "",
+    password: "" })
       }
 
   componentDidMount(){
