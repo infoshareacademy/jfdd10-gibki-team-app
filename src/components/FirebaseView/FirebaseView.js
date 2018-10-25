@@ -23,6 +23,16 @@ handleSubmit = event => {
      
     });
   };
+
+  componentDidMount(){
+      fetch("https://first-project-fe601.firebaseio.com/players.json")
+      .then(response => response.json())
+      .then(players => { 
+          this.setState({
+            players: Object.entries(players || {}).map(([id, value]) => ({ id, ...value }))
+        })
+    })
+  }
     
     render() { 
         return ( 
