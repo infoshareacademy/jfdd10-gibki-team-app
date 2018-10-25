@@ -8,7 +8,7 @@ class PlayerInfo extends Component {
     name: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     ranking: PropTypes.string,
-    points: PropTypes.number
+    points: PropTypes.string
   };
 
   getStars = (number) => {
@@ -52,7 +52,7 @@ class PlayerInfo extends Component {
             <h2 className="playerInfo-h2">{this.props.name}</h2>
             {this.props.ranking !== undefined && <h2 className="playerInfo-h2">
               { this.getStars(this.props.ranking).map(
-                el => el === true ? <span>&#9733;</span> : <span>&#9734;</span>
+                (el, index) => el === true ? <span key={index}>&#9733;</span> : <span key={index}>&#9734;</span>
               ) }
             </h2>}
             <h2 className="playerInfo-h2">{this.props.points}</h2>
