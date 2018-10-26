@@ -13,7 +13,7 @@ class HomeInfo extends Component {
         <header className="HomeInfo-Header">
          <div className="tournamentInfo-top-row">
          <button className="Info-button"><Link to={"/PlayersView"}>Players</Link></button>
-         <button className="Info-button"><Link to={"/FormDialog"}>{<FormDialog />}</Link></button>
+         <FormDialog className="Info-button" />
          </div>
             <h1 className="HomeInfo-H1">Enter the Tournament and Have Some Fun!</h1>
             <div className="image-container">

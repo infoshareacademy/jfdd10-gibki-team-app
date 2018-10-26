@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import firebase from 'firebase'
 
+
 class SignUp extends Component {
     state = { 
         email: "",
@@ -50,7 +51,7 @@ class SignUp extends Component {
                 {this.state.error && <p>{this.state.error.message}</p>}
                     <input placeholder="email" name="email" value={this.state.email} onChange={this.handleChange}></input>
                     <input placeholder="password" name="password" value={this.state.password} onChange={this.handleChange}></input>
-                    <button>Register</button>
+                    <button id="form-dialog-title" >Register</button>
                 </form>
             </div>
          );
