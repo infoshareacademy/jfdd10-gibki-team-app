@@ -1,27 +1,33 @@
 {
-  "1": {
+  "0": {
     "name": "Pincas",
     "image": "https://robohash.org/ipsamsitrerum.jpg?size=50x50&set=set1",
     "ranking": "3",
     "points": "8"
   },
-  "2": {
+  "1": {
     "name": "Nessy",
     "image": "https://robohash.org/inciduntsednam.jpg?size=50x50&set=set1",
     "ranking": "5",
     "points": "10"
   },
-  "3": {
+  "2": {
     "name": "Giordano",
     "image": "https://robohash.org/odioconsequaturlabore.bmp?size=50x50&set=set1",
     "ranking": "2",
     "points": "7"
   },
-  "4": {
+  "3": {
     "name": "Ariella",
     "image": "https://robohash.org/estpraesentiumquis.jpg?size=50x50&set=set1",
     "ranking": "3",
     "points": "8"
+  },
+  "4": {
+    "name": "Siward",
+    "image": "https://robohash.org/estmaximeaspernatur.bmp?size=50x50&set=set1",
+    "ranking": "",
+    "points": ""
   },
   "5": {
     "name": "Wally",
@@ -31,11 +37,15 @@
   },
   "6": {
     "name": "Hedi",
-    "image": "https://robohash.org/beataesuscipitsunt.jpg?size=50x50&set=set1"
+    "image": "https://robohash.org/beataesuscipitsunt.jpg?size=50x50&set=set1",
+    "ranking": "",
+    "points": ""
   },
   "7": {
     "name": "Mari",
-    "image": "https://robohash.org/ipsasimiliqueducimus.jpg?size=50x50&set=set1"
+    "image": "https://robohash.org/ipsasimiliqueducimus.jpg?size=50x50&set=set1",
+    "ranking": "",
+    "points": ""
   },
   "8": {
     "name": "Gerik",
@@ -45,7 +55,9 @@
   },
   "9": {
     "name": "Antonella",
-    "image": "https://robohash.org/facereateos.png?size=50x50&set=set1"
+    "image": "https://robohash.org/facereateos.png?size=50x50&set=set1",
+    "ranking": "",
+    "points": ""
   },
   "10": {
     "name": "Quincy",
@@ -55,11 +67,15 @@
   },
   "11": {
     "name": "Winnie",
-    "image": "https://robohash.org/harumquiadicta.bmp?size=50x50&set=set1"
+    "image": "https://robohash.org/harumquiadicta.bmp?size=50x50&set=set1",
+    "ranking": "",
+    "points": ""
   },
   "12": {
     "name": "Junia",
-    "image": "https://robohash.org/accusantiumpariaturtempore.bmp?size=50x50&set=set1"
+    "image": "https://robohash.org/accusantiumpariaturtempore.bmp?size=50x50&set=set1",
+    "ranking": "",
+    "points": ""
   },
   "13": {
     "name": "Kimbell",
@@ -69,11 +85,15 @@
   },
   "14": {
     "name": "Dicky",
-    "image": "https://robohash.org/earumsuscipitvoluptas.bmp?size=50x50&set=set1"
+    "image": "https://robohash.org/earumsuscipitvoluptas.bmp?size=50x50&set=set1",
+    "ranking": "",
+    "points": ""
   },
   "15": {
     "name": "Hilda",
-    "image": "https://robohash.org/ametnostrumsequi.bmp?size=50x50&set=set1"
+    "image": "https://robohash.org/ametnostrumsequi.bmp?size=50x50&set=set1",
+    "ranking": "",
+    "points": ""
   },
   "16": {
     "name": "Gweneth",
@@ -83,7 +103,9 @@
   },
   "17": {
     "name": "Hermann",
-    "image": "https://robohash.org/nonvelitharum.png?size=50x50&set=set1"
+    "image": "https://robohash.org/nonvelitharum.png?size=50x50&set=set1",
+    "ranking": "",
+    "points": ""
   },
   "18": {
     "name": "Harriet",
@@ -93,10 +115,8 @@
   },
   "19": {
     "name": "Whitman",
-    "image": "https://robohash.org/saeperationeiusto.png?size=50x50&set=set1"
-  },
-  "20": {
-    "name": "Siward",
-    "image": "https://robohash.org/estmaximeaspernatur.bmp?size=50x50&set=set1"
+    "image": "https://robohash.org/saeperationeiusto.png?size=50x50&set=set1",
+    "ranking": "",
+    "points": ""
   }
 }
