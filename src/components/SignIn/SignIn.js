@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import firebase from 'firebase'
 
-class FirebaseView extends Component {
+class SignIn extends Component {
     state = { 
         email: "",
         password: "",
@@ -16,16 +16,11 @@ class FirebaseView extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        firebase.auth().createUserWithEmailAndPassword(
+        firebase.auth().signInWithEmailAndPassword(
           this.state.email,
           this.state.password
         ).then(
-          (data) => {
-              firebase.database().ref('/players/' + data.user.uid).set({
-                  name: 'Anonymous'
-              })
-              this.setState({ error: null })
-          }
+            () => this.setState({ error: null }) 
         ).catch(
           error => this.setState({ error })
         )
@@ -50,11 +45,11 @@ class FirebaseView extends Component {
                 {this.state.error && <p>{this.state.error.message}</p>}
                     <input placeholder="email" name="email" value={this.state.email} onChange={this.handleChange}></input>
                     <input placeholder="password" name="password" value={this.state.password} onChange={this.handleChange}></input>
-                    <button>Register</button>
+                    <button>Sign In</button>
                 </form>
             </div>
          );
     }
 }
  
-export default FirebaseView;
+export default SignIn;
