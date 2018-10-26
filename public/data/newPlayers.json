@@ -1,27 +1,33 @@
 {
-  "1": {
+  "0": {
     "name": "Pincas",
     "image": "https://robohash.org/ipsamsitrerum.jpg?size=50x50&set=set1",
     "ranking": "3",
     "points": "8"
   },
-  "2": {
+  "1": {
     "name": "Nessy",
     "image": "https://robohash.org/inciduntsednam.jpg?size=50x50&set=set1",
     "ranking": "5",
     "points": "10"
   },
-  "3": {
+  "2": {
     "name": "Giordano",
     "image": "https://robohash.org/odioconsequaturlabore.bmp?size=50x50&set=set1",
     "ranking": "2",
     "points": "7"
   },
-  "4": {
+  "3": {
     "name": "Ariella",
     "image": "https://robohash.org/estpraesentiumquis.jpg?size=50x50&set=set1",
     "ranking": "3",
     "points": "8"
+  },
+  "4": {
+    "name": "Siward",
+    "image": "https://robohash.org/estmaximeaspernatur.bmp?size=50x50&set=set1",
+    "ranking": "",
+    "points": ""
   },
   "5": {
     "name": "Wally",
@@ -110,12 +116,6 @@
   "19": {
     "name": "Whitman",
     "image": "https://robohash.org/saeperationeiusto.png?size=50x50&set=set1",
-    "ranking": "",
-    "points": ""
-  },
-  "20": {
-    "name": "Siward",
-    "image": "https://robohash.org/estmaximeaspernatur.bmp?size=50x50&set=set1",
     "ranking": "",
     "points": ""
   }

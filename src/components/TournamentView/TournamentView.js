@@ -23,7 +23,7 @@ class TournamentView extends Component {
     const tournamentsPromise = fetch("https://first-project-fe601.firebaseio.com/tournaments.json")
         .then(response => response.json())
         .then(tournaments => {
-                    Object.entries(tournaments || {})
+                    return Object.entries(tournaments || {})
                     .map(
                       ([id, value]) => ({
                         id,
@@ -31,8 +31,18 @@ class TournamentView extends Component {
                       })
                     );
                   });
+    
     const playersPromise = fetch("https://first-project-fe601.firebaseio.com/players.json")
-        .then(response => response.json());
+        .then(response => response.json())
+        .then(players => {
+          return Object.entries(players || {})
+          .map(
+            ([id, value]) => ({
+              id,
+              ...value
+            })
+          );
+        });
     
     Promise.all([tournamentsPromise, playersPromise]).then(
         data => {
