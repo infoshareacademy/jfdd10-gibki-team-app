@@ -2,15 +2,13 @@ import React, { Component } from "react";
 import HomeInfo from "../HomeInfo/HomeInfo";
 import TournamentList from "../TournamentList/TournamentList";
 import "./HomeView.css";
-import SignUp from "../SignUp/SignUp";
-import SignIn from "../SignIn/SignIn";
+import AuthComponent from "../AuthComponent/AuthComponent";
 class HomeView extends Component {
   render() {
     return (
       <div className="HomeView-container">
         <HomeInfo/>
-        <SignUp />
-        <SignIn/>
+        <AuthComponent/>
         <TournamentList />
       </div>
     );
