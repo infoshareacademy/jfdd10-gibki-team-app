@@ -22,7 +22,7 @@
       "1",
       "4",
       "5",
-      "20",
+      "0",
       "19"
     ]
   },
@@ -38,50 +38,50 @@
     "games": [
       {
         "no": 1,
-        "playerOneId": 7,
-        "playerTwoId": 6,
+        "playerOneId": "7",
+        "playerTwoId": "6",
         "playerOneScore": 1,
         "playerTwoScore": 2
       },
       {
         "no": 2,
-        "playerOneId": 12,
-        "playerTwoId": 2,
+        "playerOneId": "12",
+        "playerTwoId": "2",
         "playerOneScore": 4,
         "playerTwoScore": 3
       },
       {
         "no": 3,
-        "playerOneId": 12,
-        "playerTwoId": 2,
+        "playerOneId": "12",
+        "playerTwoId": "2",
         "playerOneScore": 2,
         "playerTwoScore": 7
       },
       {
         "no": 4,
-        "playerOneId": 1,
-        "playerTwoId": 10,
+        "playerOneId": "1",
+        "playerTwoId": "10",
         "playerOneScore": 5,
         "playerTwoScore": 1
       },
       {
         "no": 5,
-        "playerOneId": 6,
-        "playerTwoId": 2,
+        "playerOneId": "6",
+        "playerTwoId": "12",
         "playerOneScore": 3,
         "playerTwoScore": 2
       },
       {
         "no": 6,
-        "playerOneId": 2,
-        "playerTwoId": 1,
+        "playerOneId": "2",
+        "playerTwoId": "1",
         "playerOneScore": 2,
         "playerTwoScore": 3
       },
       {
         "no": 7,
-        "playerOneId": 6,
-        "playerTwoId": 1,
+        "playerOneId": "6",
+        "playerTwoId": "1",
         "playerOneScore": 1,
         "playerTwoScore": 0
       }
@@ -162,42 +162,42 @@
     "games": [
       {
         "no": 1,
-        "playerOneId": 16,
-        "playerTwoId": 17,
+        "playerOneId": "16",
+        "playerTwoId": "17",
         "playerOneScore": 1,
         "playerTwoScore": 2
       },
       {
         "no": 2,
-        "playerOneId": 15,
-        "playerTwoId": 9,
+        "playerOneId": "15",
+        "playerTwoId": "9",
         "playerOneScore": 4,
         "playerTwoScore": 3
       },
       {
         "no": 3,
-        "playerOneId": 13,
-        "playerTwoId": 4,
+        "playerOneId": "13",
+        "playerTwoId": "4",
         "playerOneScore": 2,
         "playerTwoScore": 0
       },
       {
         "no": 4,
-        "playerOneId": 2,
-        "playerTwoId": 1,
+        "playerOneId": "2",
+        "playerTwoId": "1",
         "playerOneScore": null,
         "playerTwoScore": null
       },
       {
         "no": 5,
-        "playerOneId": 17,
-        "playerTwoId": 15,
+        "playerOneId": "17",
+        "playerTwoId": "15",
         "playerOneScore": null,
         "playerTwoScore": null
       },
       {
         "no": 6,
-        "playerOneId": 13,
+        "playerOneId": "13",
         "playerTwoId": null,
         "playerOneScore": null,
         "playerTwoScore": null
