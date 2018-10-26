@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+
 import "./HomeInfo.css";
 class HomeInfo extends Component {
     static propTypes = {
