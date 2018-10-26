@@ -1,7 +1,7 @@
 
 import React, { Component } from "react";
 import firebase from "firebase";
-
+import FormDialog from "../FormDialog/FormDialog"
 
 import SignIn from "../SignIn/SignIn";
 import SignUp from "../SignUp/SignUp";
@@ -28,6 +28,11 @@ class AuthComponent extends Component {
       <>
         <SignIn />
         <SignUp />
+        <FormDialog />
+        
+
+        
+        
       </>
     );
   }

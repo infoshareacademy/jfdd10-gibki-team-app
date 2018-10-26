@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import FormDialog from "../FormDialog/FormDialog"
 
 import "./HomeInfo.css";
 class HomeInfo extends Component {
@@ -12,6 +13,7 @@ class HomeInfo extends Component {
         <header className="HomeInfo-Header">
          <div className="tournamentInfo-top-row">
          <button className="Info-button"><Link to={"/PlayersView"}>Players</Link></button>
+         <button className="Info-button"><Link to={"/FormDialog"}>{<FormDialog />}</Link></button>
          </div>
             <h1 className="HomeInfo-H1">Enter the Tournament and Have Some Fun!</h1>
             <div className="image-container">
