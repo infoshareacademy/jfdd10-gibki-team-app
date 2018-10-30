@@ -14,7 +14,7 @@ export default class TournamentCreate extends React.Component {
         name: null,
         date: null,
         address: null,
-        playersCount: null    
+        description: null    
     }
     // name: null,
     // date: null,
@@ -32,6 +32,7 @@ export default class TournamentCreate extends React.Component {
 
   handleSubmit = (event,b) => {
       console.log(this.state.form);
+      
   }
 
   handleChange = (name) => event => {
@@ -92,8 +93,8 @@ export default class TournamentCreate extends React.Component {
                 autoFocus
                 onChange={this.handleChange('playersCount')}
                 margin="normal"
-                id="playersCount"
-                label="Number of Players"
+                id="description"
+                label="Tournament Description"
                 type="name"
                 fullWidth
               />
