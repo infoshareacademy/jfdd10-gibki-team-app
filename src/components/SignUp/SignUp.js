@@ -33,7 +33,7 @@ export default class FormDialog extends React.Component {
             name: this.state.playerName,
             points:"",
             ranking:"",
-            image:""
+            image:"./purple-avatar.png"
           });
         this.setState({ error: null });
       })
