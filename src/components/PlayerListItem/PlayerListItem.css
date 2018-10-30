@@ -1,4 +1,8 @@
-.list {
+div {
+    margin-bottom: 1px;
+}
+
+/* .list {
 display: flex;
 justify-content: space-between;
 background-color: lightblue;
@@ -14,4 +18,4 @@ outline: 1px solid black;
 
 .ulList {
     padding: 0px;
-}
+} */
