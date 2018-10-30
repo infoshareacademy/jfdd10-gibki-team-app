@@ -2,7 +2,6 @@
     display: flex;
     width: 50%;
     height: 3em;
-    outline: 1px solid black;
 }
 .TournamentPair-player-box,
 .TournamentPair-player-box-winner,
@@ -12,17 +11,16 @@
     display:flex;
     justify-content:center;
     align-items:center;
+    border: 1px solid black;
 }
-/* .TournamentPair-player-box-assigned { */
-    /* background: lightblue; */
-/* } */
 .TournamentPair-player-box-winner {
     font-weight: bold;
 }
 .TournamentPair-player-box-loser {
     opacity: 0.5;
 }
-.TournamentPair-score-box {
+.TournamentPair-score-box-left,
+.TournamentPair-score-box-right {
     flex-grow: 1;
     width: 10%;
     display:flex;
@@ -30,5 +28,9 @@
     align-items:center;
     text-align: center;
     background: lightgrey;
-    outline: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.TournamentPair-score-box-right {
+border-left: 1px solid black;
 }

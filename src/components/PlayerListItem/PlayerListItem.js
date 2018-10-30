@@ -6,7 +6,7 @@ import "./PlayerListItem.css";
 class PlayerListItem extends Component {
   static propTypes = {
     name: PropTypes.string,
-    id: PropTypes.number,
+    id: PropTypes.string,
     image: PropTypes.string
   };
   render() {

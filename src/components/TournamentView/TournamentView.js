@@ -46,29 +46,17 @@ class TournamentView extends Component {
     
     Promise.all([tournamentsPromise, playersPromise]).then(
         data => {
-            console.log(tournamentsPromise);
-            console.log(playersPromise);
-            console.log(data);
+            // console.log(tournamentsPromise);
+            // console.log(playersPromise);
+            // console.log(data);
             const searchedTournament = data[0].find(tournament => tournament.id === this.props.location.state.tournamentId)
+            // console.log(searchedTournament);
             const searchedTournamentPlayers = searchedTournament.playersIds.map(id => {
                 return data[1].find(player => player.id === id)})
+            // console.log(searchedTournamentPlayers);
             this.setState({tournament:searchedTournament, players: data[1], games: searchedTournament.games, tournamentStatus: searchedTournament.status, tournamentPlayers: searchedTournamentPlayers})
     })
 }
-
-// componentDidMount() {
-//     fetch("https://first-project-fe601.firebaseio.com/players.json")
-//       .then(response => response.json())
-//       .then(players => {
-//         const arrayOfPlayers = Object.entries(players || {}).map(
-//           ([id, value]) => ({
-//             id,
-//             ...value
-//           })
-//         );
-//         this.setState({ players: arrayOfPlayers });
-//       });
-//   }
 
   render() {
     return (

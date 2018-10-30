@@ -10,14 +10,24 @@ import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 const THEME = createMuiTheme({
   typography: {
     useNextVariants: true,
-   "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\",\"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif",
-   "fontSize": 18,
-   "fontWeightLight": 300,
-   "fontWeightRegular": 400,
-   "fontWeightMedium": 500
+    fontFamily:
+      '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen","Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+    fontSize: 18,
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightMedium: 500
+  },
+  overrides: {
+    MuiButton: {
+      root: {
+        backgroundColor: "#6573c3",
+        "&:hover": {
+          backgroundColor: "#2c387e"
+        }
+      }
+    }
   }
 });
-
 class App extends Component {
   render() {
     return (
