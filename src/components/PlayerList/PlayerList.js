@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import PlayerListItem from '../PlayerListItem/PlayerListItem2'
+import PlayerListItem from '../PlayerListItem/PlayerListItem'
 
  
 class PlayerList extends Component {
