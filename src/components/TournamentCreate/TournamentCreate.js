@@ -6,6 +6,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import firebase from 'firebase'
 
 export default class TournamentCreate extends React.Component {
   state = {
@@ -27,6 +28,17 @@ export default class TournamentCreate extends React.Component {
   };
 
   handleSubmit = event => {
+   
+      ).then(
+        (data) => {
+            firebase.database().ref('/tournaments/' + data.tournament.uid).set({
+                name: 'Anonymous'
+            })
+            this.setState({ error: null })
+        }
+      ).catch(
+        error => this.setState({ error })
+      )
     // event.preventDefault()
     // this.addTournament(this.state.name)
     console.log('tournament data', this.state.form);
