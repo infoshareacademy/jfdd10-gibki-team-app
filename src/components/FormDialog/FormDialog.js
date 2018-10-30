@@ -7,6 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import SignUp from "../SignUp/SignUp";
+import firebase from 'firebase'
 
 
 export default class FormDialog extends React.Component {
@@ -21,6 +22,29 @@ export default class FormDialog extends React.Component {
   handleClose = () => {
     this.setState({ open: false });
   };
+
+  handleChange = event => (
+    this.setState( {[event.target.name]: event.target.value})
+)
+handleSubmit = event => {
+  event.preventDefault()
+  firebase.auth().createUserWithEmailAndPassword(
+    this.state.email,
+    this.state.password
+  ).then(
+    (data) => {
+        firebase.database().ref('/players/' + data.user.uid).set({
+            name: 'Anonymous'
+        })
+        this.setState({ error: null })
+    }
+  ).catch(
+    error => this.setState({ error })
+  )
+  this.setState({email: "",
+password: "" })
+}
+
 
   render() {
     return (
@@ -37,7 +61,7 @@ export default class FormDialog extends React.Component {
               To subscribe to this website, please enter your email address here. We will send
               updates occasionally.
             </DialogContentText>
-            <SignUp />
+         
 
             <TextField
               autoFocus
@@ -47,12 +71,20 @@ export default class FormDialog extends React.Component {
               type="email"
               fullWidth
             />
+             <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label="Password"
+              type="password"
+              fullWidth
+            />
           </DialogContent>
-          <DialogActions>
+          <DialogActions onSubmit={ this.handleSubmit}>
             <Button onClick={this.handleClose} color="primary">
               Cancel
             </Button>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.handleChange} color="primary">
               Subscribe
             </Button>
           </DialogActions>
