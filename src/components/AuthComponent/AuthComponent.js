@@ -8,7 +8,7 @@ import SignUp from "../SignUp/SignUp";
 
 class AuthComponent extends Component {
   state = {
-    user: null
+    user: null,
   };
 
   componentDidMount() {
