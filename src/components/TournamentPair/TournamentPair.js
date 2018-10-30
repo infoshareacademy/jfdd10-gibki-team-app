@@ -32,8 +32,8 @@ class TournamentPair extends Component {
             return (
                 <div className="TournamentPair-container">
                     <div className={`${this.pickWinner()}`}><span>{this.isPlayerOneAssigned()}</span></div>
-                    <div className="TournamentPair-score-box"><span>{this.props.scoreOne}</span></div>
-                    <div className="TournamentPair-score-box"><span>{this.props.scoreTwo}</span></div>
+                    <div className="TournamentPair-score-box-left"><span>{this.props.scoreOne}</span></div>
+                    <div className="TournamentPair-score-box-right"><span>{this.props.scoreTwo}</span></div>
                     <div className={`${this.pickLoser()}`}><span>{this.isPlayerTwoAssigned()}</span></div>
                 </div>
             )
@@ -42,8 +42,8 @@ class TournamentPair extends Component {
             return (
                 <div className="TournamentPair-container">
                     <div className={`${this.isPlayerAssigned(this.props.playerOne)}`}><span>{this.isPlayerOneAssigned()}</span></div>
-                    <div className="TournamentPair-score-box"><span>{'?'}</span></div>
-                    <div className="TournamentPair-score-box"><span>{'?'}</span></div>
+                    <div className="TournamentPair-score-box-left"><span>{'?'}</span></div>
+                    <div className="TournamentPair-score-box-right"><span>{'?'}</span></div>
                     <div className={`${this.isPlayerAssigned(this.props.playerTwo)}`}><span>{this.isPlayerTwoAssigned()}</span></div>
                 </div>
             )
