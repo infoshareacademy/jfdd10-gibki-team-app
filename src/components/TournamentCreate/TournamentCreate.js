@@ -9,7 +9,17 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 
 export default class TournamentCreate extends React.Component {
   state = {
-    open: false
+    open: false,
+    form: {
+        name: null,
+        date: null,
+        address: null,
+        playersCount: null    
+    }
+    // name: null,
+    // date: null,
+    // address: null,
+    // playersCount: null
   };
 
   handleClickOpen = () => {
@@ -20,10 +30,26 @@ export default class TournamentCreate extends React.Component {
     this.setState({ open: false });
   };
 
+  handleSubmit = (event,b) => {
+      console.log(this.state.form);
+  }
+
+  handleChange = (name) => event => {
+    this.setState({
+        // this.state[name]: event.target.value,
+        ...this.state,
+        form: {
+            ...this.state.form,
+            [name]: event.target.value
+        }
+    });
+  };
+
   render() {
     return (
       <div>
         <Button onClick={this.handleClickOpen}>Create Tournament</Button>
+        
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
@@ -34,9 +60,10 @@ export default class TournamentCreate extends React.Component {
             <DialogContentText>
               To add a tournament please add all required information below.
             </DialogContentText>
-            <form>
+           
               <TextField
                 autoFocus
+                onChange={this.handleChange('name')}
                 margin="normal"
                 id="name"
                 label="Tournament Name"
@@ -45,38 +72,38 @@ export default class TournamentCreate extends React.Component {
               />
              <TextField
                 autoFocus
+                onChange={this.handleChange('date')}
                 margin="normal"
-                id="name"
+                id="date"
                 label="Tournament Date"
                 type="name"
                 fullWidth
               />
               <TextField
                 autoFocus
+                onChange={this.handleChange('address')}
                 margin="normal"
-                id="name"
+                id="address"
                 label="Tournament Address"
                 type="name"
                 fullWidth
               />
               <TextField
                 autoFocus
+                onChange={this.handleChange('playersCount')}
                 margin="normal"
-                id="name"
+                id="playersCount"
                 label="Number of Players"
                 type="name"
                 fullWidth
               />
               
-        
-
-            </form>
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
               Cancel
             </Button>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.handleSubmit} color="primary">
               Create
             </Button>
           </DialogActions>
