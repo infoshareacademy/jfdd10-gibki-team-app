@@ -11,15 +11,11 @@ export default class TournamentCreate extends React.Component {
   state = {
     open: false,
     form: {
-        name: null,
+        name: '2343242',
         date: null,
         address: null,
         description: null    
     }
-    // name: null,
-    // date: null,
-    // address: null,
-    // playersCount: null
   };
 
   handleClickOpen = () => {
@@ -30,15 +26,20 @@ export default class TournamentCreate extends React.Component {
     this.setState({ open: false });
   };
 
-  handleSubmit = (event,b) => {
-      console.log(this.state.form);
-      
-  }
+  handleSubmit = event => {
+    // event.preventDefault()
+    // this.addTournament(this.state.name)
+    console.log('tournament data', this.state.form);
+    this.setState({form: {}});
+    this.handleClose();
+}
+
+
 
   handleChange = (name) => event => {
     this.setState({
         // this.state[name]: event.target.value,
-        ...this.state,
+        // ...this.state,
         form: {
             ...this.state.form,
             [name]: event.target.value
