@@ -14,17 +14,18 @@ class PlayerView extends Component {
      }
 
      componentDidMount() {
-        fetch('/data/players.json').then(
-            response => response.json()
-        ).then(players => {
-            const arrayOfPlayers = Object.keys(players).map(
-                key => ({
-                    id: key, 
-                    ...players[key]
-                }))
-            this.setState({ players: arrayOfPlayers })
-        })
-    }
+        fetch("https://first-project-fe601.firebaseio.com/players.json")
+          .then(response => response.json())
+          .then(players => {
+            const arrayOfPlayers = Object.entries(players || {}).map(
+              ([id, value]) => ({
+                id,
+                ...value
+              })
+            );
+            this.setState({ players: arrayOfPlayers });
+          });
+      }
 
     render() { 
         const player = this.state.players.find(player => player.id === this.props.location.state.playerId)
