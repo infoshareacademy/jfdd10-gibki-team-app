@@ -15,7 +15,7 @@ class HomeInfo extends Component {
 
         <header className="HomeInfo-Header">
          <div className="tournamentInfo-top-row">
-         <Button color="primary"><Link to={"/PlayersView"}>Players</Link></Button>
+         <Button><Link to={"/PlayersView"}>Players</Link></Button>
          <TournamentCreate /><AuthComponent/>
 
          </div>
