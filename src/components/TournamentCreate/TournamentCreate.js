@@ -6,17 +6,16 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import firebase from 'firebase'
+import firebase from "firebase";
 
 export default class TournamentCreate extends React.Component {
   state = {
     open: false,
-    form: {
-        name: '2343242',
-        date: null,
-        address: null,
-        description: null    
-    }
+
+    name: "",
+    date: null,
+    address: null,
+    description: null
   };
 
   handleClickOpen = () => {
@@ -28,34 +27,19 @@ export default class TournamentCreate extends React.Component {
   };
 
   handleSubmit = event => {
-   
-      ).then(
-        (data) => {
-            firebase.database().ref('/tournaments/' + data.tournament.uid).set({
-                name: 'Anonymous'
-            })
-            this.setState({ error: null })
-        }
-      ).catch(
-        error => this.setState({ error })
-      )
-    // event.preventDefault()
-    // this.addTournament(this.state.name)
-    console.log('tournament data', this.state.form);
-    this.setState({form: {}});
+    event.preventDefault();
+    const { open, ...formData } = this.state
+    firebase
+      .database()
+      .ref("tournaments")
+      .push(formData);
+
     this.handleClose();
-}
+  };
 
-
-
-  handleChange = (name) => event => {
+  makeHandleChange = name => event => {
     this.setState({
-        // this.state[name]: event.target.value,
-        // ...this.state,
-        form: {
-            ...this.state.form,
-            [name]: event.target.value
-        }
+      [name]: event.target.value
     });
   };
 
@@ -63,30 +47,32 @@ export default class TournamentCreate extends React.Component {
     return (
       <div>
         <Button onClick={this.handleClickOpen}>Create Tournament</Button>
-        
+
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">Create</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              To add a tournament please add all required information below.
-            </DialogContentText>
-           
+          <form onSubmit={this.handleSubmit}>
+            <DialogTitle id="form-dialog-title">Create</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                To add a tournament please add all required information below.
+              </DialogContentText>
+
               <TextField
                 autoFocus
-                onChange={this.handleChange('name')}
+                onChange={this.makeHandleChange("name")}
+                value={this.state.name}
                 margin="normal"
                 id="name"
                 label="Tournament Name"
                 type="name"
                 fullWidth
               />
-             <TextField
-                autoFocus
-                onChange={this.handleChange('date')}
+              <TextField
+                onChange={this.makeHandleChange("date")}
+                value={this.state.date}
                 margin="normal"
                 id="date"
                 label="Tournament Date"
@@ -94,8 +80,8 @@ export default class TournamentCreate extends React.Component {
                 fullWidth
               />
               <TextField
-                autoFocus
-                onChange={this.handleChange('address')}
+                onChange={this.makeHandleChange("address")}
+                value={this.state.address}
                 margin="normal"
                 id="address"
                 label="Tournament Address"
@@ -103,24 +89,24 @@ export default class TournamentCreate extends React.Component {
                 fullWidth
               />
               <TextField
-                autoFocus
-                onChange={this.handleChange('playersCount')}
+                onChange={this.makeHandleChange("description")}
+                value={this.state.description}
                 margin="normal"
                 id="description"
                 label="Tournament Description"
                 type="name"
                 fullWidth
               />
-              
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Cancel
-            </Button>
-            <Button onClick={this.handleSubmit} color="primary">
-              Create
-            </Button>
-          </DialogActions>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={this.handleClose} color="primary">
+                Cancel
+              </Button>
+              <Button type="submit" color="primary">
+                Create
+              </Button>
+            </DialogActions>
+          </form>
         </Dialog>
       </div>
     );
