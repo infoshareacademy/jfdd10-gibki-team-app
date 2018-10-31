@@ -97,8 +97,9 @@ export default class TournamentCreate extends React.Component {
                 value={this.state.date}
                 margin="normal"
                 id="date"
-                label="Tournament Date"
-                type="name"
+                // label="Tournament Date"
+                type="date"
+                format={'DD/MM/YYYY'}
                 fullWidth
                 required
               />
