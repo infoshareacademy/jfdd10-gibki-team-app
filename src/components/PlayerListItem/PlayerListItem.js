@@ -30,7 +30,7 @@ function ButtonAppBar(props) {
           <Typography variant="h6" color="inherit" className={classes.grow}>
             {props.name}
           </Typography>
-          <img className="avatar" src={props.image} alt="player avatar" />
+          <img className="avatar" src={props.image} alt="player avatar" style={{ width: 50, height: 50 }}/>
           <Button color="inherit" className="PlayerInfo-button">
             <Link
               to={{
