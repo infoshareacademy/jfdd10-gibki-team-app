@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-
+import FormDialog from "../FormDialog/FormDialog"
+import TournamentCreate from "../TournamentCreate/TournamentCreate"
 import "./HomeInfo.css";
 class HomeInfo extends Component {
     static propTypes = {
@@ -12,6 +13,8 @@ class HomeInfo extends Component {
         <header className="HomeInfo-Header">
          <div className="tournamentInfo-top-row">
          <button className="Info-button"><Link to={"/PlayersView"}>Players</Link></button>
+         <TournamentCreate />
+
          </div>
             <h1 className="HomeInfo-H1">Enter the Tournament and Have Some Fun!</h1>
             <div className="image-container">

@@ -17,8 +17,10 @@ export default class FormDialog extends React.Component {
     playerName: ""
   };
 
-  handleChange = event =>
+  handleChange = event => {
+    console.log(event.target.name, event.target.value);
     this.setState({ [event.target.name]: event.target.value });
+  };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -26,24 +28,25 @@ export default class FormDialog extends React.Component {
       .auth()
       .createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then(data => {
+        console.log(this.state);
         firebase
           .database()
           .ref("/players/" + data.user.uid)
           .set({
             name: this.state.playerName,
-            points:"",
-            ranking:"",
-            image:"./purple-avatar.png"
+            points: "",
+            ranking: "",
+            image: "./purple-avatar.png"
           });
-        this.setState({ error: null });
-      })
-      .catch(error => this.setState({ error }));
-      this.setState({
+        this.setState({
+          error: null,
           email: "",
           password: "",
-          playerName: ""
+          playerName: "",
+          open: false
         });
-        this.setState({ open: false });
+      })
+      .catch(error => this.setState({ error }));
   };
 
   handleClickOpen = () => {
@@ -53,25 +56,13 @@ export default class FormDialog extends React.Component {
   handleClose = () => {
     this.setState({ open: false });
   };
-  componentDidMount() {
-    fetch("https://first-project-fe601.firebaseio.com/players.json")
-      .then(response => response.json())
-      .then(players => {
-        this.setState({
-          players: Object.entries(players || {}).map(([id, value]) => ({
-            id,
-            ...value
-          }))
-        });
-      });
-  }
 
   render() {
     return (
       <div>
         <Button onClick={this.handleClickOpen}>Sign Up</Button>
         <Dialog
-        onSubmit={this.handleSubmit}
+          onSubmit={this.handleSubmit}
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
@@ -79,7 +70,8 @@ export default class FormDialog extends React.Component {
           <DialogTitle id="form-dialog-title">Sign Up</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              To register in our site, please enter your name, email and password.
+              To register in our site, please enter your name, email and
+              password.
               {this.state.error && <p>{this.state.error.message}</p>}
             </DialogContentText>
             <TextField
