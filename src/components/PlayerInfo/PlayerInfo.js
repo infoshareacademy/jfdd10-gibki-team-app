@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./PlayerInfo.css";
+import Button from "@material-ui/core/Button";
 
 class PlayerInfo extends Component {
   static propTypes = {
@@ -29,8 +30,8 @@ class PlayerInfo extends Component {
     return (
       <header className="playerInfo-Header">
       <div className="tournamentInfo-top-row">
-      <button className="Info-button"><Link to="/">Home</Link></button>
-      <button className="Info-button"><Link to="/PlayersView">Players</Link></button>
+      <Button><Link to="/">Home</Link></Button>
+      <Button><Link to="/PlayersView">Players</Link></Button>
       </div>
         <h1 className="playerInfo-h1" >Player Info</h1>
         <div className="playerInfo-container">

@@ -55,7 +55,11 @@ class SignIn extends Component {
           <DialogContent>
             <DialogContentText>
               To log in, please enter your email address and password.
-              {this.state.error && <p>{this.state.error.message}</p>}
+              {this.state.error && (
+                <strong>
+                  <p style={{ color: "red" }}>{this.state.error.message}</p>
+                </strong>
+              )}
             </DialogContentText>
             <TextField
               autoFocus
