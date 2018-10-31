@@ -18,7 +18,6 @@ export default class FormDialog extends React.Component {
   };
 
   handleChange = event => {
-    console.log(event.target.name, event.target.value);
     this.setState({ [event.target.name]: event.target.value });
   };
 
@@ -28,7 +27,6 @@ export default class FormDialog extends React.Component {
       .auth()
       .createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then(data => {
-        console.log(this.state);
         firebase
           .database()
           .ref("/players/" + data.user.uid)
@@ -72,7 +70,11 @@ export default class FormDialog extends React.Component {
             <DialogContentText>
               To register in our site, please enter your name, email and
               password.
-              {this.state.error && <p>{this.state.error.message}</p>}
+              {this.state.error && (
+                <strong>
+                  <p style={{ color: "red" }}>{this.state.error.message}</p>
+                </strong>
+              )}
             </DialogContentText>
             <TextField
               autoFocus
