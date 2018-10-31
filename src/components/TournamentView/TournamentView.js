@@ -46,14 +46,9 @@ class TournamentView extends Component {
     
     Promise.all([tournamentsPromise, playersPromise]).then(
         data => {
-            // console.log(tournamentsPromise);
-            // console.log(playersPromise);
-            // console.log(data);
             const searchedTournament = data[0].find(tournament => tournament.id === this.props.location.state.tournamentId)
-            // console.log(searchedTournament);
             const searchedTournamentPlayers = searchedTournament.playersIds.map(id => {
                 return data[1].find(player => player.id === id)})
-            // console.log(searchedTournamentPlayers);
             this.setState({tournament:searchedTournament, players: data[1], games: searchedTournament.games, tournamentStatus: searchedTournament.status, tournamentPlayers: searchedTournamentPlayers})
     })
 }
@@ -72,7 +67,7 @@ class TournamentView extends Component {
         />
         {this.state.tournamentStatus === "future" ? (
           <div className="PlayerList">
-            <JoinTournamentForm />{" "}
+            {/* <JoinTournamentForm />{" "} */}
             <PlayerList
               tournamentPlayers={this.state.tournamentPlayers}
               playerListHeader={"Players taking part"}
