@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import FormDialog from "../FormDialog/FormDialog"
 import TournamentCreate from "../TournamentCreate/TournamentCreate"
 import "./HomeInfo.css";
 class HomeInfo extends Component {
