@@ -28,6 +28,10 @@ class AuthComponent extends Component {
       <>
         <SignIn />
         <SignUp />
+        
+
+        
+        
       </>
     );
   }

@@ -3,6 +3,7 @@ import HomeInfo from "../HomeInfo/HomeInfo";
 import TournamentList from "../TournamentList/TournamentList";
 import "./HomeView.css";
 import AuthComponent from "../AuthComponent/AuthComponent";
+
 class HomeView extends Component {
   render() {
     return (
