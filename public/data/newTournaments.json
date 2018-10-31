@@ -23,7 +23,7 @@
       "4",
       "5",
       "0",
-      "19"
+      "7"
     ]
   },
   "b": {
@@ -34,68 +34,68 @@
     "placesOccupied": 8,
     "placesAvailable": 8,
     "status": "finished",
-    "winnerId": 6,
+    "winnerId": 2,
     "games": [
       {
         "no": 1,
-        "playerOneId": "7",
-        "playerTwoId": "6",
+        "playerOneId": "1",
+        "playerTwoId": "2",
         "playerOneScore": 1,
         "playerTwoScore": 2
       },
       {
         "no": 2,
-        "playerOneId": "12",
-        "playerTwoId": "2",
+        "playerOneId": "3",
+        "playerTwoId": "4",
         "playerOneScore": 4,
         "playerTwoScore": 3
       },
       {
         "no": 3,
-        "playerOneId": "12",
-        "playerTwoId": "2",
+        "playerOneId": "5",
+        "playerTwoId": "6",
         "playerOneScore": 2,
         "playerTwoScore": 7
       },
       {
         "no": 4,
-        "playerOneId": "1",
-        "playerTwoId": "10",
+        "playerOneId": "7",
+        "playerTwoId": "8",
         "playerOneScore": 5,
         "playerTwoScore": 1
       },
       {
         "no": 5,
-        "playerOneId": "6",
-        "playerTwoId": "12",
+        "playerOneId": "2",
+        "playerTwoId": "4",
         "playerOneScore": 3,
         "playerTwoScore": 2
       },
       {
         "no": 6,
-        "playerOneId": "2",
-        "playerTwoId": "1",
+        "playerOneId": "6",
+        "playerTwoId": "7",
         "playerOneScore": 2,
         "playerTwoScore": 3
       },
       {
         "no": 7,
-        "playerOneId": "6",
-        "playerTwoId": "1",
+        "playerOneId": "2",
+        "playerTwoId": "7",
         "playerOneScore": 1,
         "playerTwoScore": 0
       }
     ],
     "image": "/socer.png",
     "playersIds": [
-      "7",
-      "6",
-      "12",
-      "2",
-      "18",
-      "14",
       "1",
-      "10"
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
     ]
   },
   "c": {
@@ -118,9 +118,9 @@
     ],
     "image": "/table-tenis.png",
     "playersIds": [
-      "17",
-      "16",
-      "11",
+      "7",
+      "6",
+      "1",
       "3",
       "5",
       "4"
@@ -162,42 +162,42 @@
     "games": [
       {
         "no": 1,
-        "playerOneId": "16",
-        "playerTwoId": "17",
+        "playerOneId": "0",
+        "playerTwoId": "1",
         "playerOneScore": 1,
         "playerTwoScore": 2
       },
       {
         "no": 2,
-        "playerOneId": "15",
-        "playerTwoId": "9",
+        "playerOneId": "2",
+        "playerTwoId": "3",
         "playerOneScore": 4,
         "playerTwoScore": 3
       },
       {
         "no": 3,
-        "playerOneId": "13",
-        "playerTwoId": "4",
+        "playerOneId": "4",
+        "playerTwoId": "5",
         "playerOneScore": 2,
         "playerTwoScore": 0
       },
       {
         "no": 4,
-        "playerOneId": "2",
-        "playerTwoId": "1",
+        "playerOneId": "6",
+        "playerTwoId": "7",
         "playerOneScore": null,
         "playerTwoScore": null
       },
       {
         "no": 5,
-        "playerOneId": "17",
-        "playerTwoId": "15",
+        "playerOneId": "1",
+        "playerTwoId": "2",
         "playerOneScore": null,
         "playerTwoScore": null
       },
       {
         "no": 6,
-        "playerOneId": "13",
+        "playerOneId": "4",
         "playerTwoId": null,
         "playerOneScore": null,
         "playerTwoScore": null
@@ -212,14 +212,14 @@
     ],
     "image": "/pool.png",
     "playersIds": [
-      "16",
-      "17",
-      "15",
-      "9",
-      "13",
+      "6",
+      "7",
+      "5",
+      "0",
+      "1",
       "4",
       "2",
-      "1"
+      "3"
     ]
   }
 }
