@@ -45,7 +45,7 @@ export default class TournamentCreate extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <Button onClick={this.handleClickOpen}>Create Tournament</Button>
 
         <Dialog
@@ -108,7 +108,7 @@ export default class TournamentCreate extends React.Component {
             </DialogActions>
           </form>
         </Dialog>
-      </div>
+      </>
     );
   }
 }

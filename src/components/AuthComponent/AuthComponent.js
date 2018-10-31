@@ -1,8 +1,7 @@
 
 import React, { Component } from "react";
 import firebase from "firebase";
-
-
+import Button from "@material-ui/core/Button";
 import SignIn from "../SignIn/SignIn";
 import SignUp from "../SignUp/SignUp";
 
@@ -17,13 +16,13 @@ class AuthComponent extends Component {
 
   render() {
     return this.state.user ? (
-      <>
+      <strong>
         <p>
           {this.state.user.email}{" "}
-          <button onClick={() => firebase.auth().signOut()}>Sign out</button>
+          <Button onClick={() => firebase.auth().signOut()}>Sign out</Button>
         </p>
         {this.props.children}
-      </>
+        </strong>  
     ) : (
       <>
         <SignIn />

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import PlayerInfo from '../PlayerInfo/PlayerInfo'
 import TournamentList from '../TournamentList/TournamentList';
-
+import TournamentCreate from '../TournamentCreate/TournamentCreate';
+import "./PlayerView.css"
 class PlayerView extends Component {
     state = { 
         players: [],
@@ -35,7 +36,10 @@ class PlayerView extends Component {
         return ( 
             <div>
                 <PlayerInfo name={player.name} image={player.image} ranking={player.ranking} points={player.points}/>
+                <div className="myTournament-bar">
                 <h1>My tournaments</h1>
+                <TournamentCreate/>
+                </div>
                 <TournamentList playerId={player.id}/>
             </div>
          );
