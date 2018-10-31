@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import firebase from 'firebase'
 import PropTypes from "prop-types";
 import ScoreList from "../ScoreList/ScoreList";
 import "./TournamentView.css";
@@ -20,48 +21,70 @@ class TournamentView extends Component {
   };
 
   componentDidMount() {
-    const tournamentsPromise = fetch("https://first-project-fe601.firebaseio.com/tournaments.json")
-        .then(response => response.json())
-        .then(tournaments => {
-                    return Object.entries(tournaments || {})
-                    .map(
-                      ([id, value]) => ({
-                        id,
-                        ...value
-                      })
-                    );
-                  });
-    
-    const playersPromise = fetch("https://first-project-fe601.firebaseio.com/players.json")
-        .then(response => response.json())
-        .then(players => {
-          return Object.entries(players || {})
-          .map(
-            ([id, value]) => ({
-              id,
-              ...value
-            })
-          );
-        });
-    
-    Promise.all([tournamentsPromise, playersPromise]).then(
-        data => {
-            // console.log(tournamentsPromise);
-            // console.log(playersPromise);
-            // console.log(data);
-            const searchedTournament = data[0].find(tournament => tournament.id === this.props.location.state.tournamentId)
-            // console.log(searchedTournament);
-            const searchedTournamentPlayers = searchedTournament.playersIds.map(id => {
-                return data[1].find(player => player.id === id)})
-            // console.log(searchedTournamentPlayers);
-            this.setState({tournament:searchedTournament, players: data[1], games: searchedTournament.games, tournamentStatus: searchedTournament.status, tournamentPlayers: searchedTournamentPlayers})
-    })
-}
+    const tournamentsPromise = firebase
+      .database()
+      .ref("tournaments")
+      .on("value", snapshot => {
+        return Object.entries(snapshot.val() || {})
+          .map(([id, value]) => ({ id, ...value }))
+          .reverse();
+
+        // this.setState({
+        //   tournaments
+        // });
+      });
+
+    // const tournamentsPromise = fetch(
+    //   "https://first-project-fe601.firebaseio.com/tournaments.json"
+    // )
+    //   .then(response => response.json())
+    //   .then(tournaments => {
+    //     return Object.entries(tournaments || {}).map(([id, value]) => ({
+    //       id,
+    //       ...value
+    //     }));
+    //   });
+
+    const playersPromise = fetch(
+      "https://first-project-fe601.firebaseio.com/players.json"
+    )
+      .then(response => response.json())
+      .then(players => {
+        return Object.entries(players || {}).map(([id, value]) => ({
+          id,
+          ...value
+        }));
+      });
+
+    Promise.all([tournamentsPromise, playersPromise]).then(data => {
+      // console.log(tournamentsPromise);
+      // console.log(playersPromise);
+      // console.log(data);
+      const searchedTournament = data[0].find(
+        tournament => tournament.id === this.props.location.state.tournamentId
+      );
+      // console.log(searchedTournament);
+      const searchedTournamentPlayers = searchedTournament.playersIds.map(
+        id => {
+          return data[1].find(player => player.id === id);
+        }
+      );
+      // console.log(searchedTournamentPlayers);
+      this.setState({
+        tournament: searchedTournament,
+        players: data[1],
+        games: searchedTournament.games,
+        tournamentStatus: searchedTournament.status,
+        tournamentPlayers: searchedTournamentPlayers
+      });
+    });
+  }
 
   render() {
     return (
       <div className="TournamentView-container">
         <TournamentInfo
+          tournamentId={this.state.tournament.id}
           name={this.state.tournament.name}
           date={this.state.tournament.date}
           address={this.state.tournament.address}
@@ -69,6 +92,7 @@ class TournamentView extends Component {
           placesAvailable={this.state.tournament.placesAvailable}
           placesOccupied={this.state.tournament.placesOccupied}
           image={this.state.tournament.image}
+          description={this.state.tournament.description}
         />
         {this.state.tournamentStatus === "future" ? (
           <div className="PlayerList">

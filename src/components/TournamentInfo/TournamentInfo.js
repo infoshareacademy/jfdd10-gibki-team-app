@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import TournamentEditForm from "../TournamentEditForm/TournamentEditForm";
 import "./TournamentInfo.css";
 
 class TournamentInfo extends Component {
@@ -11,39 +12,54 @@ class TournamentInfo extends Component {
     status: PropTypes.string,
     placesOccupied: PropTypes.number,
     placesAvailable: PropTypes.number,
-    image: PropTypes.string
+    image: PropTypes.string,
+    description: PropTypes.string
   };
 
   getAvailablePlaces = (number, size) => {
     const placesArray = [];
 
-    for(let i = 1; i <= size; i ++) {
+    for (let i = 1; i <= size; i++) {
       if (i <= number) {
         placesArray.push(true);
-      }
-      else{
-        placesArray.push(false)
+      } else {
+        placesArray.push(false);
       }
     }
-    return placesArray
-  }
+    return placesArray;
+  };
 
   render() {
     return (
       <header className="tournamentInfo-Header">
-      
-      <div className="tournamentInfo-top-row">
-       <button className="Info-button"><Link to="/">Home</Link></button>
-      <button className="Info-button"><Link to={"/PlayersView"}>Players</Link></button>
-      </div>
+        <div className="tournamentInfo-top-row">
+          <button className="Info-button">
+            <Link to="/">Home</Link>
+          </button>
+          <button className="Info-button">
+            <Link to={"/PlayersView"}>Players</Link>
+          </button>
+          {this.props.status === "future" ? (
+            <TournamentEditForm
+            tournamentId={this.props.tournamentId}
+              name={this.props.name}
+              date={this.props.date}
+              address={this.props.address}
+              description={this.props.description}
+            />
+          ) : (
+            ""
+          )}
+        </div>
         <h1 className="playerInfo-h1">{this.props.name}</h1>
+        <h1 className="playerInfo-h1">{this.props.description}</h1>
         <div className="tournamentInfo-container">
           <img
             className="tournamentInfo-image"
             src={this.props.image}
             alt="Tournament view"
           />
-         
+
           <div className="tournamentInfo-info">
             <div className="tournamentInfo-DataNames">
               <h2 className="tournamentInfo-h2">Date:</h2>
@@ -57,12 +73,21 @@ class TournamentInfo extends Component {
               <h2 className="tournamentInfo-h2">{this.props.address}</h2>
               <h2 className="tournamentInfo-h2">{this.props.status}</h2>
               <h2 className="tournamentInfo-h2">
-              {(this.props.placesAvailable === this.props.placesOccupied) ? 'none' :            
-                this.getAvailablePlaces(this.props.placesOccupied, this.props.placesAvailable).map(
-                (el, index) => el === true ? <span key={index}>&#x25C6;</span> : <span key={index}>&#x25C7;</span>
-              )}
-              
-              {/* {this.props.places} */}
+                {this.props.placesAvailable === this.props.placesOccupied
+                  ? "none"
+                  : this.getAvailablePlaces(
+                      this.props.placesOccupied,
+                      this.props.placesAvailable
+                    ).map(
+                      (el, index) =>
+                        el === true ? (
+                          <span key={index}>&#x25C6;</span>
+                        ) : (
+                          <span key={index}>&#x25C7;</span>
+                        )
+                    )}
+
+                {/* {this.props.places} */}
               </h2>
             </div>
           </div>
