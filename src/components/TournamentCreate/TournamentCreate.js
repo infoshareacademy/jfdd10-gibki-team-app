@@ -11,7 +11,22 @@ import firebase from "firebase";
 export default class TournamentCreate extends React.Component {
   state = {
     open: false,
-
+    placesAvailable: 8,
+    owner: "",
+    placesOccupied: null,
+    status: "future",
+    winnerId: null,
+    games: [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    image: "",
+    playerIds: [],
 
     name: "",
     date: null,
