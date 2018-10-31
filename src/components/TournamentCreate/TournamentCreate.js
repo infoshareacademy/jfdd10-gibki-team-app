@@ -12,6 +12,7 @@ export default class TournamentCreate extends React.Component {
   state = {
     open: false,
 
+
     name: "",
     date: null,
     address: null,
@@ -33,7 +34,12 @@ export default class TournamentCreate extends React.Component {
       .database()
       .ref("tournaments")
       .push(formData);
-
+      this.setState({
+        name: "",
+        date: "",
+        address: "",
+        description: "",
+      });
     this.handleClose();
   };
 
