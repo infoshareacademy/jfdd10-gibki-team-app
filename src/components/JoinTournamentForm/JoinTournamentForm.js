@@ -1,23 +1,97 @@
-import React, { Component } from 'react'
-import './JoinTournamentForm.css'
+import React, { Component } from "react";
+import firebase from "firebase";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
 
-class JoinTournamentForm extends Component {
+class SignIn extends Component {
+  state = {
+    email: "",
+    password: "",
+    error: null,
+    open: false
+  };
 
+  handleChange = event =>
+    this.setState({ [event.target.name]: event.target.value });
 
-render () {
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then(() => this.setState({ 
+        error: null,
+        open: false,
+        email: "",
+        password: ""
+       }))
+      .catch(error => this.setState({ error }));
+  };
+
+  render() {
     return (
-        <div className="AddPlayer">
-            <form className="AddPlayerForm">
-               
-               <div className="TournamentForm">
-                   <label className="AddPlayer-name" htmlFor="name">Your name </label>
-                   <input className="AddPlayer-input" id="name" />
-                   <button disabled={true} className="JoinButton">Join</button>
-               </div>
-           </form>
-        </div>
-    )
+      <div>
+        <Button onClick={this.handleClickOpen}>Join</Button>
+        <Dialog
+          onSubmit={this.handleSubmit}
+          open={this.state.open}
+          onClose={this.handleClose}
+          aria-labelledby="form-dialog-title"
+        >
+          <DialogTitle id="form-dialog-title">Join</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              To log in, please enter your email address and password.
+              {this.state.error && <p>{this.state.error.message}</p>}
+            </DialogContentText>
+            <TextField
+              autoFocus
+              margin="dense"
+              id="email"
+              label="Email Address"
+              type="email"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+              fullWidth
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="password"
+              label="Password"
+              type="password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+              fullWidth
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={this.handleClose} color="primary">
+              Cancel
+            </Button>
+            <Button onClick={this.handleSubmit} color="primary">
+              Sign In
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </div>
+    );
+  }
+}
 
-}
-}
-export default JoinTournamentForm
+export default SignIn;

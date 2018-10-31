@@ -11,6 +11,22 @@ import firebase from "firebase";
 export default class TournamentCreate extends React.Component {
   state = {
     open: false,
+    placesAvailable: 8,
+    owner: "",
+    placesOccupied: null,
+    status: "future",
+    winnerId: null,
+    games: [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    image: "",
+    playerIds: [],
 
     name: "",
     date: null,
@@ -33,7 +49,12 @@ export default class TournamentCreate extends React.Component {
       .database()
       .ref("tournaments")
       .push(formData);
-
+      this.setState({
+        name: "",
+        date: "",
+        address: "",
+        description: "",
+      });
     this.handleClose();
   };
 
@@ -69,15 +90,18 @@ export default class TournamentCreate extends React.Component {
                 label="Tournament Name"
                 type="name"
                 fullWidth
+                required
               />
               <TextField
                 onChange={this.makeHandleChange("date")}
                 value={this.state.date}
                 margin="normal"
                 id="date"
-                label="Tournament Date"
-                type="name"
+                // label="Tournament Date"
+                type="date"
+                format={'DD/MM/YYYY'}
                 fullWidth
+                required
               />
               <TextField
                 onChange={this.makeHandleChange("address")}
@@ -87,6 +111,7 @@ export default class TournamentCreate extends React.Component {
                 label="Tournament Address"
                 type="name"
                 fullWidth
+                required
               />
               <TextField
                 onChange={this.makeHandleChange("description")}
@@ -96,6 +121,7 @@ export default class TournamentCreate extends React.Component {
                 label="Tournament Description"
                 type="name"
                 fullWidth
+                required
               />
             </DialogContent>
             <DialogActions>

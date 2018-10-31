@@ -21,6 +21,7 @@ const THEME = createMuiTheme({
     MuiButton: {
       root: {
         backgroundColor: "#6573c3",
+        color: "#fff",
         "&:hover": {
           backgroundColor: "#2c387e"
         }
