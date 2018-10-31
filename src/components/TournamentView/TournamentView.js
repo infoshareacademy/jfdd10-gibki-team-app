@@ -22,22 +22,16 @@ class TournamentView extends Component {
 
   componentDidMount() {
     this.ref = firebase.database().ref("tournaments");
-    this.ref.on("value", snapshot => {
-      let currentTournament =
-        Object.entries(snapshot.val() || {})
-          .map(([id, value]) => ({
-            id,
-            ...value
-          }))
-          .find(
-            tournament =>
-              tournament.id === this.props.location.state.tournamentId
-          ) || {};
-
-      this.setState({
-        tournament: currentTournament
-      });
-    });
+    this.ref
+      .child(`${this.props.location.state.tournamentId}`)
+      .on("value", snapshot => {
+          this.setState({
+            tournament: {
+              ...snapshot.val(),
+              id: this.props.location.state.tournamentId
+            }
+          });
+        });
 
     const tournamentsPromise = fetch(
       "https://first-project-fe601.firebaseio.com/tournaments.json"
