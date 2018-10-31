@@ -32,6 +32,7 @@ export default class TournamentEditForm extends React.Component {
   };
 
   handleSubmit = event => {
+      console.log('submit', this.props.tournamentId);
     event.preventDefault();
     const { open, ...formData } = this.state;
     firebase

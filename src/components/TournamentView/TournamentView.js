@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import firebase from 'firebase'
+import firebase from "firebase";
 import PropTypes from "prop-types";
 import ScoreList from "../ScoreList/ScoreList";
 import "./TournamentView.css";
@@ -21,29 +21,34 @@ class TournamentView extends Component {
   };
 
   componentDidMount() {
-    const tournamentsPromise = firebase
-      .database()
-      .ref("tournaments")
-      .on("value", snapshot => {
-        return Object.entries(snapshot.val() || {})
-          .map(([id, value]) => ({ id, ...value }))
-          .reverse();
+    this.ref = firebase.database().ref("tournaments");
+    this.ref.on("value", snapshot => {
+      let currentTournament =
+        Object.entries(snapshot.val() || {})
+          .map(([id, value]) => ({
+            id,
+            ...value
+          }))
+          .find(
+            tournament =>
+              tournament.id === this.props.location.state.tournamentId
+          ) || {};
 
-        // this.setState({
-        //   tournaments
-        // });
+      this.setState({
+        tournament: currentTournament
       });
+    });
 
-    // const tournamentsPromise = fetch(
-    //   "https://first-project-fe601.firebaseio.com/tournaments.json"
-    // )
-    //   .then(response => response.json())
-    //   .then(tournaments => {
-    //     return Object.entries(tournaments || {}).map(([id, value]) => ({
-    //       id,
-    //       ...value
-    //     }));
-    //   });
+    const tournamentsPromise = fetch(
+      "https://first-project-fe601.firebaseio.com/tournaments.json"
+    )
+      .then(response => response.json())
+      .then(tournaments => {
+        return Object.entries(tournaments || {}).map(([id, value]) => ({
+          id,
+          ...value
+        }));
+      });
 
     const playersPromise = fetch(
       "https://first-project-fe601.firebaseio.com/players.json"
@@ -78,6 +83,13 @@ class TournamentView extends Component {
         tournamentPlayers: searchedTournamentPlayers
       });
     });
+  }
+
+  componentWillUnmount() {
+    // this.componentIsMount = false;
+    if (this.ref) {
+      this.ref.off("value", this.setFavEmployeeIds);
+    }
   }
 
   render() {
