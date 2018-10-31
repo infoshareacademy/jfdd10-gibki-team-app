@@ -90,6 +90,7 @@ export default class TournamentCreate extends React.Component {
                 label="Tournament Name"
                 type="name"
                 fullWidth
+                required
               />
               <TextField
                 onChange={this.makeHandleChange("date")}
@@ -99,6 +100,7 @@ export default class TournamentCreate extends React.Component {
                 label="Tournament Date"
                 type="name"
                 fullWidth
+                required
               />
               <TextField
                 onChange={this.makeHandleChange("address")}
@@ -108,6 +110,7 @@ export default class TournamentCreate extends React.Component {
                 label="Tournament Address"
                 type="name"
                 fullWidth
+                required
               />
               <TextField
                 onChange={this.makeHandleChange("description")}
@@ -117,6 +120,7 @@ export default class TournamentCreate extends React.Component {
                 label="Tournament Description"
                 type="name"
                 fullWidth
+                required
               />
             </DialogContent>
             <DialogActions>
