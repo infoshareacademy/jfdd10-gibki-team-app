@@ -9,7 +9,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
-import SignIn from "../SignIn/SignIn";
+// import SignIn from "../SignIn/SignIn";
 import SignUp from "../SignUp/SignUp";
 class Join extends Component {
   state = {
@@ -27,12 +27,9 @@ class Join extends Component {
   handleChange = event =>
     this.setState({ [event.target.name]: event.target.value });
 
-  handleClickOpen = () => {
-    this.setState({ open: true });
-  };
-
   handleClickJoin = () => {
     console.log('user logged')
+    // dodanie usera do turnieju: wysłanie do danego turnieju PlayerId i nasłuch na tą zmianę w TournamentView
   }
 
   handleClickOpen = () => {
@@ -41,10 +38,10 @@ class Join extends Component {
   };
 
   handleClose = () => {
-    this.setState({ open: false });
+    this.setState({ open: false, error: null });
   };
 
-  handleSubmit = event => {
+  handleSubmitSignIn = event => {
     event.preventDefault();
     firebase
       .auth()
@@ -58,20 +55,37 @@ class Join extends Component {
       .catch(error => this.setState({ error }));
   };
 
+  handleSubmitSignUp = event => {
+    // zamknięcie dialogu SignIn i otwarcie dialogu SignUp
+    
+    // event.preventDefault();
+    // firebase
+    //   .auth()
+    //   .signInWithEmailAndPassword(this.state.email, this.state.password)
+    //   .then(() => this.setState({
+    //     error: null,
+    //     open: false,
+    //     email: "",
+    //     password: ""
+    //   }))
+    //   .catch(error => this.setState({ error }));
+  };
+
+
   render() {
     return (
       <div>
         <Button onClick={this.state.user ? this.handleClickJoin : this.handleClickOpen}>Join</Button>
         <Dialog
-          onSubmit={this.handleSubmit}
+          onSubmit={this.handleSubmitSignIn}
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">Join</DialogTitle>
+          <DialogTitle id="form-dialog-title">Sign In and Join</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              To log in, please enter your email address and password.
+              To join tournament, please sign in first.
               {this.state.error && <p>{this.state.error.message}</p>}
             </DialogContentText>
             <TextField
@@ -96,15 +110,28 @@ class Join extends Component {
               onChange={this.handleChange}
               fullWidth
             />
+            <DialogActions>
+              <Button onClick={this.handleSubmitSignIn} color="primary">
+                Join
+            </Button>
+            </DialogActions>
           </DialogContent>
-          <DialogActions>
+
+          <DialogTitle id="form-dialog-title">Sign Up</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              If you don't have an account, please sign up first.
+              {this.state.error && <p>{this.state.error.message}</p>}
+            </DialogContentText>
+            <DialogActions>
+            <Button onClick={this.handleSubmitSignUp} color="primary">
+              Sign Up
+            </Button>
             <Button onClick={this.handleClose} color="primary">
               Cancel
             </Button>
-            <Button onClick={this.handleSubmit} color="primary">
-              Sign In
-            </Button>
-          </DialogActions>
+            </DialogActions>
+          </DialogContent>
         </Dialog>
       </div>
     );

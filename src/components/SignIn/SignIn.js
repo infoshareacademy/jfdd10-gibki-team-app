@@ -24,7 +24,7 @@ class SignIn extends Component {
   };
 
   handleClose = () => {
-    this.setState({ open: false });
+    this.setState({ open: false, error: null });
   };
 
   handleSubmit = event => {

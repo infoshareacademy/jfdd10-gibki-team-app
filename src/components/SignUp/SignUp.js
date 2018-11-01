@@ -52,7 +52,7 @@ export default class FormDialog extends React.Component {
   };
 
   handleClose = () => {
-    this.setState({ open: false });
+    this.setState({ open: false, error: null });
   };
 
   render() {
