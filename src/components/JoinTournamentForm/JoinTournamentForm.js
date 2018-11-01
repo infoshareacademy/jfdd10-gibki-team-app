@@ -22,7 +22,7 @@ class Join extends Component {
 
   static propTypes = {
     tournamentId: PropTypes.string,
-    tournamentPlayers: PropTypes.arrayOf
+    tournamentPlayers: PropTypes.array
   };
 
   componentDidMount() {
@@ -33,10 +33,31 @@ class Join extends Component {
     this.setState({ [event.target.name]: event.target.value });
 
   handleClickJoin = () => {
-    console.log('user logged')
     
-    // dodanie usera do turnieju: wysłanie do danego turnieju PlayerId i nasłuch na tą zmianę w TournamentView
+    firebase
+        .database()
+        .ref(`tournaments/${this.props.tournamentId}/playersIds`)
+        .child(`${this.props.tournamentPlayers.length}`)
+        .set(this.state.user.uid)
+        console.log(this.props.tournamentId)
+        console.log(this.state.user.uid)
+        console.log('user logged')
   }
+
+  // child("key").set(value).
+
+  // If you store Firebase Authentication users in your database, the idiomatic way is to store them under their uid.
+  
+  // var user = firebase.auth().currentUser;
+  // var usersRef = firebase.database().ref("users");
+  // if (user) {
+  //   usersRef.child(user.uid).set({ 
+  //     displayName: displayName,
+  //     email: email,
+  //     photoUrl: photoUrl,
+  //     emailVerified: emailVerified
+  //   });
+  // }
 
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -82,7 +103,7 @@ class Join extends Component {
     //         name: this.state.playerName,
     //         points: "",
     //         ranking: "",
-    //         image: "./purple-avatar.png"
+    //         image: "../purple-avatar.png"
     //       });
     //     this.setState({
     //       error: null,
@@ -94,6 +115,22 @@ class Join extends Component {
     //   })
     //   .catch(error => this.setState({ error }));
   };
+
+  // handleSubmit = event => {
+  //   event.preventDefault();
+  //   const { open, ...formData } = this.state
+  //   firebase
+  //     .database()
+  //     .ref("tournaments")
+  //     .push(formData);
+  //     this.setState({
+  //       name: "",
+  //       date: "",
+  //       address: "",
+  //       description: "",
+  //     });
+  //   this.handleClose();
+  // };
 
   render() {
     return (

@@ -73,7 +73,7 @@ class TournamentView extends Component {
             />{" "}
             <div className="JoinTournament-container">
               <h1>Join Tournament</h1>
-              <JoinTournamentForm tournamentId={this.state.tournamentId} tournamentPlayers={this.state.tournamentPlayers}/>{" "}
+              <JoinTournamentForm tournamentId={this.props.location.state.tournamentId} tournamentPlayers={this.state.tournamentPlayers}/>{" "}
             </div>
           </div>
         ) : (
