@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import firebase from "firebase";
 
 import Button from "@material-ui/core/Button";
@@ -8,9 +9,6 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-
-// import SignIn from "../SignIn/SignIn";
-import SignUp from "../SignUp/SignUp";
 class Join extends Component {
   state = {
     email: "",
@@ -22,6 +20,11 @@ class Join extends Component {
     playerName: ""
   };
 
+  static propTypes = {
+    tournamentId: PropTypes.string,
+    tournamentPlayers: PropTypes.arrayOf
+  };
+
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => this.setState({ user }));
   }
@@ -31,6 +34,7 @@ class Join extends Component {
 
   handleClickJoin = () => {
     console.log('user logged')
+    
     // dodanie usera do turnieju: wysłanie do danego turnieju PlayerId i nasłuch na tą zmianę w TournamentView
   }
 
