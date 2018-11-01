@@ -71,10 +71,12 @@ class TournamentView extends Component {
               tournamentPlayers={this.state.tournamentPlayers}
               playerListHeader={"Players taking part"}
             />{" "}
+            {this.state.tournamentPlayers.length < 8 ? (
             <div className="JoinTournament-container">
               <h1>Join Tournament</h1>
               <JoinTournamentForm tournamentId={this.props.location.state.tournamentId} tournamentPlayers={this.state.tournamentPlayers}/>{" "}
             </div>
+            ) : (<div></div>)}
           </div>
         ) : (
           <ScoreList games={this.state.games} players={this.state.players} />
