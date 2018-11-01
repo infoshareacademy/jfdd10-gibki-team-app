@@ -16,6 +16,7 @@ class Join extends Component {
     error: null,
     open: false,
     open2: false,
+    open3: false,
     user: null,
     playerName: ""
   };
@@ -33,35 +34,19 @@ class Join extends Component {
     this.setState({ [event.target.name]: event.target.value });
 
   handleClickJoin = () => {
-    
+    if (this.props.tournamentPlayers.some(player => player.id === this.state.user.uid)) {
+      this.setState({ open3: true });
+      return;
+    }
     firebase
-        .database()
-        .ref(`tournaments/${this.props.tournamentId}/playersIds`)
-        .child(`${this.props.tournamentPlayers.length}`)
-        .set(this.state.user.uid)
-        console.log(this.props.tournamentId)
-        console.log(this.state.user.uid)
-        console.log('user logged')
+      .database()
+      .ref(`tournaments/${this.props.tournamentId}/playersIds`)
+      .child(`${this.props.tournamentPlayers.length}`)
+      .set(this.state.user.uid)
   }
-
-  // child("key").set(value).
-
-  // If you store Firebase Authentication users in your database, the idiomatic way is to store them under their uid.
-  
-  // var user = firebase.auth().currentUser;
-  // var usersRef = firebase.database().ref("users");
-  // if (user) {
-  //   usersRef.child(user.uid).set({ 
-  //     displayName: displayName,
-  //     email: email,
-  //     photoUrl: photoUrl,
-  //     emailVerified: emailVerified
-  //   });
-  // }
 
   handleClickOpen = () => {
     this.setState({ open: true });
-    console.log('user not logged')
   };
 
   handleClickSignUpDialog = event => {
@@ -74,6 +59,9 @@ class Join extends Component {
   };
   handleClose2 = () => {
     this.setState({ open2: false, error: null });
+  };
+  handleClose3 = () => {
+    this.setState({ open3: false, error: null });
   };
 
   handleSubmitSignIn = event => {
@@ -116,26 +104,25 @@ class Join extends Component {
     //   .catch(error => this.setState({ error }));
   };
 
-  // handleSubmit = event => {
-  //   event.preventDefault();
-  //   const { open, ...formData } = this.state
-  //   firebase
-  //     .database()
-  //     .ref("tournaments")
-  //     .push(formData);
-  //     this.setState({
-  //       name: "",
-  //       date: "",
-  //       address: "",
-  //       description: "",
-  //     });
-  //   this.handleClose();
-  // };
-
   render() {
     return (
       <div>
         <Button onClick={this.state.user ? this.handleClickJoin : this.handleClickOpen}>Join</Button>
+        <Dialog
+          open={this.state.open3}
+          onClose={this.handleClose}
+          aria-labelledby="form-dialog-title"
+        >
+          <DialogTitle id="form-dialog-title">You've already joined</DialogTitle>
+          <DialogContent>
+            <DialogActions>
+              <Button onClick={this.handleClose3} color="primary">
+                Close
+            </Button>
+            </DialogActions>
+          </DialogContent>
+        </Dialog>
+
         <Dialog
           onSubmit={this.handleSubmitSignIn}
           open={this.state.open}
