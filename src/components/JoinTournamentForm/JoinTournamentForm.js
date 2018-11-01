@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import firebase from "firebase";
+
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -8,19 +9,35 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
-class SignIn extends Component {
+import SignIn from "../SignIn/SignIn";
+import SignUp from "../SignUp/SignUp";
+class Join extends Component {
   state = {
     email: "",
     password: "",
     error: null,
-    open: false
+    open: false,
+    user: null,
   };
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => this.setState({ user }));
+  }
 
   handleChange = event =>
     this.setState({ [event.target.name]: event.target.value });
 
   handleClickOpen = () => {
     this.setState({ open: true });
+  };
+
+  handleClickJoin = () => {
+    console.log('user logged')
+  }
+
+  handleClickOpen = () => {
+    this.setState({ open: true });
+    console.log('user not logged')
   };
 
   handleClose = () => {
@@ -32,19 +49,19 @@ class SignIn extends Component {
     firebase
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then(() => this.setState({ 
+      .then(() => this.setState({
         error: null,
         open: false,
         email: "",
         password: ""
-       }))
+      }))
       .catch(error => this.setState({ error }));
   };
 
   render() {
     return (
       <div>
-        <Button onClick={this.handleClickOpen}>Join</Button>
+        <Button onClick={this.state.user ? this.handleClickJoin : this.handleClickOpen}>Join</Button>
         <Dialog
           onSubmit={this.handleSubmit}
           open={this.state.open}
@@ -94,4 +111,28 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+export default Join;
+
+
+//   render() {
+//     return this.state.user ? (
+//       <strong>
+//         <p>
+//           {this.state.user.email}{" "}
+//           <Button onClick={() => firebase.auth().signOut()}>Sign out</Button>
+//         </p>
+//         {this.props.children}
+//         </strong>  
+//     ) : (
+//       <>
+//         <SignIn />
+//         <SignUp />
+
+
+
+
+
+//       </>
+//     );
+//   }
+// }
