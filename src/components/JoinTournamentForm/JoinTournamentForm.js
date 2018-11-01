@@ -17,7 +17,9 @@ class Join extends Component {
     password: "",
     error: null,
     open: false,
+    open2: false,
     user: null,
+    playerName: ""
   };
 
   componentDidMount() {
@@ -37,8 +39,16 @@ class Join extends Component {
     console.log('user not logged')
   };
 
+  handleClickSignUpDialog = event => {
+    this.setState({ open2: true });
+    this.setState({ open: false, error: null });
+  };
+
   handleClose = () => {
     this.setState({ open: false, error: null });
+  };
+  handleClose2 = () => {
+    this.setState({ open2: false, error: null });
   };
 
   handleSubmitSignIn = event => {
@@ -56,21 +66,30 @@ class Join extends Component {
   };
 
   handleSubmitSignUp = event => {
-    // zamknięcie dialogu SignIn i otwarcie dialogu SignUp
-    
     // event.preventDefault();
     // firebase
     //   .auth()
-    //   .signInWithEmailAndPassword(this.state.email, this.state.password)
-    //   .then(() => this.setState({
-    //     error: null,
-    //     open: false,
-    //     email: "",
-    //     password: ""
-    //   }))
+    //   .createUserWithEmailAndPassword(this.state.email, this.state.password)
+    //   .then(data => {
+    //     firebase
+    //       .database()
+    //       .ref("/players/" + data.user.uid)
+    //       .set({
+    //         name: this.state.playerName,
+    //         points: "",
+    //         ranking: "",
+    //         image: "./purple-avatar.png"
+    //       });
+    //     this.setState({
+    //       error: null,
+    //       email: "",
+    //       password: "",
+    //       playerName: "",
+    //       open: false
+    //     });
+    //   })
     //   .catch(error => this.setState({ error }));
   };
-
 
   render() {
     return (
@@ -124,11 +143,67 @@ class Join extends Component {
               {this.state.error && <p>{this.state.error.message}</p>}
             </DialogContentText>
             <DialogActions>
-            <Button onClick={this.handleSubmitSignUp} color="primary">
-              Sign Up
+              <Button onClick={this.handleClickSignUpDialog} color="primary">
+                Sign Up
             </Button>
-            <Button onClick={this.handleClose} color="primary">
-              Cancel
+              <Button onClick={this.handleClose} color="primary">
+                Cancel
+            </Button>
+            </DialogActions>
+          </DialogContent>
+        </Dialog>
+
+        <Dialog
+          onSubmit={this.handleSubmitSignUp}
+          open={this.state.open2}
+          onClose={this.handleClose}
+          aria-labelledby="form-dialog-title"
+        >
+          <DialogTitle id="form-dialog-title">Sign Up and Join</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              To join tournament, please sign up first.
+              {this.state.error && <p>{this.state.error.message}</p>}
+            </DialogContentText>
+            <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label="Your name"
+              type="name"
+              name="playerName"
+              value={this.state.playerName}
+              onChange={this.handleChange}
+              fullWidth
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="email"
+              label="Email Address"
+              type="email"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+              fullWidth
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="password"
+              label="Password"
+              type="password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+              fullWidth
+            />
+            <DialogActions>
+              <Button onClick={this.handleSubmitSignUp} color="primary">
+                Join
+            </Button>
+              <Button onClick={this.handleClose2} color="primary">
+                Cancel
             </Button>
             </DialogActions>
           </DialogContent>
@@ -141,25 +216,3 @@ class Join extends Component {
 export default Join;
 
 
-//   render() {
-//     return this.state.user ? (
-//       <strong>
-//         <p>
-//           {this.state.user.email}{" "}
-//           <Button onClick={() => firebase.auth().signOut()}>Sign out</Button>
-//         </p>
-//         {this.props.children}
-//         </strong>  
-//     ) : (
-//       <>
-//         <SignIn />
-//         <SignUp />
-
-
-
-
-
-//       </>
-//     );
-//   }
-// }
