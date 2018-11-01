@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import PlayerListItem from '../PlayerListItem/PlayerListItem'
-import JoinTournamentForm from '../JoinTournamentForm/JoinTournamentForm'
 import "./PlayerList.css";
  
 class PlayerList extends Component {
@@ -17,10 +16,7 @@ class PlayerList extends Component {
      render() {
         return (
             <Fragment>
-                <div className="Header-container">
-                    <h1>{this.props.playerListHeader}</h1>    
-                    <JoinTournamentForm />{" "}
-                </div>
+                <h1>{this.props.playerListHeader}</h1>    
                 <ul className="ulList">
                     {this.props.tournamentPlayers.map(
                         player =>  
