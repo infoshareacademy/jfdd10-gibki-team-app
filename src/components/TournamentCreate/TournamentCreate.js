@@ -10,21 +10,14 @@ import firebase from "firebase";
 
 export default class TournamentCreate extends React.Component {
   state = {
+    user: null,
     open: false,
     placesAvailable: 8,
     owner: "",
     placesOccupied: null,
     status: "future",
     winnerId: null,
-    games: [
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {}
-    ],
+    games: [{}, {}, {}, {}, {}, {}, {}],
     image: "",
     playerIds: [],
 
@@ -33,6 +26,18 @@ export default class TournamentCreate extends React.Component {
     address: null,
     description: null
   };
+
+  componentDidMount() {
+    this.unsubscribe = firebase.auth().onAuthStateChanged(
+      user => this.setState({ user })
+    )
+  }
+
+  componentWillUnmount() {
+    if (this.unsubscribe) {
+      this.unsubscribe()
+    }
+  }
 
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -44,17 +49,17 @@ export default class TournamentCreate extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { open, ...formData } = this.state
+    const { open, ...formData } = this.state;
     firebase
       .database()
       .ref("tournaments")
       .push(formData);
-      this.setState({
-        name: "",
-        date: "",
-        address: "",
-        description: "",
-      });
+    this.setState({
+      name: "",
+      date: "",
+      address: "",
+      description: ""
+    });
     this.handleClose();
   };
 
@@ -67,7 +72,9 @@ export default class TournamentCreate extends React.Component {
   render() {
     return (
       <>
-        <Button onClick={this.handleClickOpen}>Create Tournament</Button>
+        {this.state.user && (
+          <Button onClick={this.handleClickOpen}>Create Tournament</Button>
+        )}
 
         <Dialog
           open={this.state.open}
@@ -99,7 +106,7 @@ export default class TournamentCreate extends React.Component {
                 id="date"
                 // label="Tournament Date"
                 type="date"
-                format={'DD/MM/YYYY'}
+                format={"DD/MM/YYYY"}
                 fullWidth
                 required
               />
