@@ -5,6 +5,22 @@ import TournamentEditForm from "../TournamentEditForm/TournamentEditForm";
 import "./TournamentInfo.css";
 
 class TournamentInfo extends Component {
+  state = {
+    user: null
+  }
+
+  componentDidMount() {
+    this.unsubscribe = firebase.auth().onAuthStateChanged(
+      user => this.setState({ user })
+    )
+  }
+
+  componentWillUnmount() {
+    if (this.unsubscribe) {
+      this.unsubscribe()
+    }
+  }
+  
   static propTypes = {
     name: PropTypes.string,
     date: PropTypes.string,
@@ -39,7 +55,7 @@ class TournamentInfo extends Component {
           <button className="Info-button">
             <Link to={"/PlayersView"}>Players</Link>
           </button>
-          {this.props.status === "future" ? (
+          {this.props.status === "future" && this.state.user && this.state.user.uid === this.ownerId ? (
             <TournamentEditForm
               tournamentId={this.props.id}
               name={this.props.name}
