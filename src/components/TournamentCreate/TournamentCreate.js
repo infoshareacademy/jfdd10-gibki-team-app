@@ -29,7 +29,7 @@ export default class TournamentCreate extends React.Component {
 
   componentDidMount() {
     this.unsubscribe = firebase.auth().onAuthStateChanged(
-      user => this.setState({ user })
+      user => this.setState({ user, owner: user.uid })
     )
   }
 
@@ -49,7 +49,7 @@ export default class TournamentCreate extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { open, ...formData } = this.state;
+    const { open, user, ...formData } = this.state;
     firebase
       .database()
       .ref("tournaments")
