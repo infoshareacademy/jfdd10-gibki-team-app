@@ -23,7 +23,7 @@ class TournamentView extends Component {
   processTournament = snapshot => {
     const tournament = snapshot.val();
     this.setState({
-      tournament: tournament && { id: this.props.tournamentId, ...tournament }
+      tournament: tournament && { id: this.props.match.params.tournamentId, ...tournament }
     });
   };
 
