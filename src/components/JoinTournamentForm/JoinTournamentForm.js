@@ -80,6 +80,14 @@ class Join extends Component {
           email: "",
           password: ""
         });
+        if (
+          this.props.tournamentPlayers.some(
+            player => player.id === this.state.user.uid
+          )
+        ) {
+          this.setState({ open3: true });
+          return;
+        }
         firebase
           .database()
           .ref(`tournaments/${this.props.tournamentId}/playersIds`)
