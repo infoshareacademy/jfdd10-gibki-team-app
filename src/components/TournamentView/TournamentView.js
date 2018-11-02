@@ -61,8 +61,10 @@ class TournamentView extends Component {
     }
     const tournamentPlayers =
       (tournament.playersIds &&
-        tournament.playersIds.map(playerId => players[playerId])) ||
-      [];
+        tournament.playersIds.map(playerId => ({ 
+          id: playerId, 
+          ...players[playerId] 
+        }))) || [];
     return (
       <div className="TournamentView-container">
         <TournamentInfo {...tournament} />
@@ -87,7 +89,7 @@ class TournamentView extends Component {
         ) : (
           <ScoreList
             games={(tournament && tournament.games) || []}
-            players={this.objectToArray(this.state.players)}
+            players={tournamentPlayers}
           />
         )}
       </div>

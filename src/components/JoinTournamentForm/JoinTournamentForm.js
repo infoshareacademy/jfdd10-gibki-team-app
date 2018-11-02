@@ -34,6 +34,7 @@ class Join extends Component {
     this.setState({ [event.target.name]: event.target.value });
 
   handleClickJoin = () => {
+    console.log(this.props.tournamentPlayers, this.state.user.uid)
     if (
       this.props.tournamentPlayers.some(
         player => player.id === this.state.user.uid
