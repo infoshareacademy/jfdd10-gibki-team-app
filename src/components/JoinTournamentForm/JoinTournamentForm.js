@@ -82,7 +82,7 @@ class Join extends Component {
         });
         if (
           this.props.tournamentPlayers.some(
-            player => player.id === this.state.user.uid
+            player => player.id === data.user.uid
           )
         ) {
           this.setState({ open3: true });
