@@ -55,7 +55,7 @@ class TournamentInfo extends Component {
           <button className="Info-button">
             <Link to={"/PlayersView"}>Players</Link>
           </button>
-          {this.props.status === "future" && this.state.user && this.state.user.uid === this.ownerId ? (
+          {this.props.status === "future" && this.state.user && this.state.user.uid === this.props.owner ? (
             <TournamentEditForm
               tournamentId={this.props.id}
               name={this.props.name}
