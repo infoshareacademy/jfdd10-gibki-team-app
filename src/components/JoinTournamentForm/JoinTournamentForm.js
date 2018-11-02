@@ -73,48 +73,51 @@ class Join extends Component {
     firebase
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then((data) => {
+      .then(data => {
         this.setState({
           error: null,
           open: false,
           email: "",
           password: ""
-        })
+        });
         firebase
           .database()
           .ref(`tournaments/${this.props.tournamentId}/playersIds`)
           .child(`${this.props.tournamentPlayers.length}`)
-          .set(data.user.uid)
-      }
-      )
-      .catch(error => this.setState({ error }))
-      
+          .set(data.user.uid);
+      })
+      .catch(error => this.setState({ error }));
   };
 
   handleSubmitSignUp = event => {
-    // event.preventDefault();
-    // firebase
-    //   .auth()
-    //   .createUserWithEmailAndPassword(this.state.email, this.state.password)
-    //   .then(data => {
-    //     firebase
-    //       .database()
-    //       .ref("/players/" + data.user.uid)
-    //       .set({
-    //         name: this.state.playerName,
-    //         points: "",
-    //         ranking: "",
-    //         image: "../purple-avatar.png"
-    //       });
-    //     this.setState({
-    //       error: null,
-    //       email: "",
-    //       password: "",
-    //       playerName: "",
-    //       open: false
-    //     });
-    //   })
-    //   .catch(error => this.setState({ error }));
+    event.preventDefault();
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(this.state.email, this.state.password)
+      .then(data => {
+        firebase
+          .database()
+          .ref("/players/" + data.user.uid)
+          .set({
+            name: this.state.playerName,
+            points: "",
+            ranking: "",
+            image: "../purple-avatar.png"
+          });
+        this.setState({
+          error: null,
+          email: "",
+          password: "",
+          playerName: "",
+          open2: false
+        });
+        firebase
+          .database()
+          .ref(`tournaments/${this.props.tournamentId}/playersIds`)
+          .child(`${this.props.tournamentPlayers.length}`)
+          .set(data.user.uid);
+      })
+      .catch(error => this.setState({ error }));
   };
 
   render() {
