@@ -1,6 +1,4 @@
-.Header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 40px;
+.ulList {
+    padding: 0px;
+    margin: 0px;
 }
