@@ -15,8 +15,8 @@ class HomeInfo extends Component {
 
         <header className="HomeInfo-Header">
          <div className="HomeInfo-Top">
-         <AuthComponent/>
          <Button><Link to={"/PlayersView"}>Players</Link></Button>
+         <AuthComponent/>
 
          </div>
             <h1 className="HomeInfo-H1">Enter the Tournament and Have Some Fun!</h1>

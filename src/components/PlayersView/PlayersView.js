@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PlayerList from "../PlayerList/PlayerList";
 import "./PlayersView.css";
 import Button from "@material-ui/core/Button";
+import AuthComponent from '../AuthComponent/AuthComponent';
 class PlayersView extends Component {
   state = {
     players: []
@@ -30,6 +31,7 @@ class PlayersView extends Component {
             <Button>
               <Link to="/">Home</Link>
             </Button>
+            <AuthComponent/>
           </div>
           <div className="playersView-container">
             <h1 className="playersView-h1">All Players</h1>

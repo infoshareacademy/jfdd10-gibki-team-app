@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./PlayerInfo.css";
 import Button from "@material-ui/core/Button";
-
+import AuthComponent from '../AuthComponent/AuthComponent';
 class PlayerInfo extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
@@ -32,6 +32,7 @@ class PlayerInfo extends Component {
       <div className="tournamentInfo-top-row">
       <Button><Link to="/">Home</Link></Button>
       <Button><Link to="/PlayersView">Players</Link></Button>
+      <AuthComponent/>
       </div>
         <h1 className="playerInfo-h1" >Player Info</h1>
         <div className="playerInfo-container">
