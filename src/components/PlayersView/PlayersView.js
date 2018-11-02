@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PlayerList from "../PlayerList/PlayerList";
 import "./PlayersView.css";
+import Button from "@material-ui/core/Button";
 class PlayersView extends Component {
   state = {
     players: []
@@ -26,9 +27,9 @@ class PlayersView extends Component {
       <div>
         <header className="playersView-Header">
           <div className="playersView-top-row">
-            <button className="Info-button">
+            <Button>
               <Link to="/">Home</Link>
-            </button>
+            </Button>
           </div>
           <div className="playersView-container">
             <h1 className="playersView-h1">All Players</h1>

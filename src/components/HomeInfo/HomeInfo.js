@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-
 import "./HomeInfo.css";
+import AuthComponent from '../AuthComponent/AuthComponent';
+import Button from "@material-ui/core/Button";
+
+
+
 class HomeInfo extends Component {
     static propTypes = {
       
@@ -10,8 +14,10 @@ class HomeInfo extends Component {
         return ( 
 
         <header className="HomeInfo-Header">
-         <div className="tournamentInfo-top-row">
-         <button className="Info-button"><Link to={"/PlayersView"}>Players</Link></button>
+         <div className="HomeInfo-Top">
+         <AuthComponent/>
+         <Button><Link to={"/PlayersView"}>Players</Link></Button>
+
          </div>
             <h1 className="HomeInfo-H1">Enter the Tournament and Have Some Fun!</h1>
             <div className="image-container">
