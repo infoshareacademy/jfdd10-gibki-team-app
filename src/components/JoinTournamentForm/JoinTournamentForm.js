@@ -157,7 +157,11 @@ class Join extends Component {
           <DialogContent>
             <DialogContentText>
               To join tournament, please sign in first.
-              {this.state.error && <p>{this.state.error.message}</p>}
+              {this.state.error && (
+                <strong>
+                  <p style={{ color: "red" }}>{this.state.error.message}</p>
+                </strong>
+              )}
             </DialogContentText>
             <TextField
               autoFocus
@@ -192,7 +196,7 @@ class Join extends Component {
           <DialogContent>
             <DialogContentText>
               If you don't have an account, please sign up first.
-              {this.state.error && <p>{this.state.error.message}</p>}
+          
             </DialogContentText>
             <DialogActions>
               <Button onClick={this.handleClickSignUpDialog} color="primary">
@@ -215,7 +219,11 @@ class Join extends Component {
           <DialogContent>
             <DialogContentText>
               To join tournament, please sign up first.
-              {this.state.error && <p>{this.state.error.message}</p>}
+              {this.state.error && (
+                <strong>
+                  <p style={{ color: "red" }}>{this.state.error.message}</p>
+                </strong>
+              )}
             </DialogContentText>
             <TextField
               autoFocus
