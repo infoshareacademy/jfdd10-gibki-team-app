@@ -1,11 +1,11 @@
 import React, { Component } from "react";
+import firebase from "firebase";
 import PropTypes from "prop-types";
 import ScoreList from "../ScoreList/ScoreList";
 import "./TournamentView.css";
 import PlayerList from "../PlayerList/PlayerList";
 import TournamentInfo from "../TournamentInfo/TournamentInfo";
 import JoinTournamentForm from "../JoinTournamentForm/JoinTournamentForm";
-import firebase from "firebase";
 class TournamentView extends Component {
   state = {
     tournament: null,
@@ -23,7 +23,7 @@ class TournamentView extends Component {
   processTournament = snapshot => {
     const tournament = snapshot.val();
     this.setState({
-      tournament: tournament && { id: this.props.torunamentId, ...tournament }
+      tournament: tournament && { id: this.props.tournamentId, ...tournament }
     });
   };
 
