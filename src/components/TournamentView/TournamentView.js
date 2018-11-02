@@ -6,7 +6,6 @@ import "./TournamentView.css";
 import PlayerList from "../PlayerList/PlayerList";
 import TournamentInfo from "../TournamentInfo/TournamentInfo";
 import JoinTournamentForm from "../JoinTournamentForm/JoinTournamentForm";
-import firebase from "firebase";
 class TournamentView extends Component {
   state = {
     tournament: null,
