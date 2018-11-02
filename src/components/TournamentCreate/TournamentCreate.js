@@ -14,7 +14,7 @@ export default class TournamentCreate extends React.Component {
     open: false,
     placesAvailable: 8,
     owner: "",
-    placesOccupied: null,
+    placesOccupied: 0,
     status: "future",
     winnerId: null,
     games: [{}, {}, {}, {}, {}, {}, {}],
