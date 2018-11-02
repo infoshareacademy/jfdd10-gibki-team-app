@@ -41,7 +41,7 @@ class TournamentInfo extends Component {
           </button>
           {this.props.status === "future" ? (
             <TournamentEditForm
-              tournamentId={this.props.tournamentId}
+              tournamentId={this.props.id}
               name={this.props.name}
               date={this.props.date}
               address={this.props.address}

@@ -29,9 +29,9 @@ class PlayerView extends Component {
       }
 
     render() { 
-        const player = this.state.players.find(player => player.id === this.props.location.state.playerId)
+        const player = this.state.players.find(player => player.id === this.props.match.params.playerId)
         if (player === undefined){
-            return <div>PLayer Not Found</div>
+            return <div>Player Not Found</div>
         }
         return ( 
             <div>
