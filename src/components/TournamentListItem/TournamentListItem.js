@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Link } from "react-router-dom";
 import "./TournamentListItem.css";
+import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
   root: {
@@ -85,7 +86,7 @@ class ControlledExpansionPanels extends React.Component {
                   (el, index) =>
                     el === true ? <span key={index}>&#x25C6;</span> : <span key={index}>&#x25C7;</span>
                 )}
-            <button className="Info-button">
+            <Button >
               <Link
                 to={{
                   pathname: `/TournamentView/${this.props.tournament.id}`,
@@ -94,7 +95,7 @@ class ControlledExpansionPanels extends React.Component {
               >
                 Details
               </Link>
-            </button>
+            </Button>
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
