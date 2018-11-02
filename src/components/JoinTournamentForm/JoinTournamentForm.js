@@ -34,7 +34,11 @@ class Join extends Component {
     this.setState({ [event.target.name]: event.target.value });
 
   handleClickJoin = () => {
-    if (this.props.tournamentPlayers.some(player => player.id === this.state.user.uid)) {
+    if (
+      this.props.tournamentPlayers.some(
+        player => player.id === this.state.user.uid
+      )
+    ) {
       this.setState({ open3: true });
       return;
     }
@@ -42,8 +46,8 @@ class Join extends Component {
       .database()
       .ref(`tournaments/${this.props.tournamentId}/playersIds`)
       .child(`${this.props.tournamentPlayers.length}`)
-      .set(this.state.user.uid)
-  }
+      .set(this.state.user.uid);
+  };
 
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -69,13 +73,22 @@ class Join extends Component {
     firebase
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then(() => this.setState({
-        error: null,
-        open: false,
-        email: "",
-        password: ""
-      }))
-      .catch(error => this.setState({ error }));
+      .then((data) => {
+        this.setState({
+          error: null,
+          open: false,
+          email: "",
+          password: ""
+        })
+        firebase
+          .database()
+          .ref(`tournaments/${this.props.tournamentId}/playersIds`)
+          .child(`${this.props.tournamentPlayers.length}`)
+          .set(data.user.uid)
+      }
+      )
+      .catch(error => this.setState({ error }))
+      
   };
 
   handleSubmitSignUp = event => {
@@ -107,18 +120,26 @@ class Join extends Component {
   render() {
     return (
       <div>
-        <Button onClick={this.state.user ? this.handleClickJoin : this.handleClickOpen}>Join</Button>
+        <Button
+          onClick={
+            this.state.user ? this.handleClickJoin : this.handleClickOpen
+          }
+        >
+          Join
+        </Button>
         <Dialog
           open={this.state.open3}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">You've already joined</DialogTitle>
+          <DialogTitle id="form-dialog-title">
+            You've already joined
+          </DialogTitle>
           <DialogContent>
             <DialogActions>
               <Button onClick={this.handleClose3} color="primary">
                 Close
-            </Button>
+              </Button>
             </DialogActions>
           </DialogContent>
         </Dialog>
@@ -160,7 +181,7 @@ class Join extends Component {
             <DialogActions>
               <Button onClick={this.handleSubmitSignIn} color="primary">
                 Join
-            </Button>
+              </Button>
             </DialogActions>
           </DialogContent>
 
@@ -173,10 +194,10 @@ class Join extends Component {
             <DialogActions>
               <Button onClick={this.handleClickSignUpDialog} color="primary">
                 Sign Up
-            </Button>
+              </Button>
               <Button onClick={this.handleClose} color="primary">
                 Cancel
-            </Button>
+              </Button>
             </DialogActions>
           </DialogContent>
         </Dialog>
@@ -229,10 +250,10 @@ class Join extends Component {
             <DialogActions>
               <Button onClick={this.handleSubmitSignUp} color="primary">
                 Join
-            </Button>
+              </Button>
               <Button onClick={this.handleClose2} color="primary">
                 Cancel
-            </Button>
+              </Button>
             </DialogActions>
           </DialogContent>
         </Dialog>
@@ -242,5 +263,3 @@ class Join extends Component {
 }
 
 export default Join;
-
-
