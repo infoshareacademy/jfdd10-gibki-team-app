@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./TournamentInfo.css";
+import Button from "@material-ui/core/Button";
 
 class TournamentInfo extends Component {
   static propTypes = {
@@ -33,8 +34,8 @@ class TournamentInfo extends Component {
       <header className="tournamentInfo-Header">
       
       <div className="tournamentInfo-top-row">
-       <button className="Info-button"><Link to="/">Home</Link></button>
-      <button className="Info-button"><Link to={"/PlayersView"}>Players</Link></button>
+       <Button><Link to="/">Home</Link></Button>
+      <Button><Link to={"/PlayersView"}>Players</Link></Button>
       </div>
         <h1 className="playerInfo-h1">{this.props.name}</h1>
         <div className="tournamentInfo-container">
