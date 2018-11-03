@@ -23,7 +23,7 @@ class Join extends Component {
 
   static propTypes = {
     tournamentId: PropTypes.string,
-    tournamentPlayers: PropTypes.array
+    tournamentPlayers: PropTypes.array,
   };
 
   componentDidMount() {
@@ -47,6 +47,10 @@ class Join extends Component {
       .ref(`tournaments/${this.props.tournamentId}/playersIds`)
       .child(`${this.props.tournamentPlayers.length}`)
       .set(this.state.user.uid);
+    firebase
+      .database()
+      .ref(`tournaments/${this.props.tournamentId}/placesOccupied`)
+      .set(this.props.tournamentPlayers.length + 1)
   };
 
   handleClickOpen = () => {
@@ -80,11 +84,23 @@ class Join extends Component {
           email: "",
           password: ""
         });
+        if (
+          this.props.tournamentPlayers.some(
+            player => player.id === data.user.uid
+          )
+        ) {
+          this.setState({ open3: true });
+          return;
+        }
         firebase
           .database()
           .ref(`tournaments/${this.props.tournamentId}/playersIds`)
           .child(`${this.props.tournamentPlayers.length}`)
           .set(data.user.uid);
+        firebase
+          .database()
+          .ref(`tournaments/${this.props.tournamentId}/placesOccupied`)
+          .set(this.props.tournamentPlayers.length)
       })
       .catch(error => this.setState({ error }));
   };
@@ -116,6 +132,10 @@ class Join extends Component {
           .ref(`tournaments/${this.props.tournamentId}/playersIds`)
           .child(`${this.props.tournamentPlayers.length}`)
           .set(data.user.uid);
+          firebase
+          .database()
+          .ref(`tournaments/${this.props.tournamentId}/placesOccupied`)
+          .set(this.props.tournamentPlayers.length)
       })
       .catch(error => this.setState({ error }));
   };
@@ -196,7 +216,7 @@ class Join extends Component {
           <DialogContent>
             <DialogContentText>
               If you don't have an account, please sign up first.
-          
+
             </DialogContentText>
             <DialogActions>
               <Button onClick={this.handleClickSignUpDialog} color="primary">
