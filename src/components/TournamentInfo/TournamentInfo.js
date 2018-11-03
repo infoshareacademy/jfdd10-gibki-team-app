@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import firebase from "firebase";
 import TournamentEditForm from "../TournamentEditForm/TournamentEditForm";
 import "./TournamentInfo.css";
 import Button from "@material-ui/core/Button";
+import AuthComponent from '../AuthComponent/AuthComponent';
 
 class TournamentInfo extends Component {
   state = {
@@ -51,6 +51,7 @@ class TournamentInfo extends Component {
     return (
       <header className="tournamentInfo-Header">
         <div className="tournamentInfo-top-row">
+        <AuthComponent/>
           <Button>
             <Link to="/">Home</Link>
           </Button>
