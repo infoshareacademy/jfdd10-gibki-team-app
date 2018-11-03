@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -8,36 +9,19 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import firebase from "firebase";
 
-export default class TournamentCreate extends React.Component {
-  state = {
-    user: null,
-    open: false,
-    placesAvailable: 8,
-    owner: "",
-    placesOccupied: 0,
-    status: "future",
-    winnerId: null,
-    games: [{}, {}, {}, {}, {}, {}, {}],
-    image: "",
-    playerIds: [],
-
-    name: "",
-    date: null,
-    address: null,
-    description: null
+export default class TournamentEditForm extends React.Component {
+  static propTypes = {
+    name: PropTypes.string,
+    date: PropTypes.string,
+    address: PropTypes.string,
+    description: PropTypes.string
   };
 
-  componentDidMount() {
-    this.unsubscribe = firebase.auth().onAuthStateChanged(
-      user => this.setState({ user, owner: user.uid })
-    )
-  }
+  state = {
+    open: false,
 
-  componentWillUnmount() {
-    if (this.unsubscribe) {
-      this.unsubscribe()
-    }
-  }
+    ...this.props
+  };
 
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -48,18 +32,15 @@ export default class TournamentCreate extends React.Component {
   };
 
   handleSubmit = event => {
+    console.log('submit', this.props.tournamentId);
     event.preventDefault();
-    const { open, user, ...formData } = this.state;
+    const { open, ...formData } = this.state;
     firebase
       .database()
       .ref("tournaments")
-      .push(formData);
-    this.setState({
-      name: "",
-      date: "",
-      address: "",
-      description: ""
-    });
+      .child(`${this.props.tournamentId}`)
+      .update(formData);
+
     this.handleClose();
   };
 
@@ -71,10 +52,8 @@ export default class TournamentCreate extends React.Component {
 
   render() {
     return (
-      <>
-        {this.state.user && (
-          <Button onClick={this.handleClickOpen}>Create Tournament</Button>
-        )}
+      <div>
+        <Button onClick={this.handleClickOpen}>Edit Tournament</Button>
 
         <Dialog
           open={this.state.open}
@@ -82,10 +61,11 @@ export default class TournamentCreate extends React.Component {
           aria-labelledby="form-dialog-title"
         >
           <form onSubmit={this.handleSubmit}>
-            <DialogTitle id="form-dialog-title">Create</DialogTitle>
+            <DialogTitle id="form-dialog-title">Edit</DialogTitle>
             <DialogContent>
               <DialogContentText>
-                To add a tournament please add all required information below.
+                To edit a tournament please change information shown below and
+                choose Edit button.
               </DialogContentText>
 
               <TextField
@@ -97,18 +77,15 @@ export default class TournamentCreate extends React.Component {
                 label="Tournament Name"
                 type="name"
                 fullWidth
-                required
               />
               <TextField
                 onChange={this.makeHandleChange("date")}
                 value={this.state.date}
                 margin="normal"
                 id="date"
-                // label="Tournament Date"
-                type="date"
-                format={"DD/MM/YYYY"}
+                label="Tournament Date"
+                type="name"
                 fullWidth
-                required
               />
               <TextField
                 onChange={this.makeHandleChange("address")}
@@ -118,7 +95,6 @@ export default class TournamentCreate extends React.Component {
                 label="Tournament Address"
                 type="name"
                 fullWidth
-                required
               />
               <TextField
                 onChange={this.makeHandleChange("description")}
@@ -128,7 +104,6 @@ export default class TournamentCreate extends React.Component {
                 label="Tournament Description"
                 type="name"
                 fullWidth
-                required
               />
             </DialogContent>
             <DialogActions>
@@ -136,12 +111,12 @@ export default class TournamentCreate extends React.Component {
                 Cancel
               </Button>
               <Button type="submit" color="primary">
-                Create
+                Edit
               </Button>
             </DialogActions>
           </form>
         </Dialog>
-      </>
+      </div>
     );
   }
 }
