@@ -76,7 +76,6 @@ class ControlledExpansionPanels extends React.Component {
             {this.props.tournament.description}
             <br />
             <br />
-              <div className="TournamentListItem-places">
                 Places available:{" "}
                 {this.props.tournament.placesAvailable === this.props.tournament.placesOccupied
                   ? "none"
@@ -86,8 +85,7 @@ class ControlledExpansionPanels extends React.Component {
                   ).map(
                     (el, index) =>
                       el === true ? <span key={index}>&#x25C6;</span> : <span key={index}>&#x25C7;</span>
-                  )}
-              </div>
+                  )}{" "}
               <Button >
                 <Link
                   to={{
