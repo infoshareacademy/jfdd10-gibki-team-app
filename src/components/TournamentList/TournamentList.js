@@ -93,7 +93,6 @@ class TabsWrappedLabel extends React.Component {
                 return tournament.status === "active" && {};
               })
               .filter(tournament => {
-                console.log(tournament)
                 return this.props.playerId === undefined
                   ? true
                   : tournament.playersIds && tournament.playersIds.includes(this.props.playerId);
