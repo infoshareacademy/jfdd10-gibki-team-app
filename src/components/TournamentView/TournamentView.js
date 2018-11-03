@@ -41,16 +41,25 @@ class TournamentView extends Component {
   }))
 
   componentDidMount() {
-    firebase
+    this.componentIsMount = true;
+    this.refTournament = firebase
       .database()
       .ref("tournaments")
-      .child(this.props.match.params.tournamentId)
-      .on("value", this.processTournament);
+      .child(this.props.match.params.tournamentId);
+      this.refTournament.on("value", this.processTournament);
 
-    firebase
+    this.refPlayers = firebase
       .database()
-      .ref("players")
-      .on("value", this.processPlayers);
+      .ref("players");
+      this.refPlayers.on("value", this.processPlayers);
+  }
+
+  componentWillUnmount() {
+    this.componentIsMount = false;
+    if (this.refTournament) {
+      this.refTournament.off("value", this.processTournament);
+      this.refPlayers.off("value", this.processPlayers);
+    }
   }
 
   render() {
