@@ -43,11 +43,11 @@ class ControlledExpansionPanels extends React.Component {
   getAvailablePlaces = (number, size) => {
     const placesArray = [];
 
-    for(let i = 1; i <= size; i ++) {
+    for (let i = 1; i <= size; i++) {
       if (i <= number) {
         placesArray.push(true);
       }
-      else{
+      else {
         placesArray.push(false)
       }
     }
@@ -76,26 +76,26 @@ class ControlledExpansionPanels extends React.Component {
             {this.props.tournament.description}
             <br />
             <br />
-            Places available:{" "}
-            {this.props.tournament.placesAvailable === this.props.tournament.placesOccupied
-              ? "none"
-              : this.getAvailablePlaces(
-                  this.props.tournament.placesOccupied,
-                  this.props.tournament.placesAvailable
-                ).map(
-                  (el, index) =>
-                    el === true ? <span key={index}>&#x25C6;</span> : <span key={index}>&#x25C7;</span>
-                )}
-            <Button >
-              <Link
-                to={{
-                  pathname: `/TournamentView/${this.props.tournament.id}`,
-                  state: { tournamentId: this.props.tournament.id }
-                }}
-              >
-                Details
+                Places available:{" "}
+                {this.props.tournament.placesAvailable === this.props.tournament.placesOccupied
+                  ? "none"
+                  : this.getAvailablePlaces(
+                    this.props.tournament.placesOccupied,
+                    this.props.tournament.placesAvailable
+                  ).map(
+                    (el, index) =>
+                      el === true ? <span key={index}>&#x25C6;</span> : <span key={index}>&#x25C7;</span>
+                  )}{" "}
+              <Button >
+                <Link
+                  to={{
+                    pathname: `/TournamentView/${this.props.tournament.id}`,
+                    state: { tournamentId: this.props.tournament.id }
+                  }}
+                >
+                  Details
               </Link>
-            </Button>
+              </Button>
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>

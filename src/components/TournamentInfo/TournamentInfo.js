@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import firebase from "firebase";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import firebase from "firebase";
 import TournamentEditForm from "../TournamentEditForm/TournamentEditForm";
 import "./TournamentInfo.css";
+import Button from "@material-ui/core/Button";
 
 class TournamentInfo extends Component {
   state = {
@@ -50,12 +52,12 @@ class TournamentInfo extends Component {
     return (
       <header className="tournamentInfo-Header">
         <div className="tournamentInfo-top-row">
-          <button className="Info-button">
+          <Button>
             <Link to="/">Home</Link>
-          </button>
-          <button className="Info-button">
+          </Button>
+          <Button>
             <Link to={"/PlayersView"}>Players</Link>
-          </button>
+          </Button>
           {this.props.status === "future" && this.state.user && this.state.user.uid === this.props.owner ? (
             <TournamentEditForm
               tournamentId={this.props.id}

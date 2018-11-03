@@ -18,7 +18,7 @@ export default class TournamentCreate extends React.Component {
     status: "future",
     winnerId: null,
     games: [{}, {}, {}, {}, {}, {}, {}],
-    image: "",
+    image: "../cup.png",
     playerIds: [],
 
     name: "",
@@ -29,7 +29,7 @@ export default class TournamentCreate extends React.Component {
 
   componentDidMount() {
     this.unsubscribe = firebase.auth().onAuthStateChanged(
-      user => this.setState({ user, owner: user.uid })
+      user => this.setState({ user })
     )
   }
 
@@ -58,14 +58,16 @@ export default class TournamentCreate extends React.Component {
       name: "",
       date: "",
       address: "",
-      description: ""
+      description: "",
+      owner:""
     });
     this.handleClose();
   };
 
   makeHandleChange = name => event => {
     this.setState({
-      [name]: event.target.value
+      [name]: event.target.value,
+      owner: this.state.user.uid
     });
   };
 
