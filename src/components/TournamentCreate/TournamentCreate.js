@@ -18,7 +18,7 @@ export default class TournamentCreate extends React.Component {
     status: "future",
     winnerId: null,
     games: [{}, {}, {}, {}, {}, {}, {}],
-    image: "",
+    image: "../cup.png",
     playerIds: [],
 
     name: "",
