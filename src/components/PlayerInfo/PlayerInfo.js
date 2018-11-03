@@ -30,11 +30,15 @@ class PlayerInfo extends Component {
   render() {
     return (
       <header className="playerInfo-Header">
-      <div className="tournamentInfo-top-row">
-      <AuthComponent/>
-      <Button><Link to="/">Home</Link></Button>
-      <Button><Link to="/PlayersView">Players</Link></Button>
-      </div>
+        <div className="tournamentInfo-top-row">
+          <AuthComponent />
+          <strong>
+            <p style={{margin: '0px'}}>
+              <Button><Link to="/">Home</Link></Button>
+              <Button><Link to="/PlayersView">Players</Link></Button>
+            </p>
+          </strong>
+        </div>
         <h1 className="playerInfo-h1" >Player Info</h1>
         <div className="playerInfo-container">
           <img
@@ -42,23 +46,23 @@ class PlayerInfo extends Component {
             src={this.props.image}
             alt="User Avatar"
           />
-          
+
           <div className="playerInfo-info">
             <div>
               <h2 className="playerInfo-h2">Player:</h2>
-            {this.props.ranking !== undefined && <h2 className="playerInfo-h2">Ranking:</h2>}  
-            {this.props.points !== undefined && <h2 className="playerInfo-h2">Points:</h2>} 
-              
+              {this.props.ranking !== undefined && <h2 className="playerInfo-h2">Ranking:</h2>}
+              {this.props.points !== undefined && <h2 className="playerInfo-h2">Points:</h2>}
+
             </div>
-            
+
             <div className="playerInfo-data">
-            <h2 className="playerInfo-h2">{this.props.name}</h2>
-            {this.props.ranking !== undefined && <h2 className="playerInfo-h2">
-              { this.getStars(this.props.ranking).map(
-                (el, index) => el === true ? <span key={index}>&#9733;</span> : <span key={index}>&#9734;</span>
-              ) }
-            </h2>}
-            <h2 className="playerInfo-h2">{this.props.points}</h2>
+              <h2 className="playerInfo-h2">{this.props.name}</h2>
+              {this.props.ranking !== undefined && <h2 className="playerInfo-h2">
+                {this.getStars(this.props.ranking).map(
+                  (el, index) => el === true ? <span key={index}>&#9733;</span> : <span key={index}>&#9734;</span>
+                )}
+              </h2>}
+              <h2 className="playerInfo-h2">{this.props.points}</h2>
             </div>
           </div>
         </div>
