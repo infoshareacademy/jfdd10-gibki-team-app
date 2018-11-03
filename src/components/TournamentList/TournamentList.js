@@ -78,7 +78,7 @@ class TabsWrappedLabel extends React.Component {
             <Tab value="two" label="Active" />
             <Tab value="three" label="Future" />
             <Tab value="four" label="Finished" />
-            {this.state.user && this.state.user.uid === this.props.owner ? (
+            {this.state.user ? (
             <Tab value="five" label="Created" />
             ) : (
               ""
@@ -214,7 +214,7 @@ class TabsWrappedLabel extends React.Component {
           <TabContainer>
             {this.state.tournaments
               .filter(tournament => {
-                return tournament.owner === this.state.user.uid && this.state.user &&  {};
+                return tournament.owner === this.state.user.uid {};
               })
               .filter(tournament => {
                 return this.props.playerId === undefined
