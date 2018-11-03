@@ -215,12 +215,9 @@ class TabsWrappedLabel extends React.Component {
           <TabContainer>
             {this.state.tournaments
               .filter(tournament => {
-                return tournament.owner === this.state.user.uid && {};
-              })
-              .filter(tournament => {
                 return this.props.playerId === undefined
-                  ? true
-                  : tournament.playersIds && tournament.playersIds.includes(this.props.playerId);
+                  ? tournament.owner === this.state.user.uid && {}
+                  : tournament.owner && tournament.owner.includes(this.props.playerId);
               })
               .map(tournament => (
                 <TournamentListItem
