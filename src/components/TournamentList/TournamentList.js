@@ -9,6 +9,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 
 import TournamentListItem from "../TournamentListItem/TournamentListItem";
+import TournamentCreate from '../TournamentCreate/TournamentCreate';
 import "./TournamentList.css";
 
 function TabContainer(props) {
@@ -226,7 +227,10 @@ class TabsWrappedLabel extends React.Component {
                   tournament={tournament || {}}
                   key={tournament.id}
                 />
-              ))}
+              ))
+              }
+              <br/>
+              <TournamentCreate/>
           </TabContainer>
         )}
       </div>
