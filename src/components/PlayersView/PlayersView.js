@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PlayerList from "../PlayerList/PlayerList";
+import AuthComponent from '../AuthComponent/AuthComponent';
 import "./PlayersView.css";
 import Button from "@material-ui/core/Button";
 class PlayersView extends Component {
@@ -27,6 +28,7 @@ class PlayersView extends Component {
       <div>
         <header className="playersView-Header">
           <div className="playersView-top-row">
+          <AuthComponent/>
             <Button>
               <Link to="/">Home</Link>
             </Button>
