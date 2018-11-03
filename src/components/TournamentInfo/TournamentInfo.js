@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import firebase from "firebase";
 import TournamentEditForm from "../TournamentEditForm/TournamentEditForm";
 import "./TournamentInfo.css";
 import Button from "@material-ui/core/Button";
@@ -22,7 +23,7 @@ class TournamentInfo extends Component {
       this.unsubscribe()
     }
   }
-  
+
   static propTypes = {
     name: PropTypes.string,
     date: PropTypes.string,
@@ -51,13 +52,17 @@ class TournamentInfo extends Component {
     return (
       <header className="tournamentInfo-Header">
         <div className="tournamentInfo-top-row">
-        <AuthComponent/>
-          <Button>
-            <Link to="/">Home</Link>
-          </Button>
-          <Button>
-            <Link to={"/PlayersView"}>Players</Link>
-          </Button>
+          <AuthComponent />
+          <strong>
+            <p style={{margin: '0px'}}>
+              <Button>
+                <Link to="/">Home</Link>
+              </Button>
+              <Button>
+                <Link to={"/PlayersView"}>Players</Link>
+              </Button>
+            </p>
+          </strong>
           {this.props.status === "future" && this.state.user && this.state.user.uid === this.props.owner ? (
             <TournamentEditForm
               tournamentId={this.props.id}
@@ -67,8 +72,8 @@ class TournamentInfo extends Component {
               description={this.props.description}
             />
           ) : (
-            ""
-          )}
+              ""
+            )}
         </div>
         <h1 className="playerInfo-h1">{this.props.name}</h1>
         <h1 className="playerInfo-h1">{this.props.description}</h1>
@@ -95,16 +100,16 @@ class TournamentInfo extends Component {
                 {this.props.placesAvailable === this.props.placesOccupied
                   ? "none"
                   : this.getAvailablePlaces(
-                      this.props.placesOccupied,
-                      this.props.placesAvailable
-                    ).map(
-                      (el, index) =>
-                        el === true ? (
-                          <span key={index}>&#x25C6;</span>
-                        ) : (
+                    this.props.placesOccupied,
+                    this.props.placesAvailable
+                  ).map(
+                    (el, index) =>
+                      el === true ? (
+                        <span key={index}>&#x25C6;</span>
+                      ) : (
                           <span key={index}>&#x25C7;</span>
                         )
-                    )}
+                  )}
 
                 {/* {this.props.places} */}
               </h2>
