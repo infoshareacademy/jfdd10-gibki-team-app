@@ -28,10 +28,14 @@ class PlayersView extends Component {
       <div>
         <header className="playersView-Header">
           <div className="playersView-top-row">
-          <AuthComponent/>
-            <Button>
-              <Link to="/">Home</Link>
-            </Button>
+            <AuthComponent />
+            <strong>
+              <p style={{margin: '0px'}}>
+                <Button>
+                  <Link to="/">Home</Link>
+                </Button>
+              </p>
+            </strong>
           </div>
           <div className="playersView-container">
             <h1 className="playersView-h1">All Players</h1>
@@ -72,7 +76,7 @@ class PlayersView extends Component {
         <div className="playerView-list">
           <PlayerList
             tournamentPlayers={this.state.players}
-            // playerListHeader={"Players"}
+          // playerListHeader={"Players"}
           />
         </div>
       </div>

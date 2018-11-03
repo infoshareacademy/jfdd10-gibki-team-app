@@ -18,7 +18,7 @@ class AuthComponent extends Component {
   render() {
     return this.state.user ? (
       <strong>
-        <p>
+        <p style={{margin: '0px'}}>
           <Button>
             <Link
               to={{
