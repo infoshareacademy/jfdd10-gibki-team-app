@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import firebase from "firebase";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import firebase from "firebase";
 import TournamentEditForm from "../TournamentEditForm/TournamentEditForm";
 import "./TournamentInfo.css";
 import Button from "@material-ui/core/Button";
