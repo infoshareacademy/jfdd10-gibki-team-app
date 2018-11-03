@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PlayerList from "../PlayerList/PlayerList";
-import AuthComponent from '../AuthComponent/AuthComponent';
 import "./PlayersView.css";
 import Button from "@material-ui/core/Button";
 import AuthComponent from '../AuthComponent/AuthComponent';
