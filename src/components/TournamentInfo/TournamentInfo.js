@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import firebase from "firebase";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import TournamentEditForm from "../TournamentEditForm/TournamentEditForm";
