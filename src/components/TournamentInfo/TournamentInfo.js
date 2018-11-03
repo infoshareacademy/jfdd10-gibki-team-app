@@ -50,12 +50,12 @@ class TournamentInfo extends Component {
     return (
       <header className="tournamentInfo-Header">
         <div className="tournamentInfo-top-row">
-          <button className="Info-button">
+          <Button>
             <Link to="/">Home</Link>
-          </button>
-          <button className="Info-button">
+          </Button>
+          <Button>
             <Link to={"/PlayersView"}>Players</Link>
-          </button>
+          </Button>
           {this.props.status === "future" && this.state.user && this.state.user.uid === this.props.owner ? (
             <TournamentEditForm
               tournamentId={this.props.id}
