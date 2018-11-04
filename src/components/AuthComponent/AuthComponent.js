@@ -19,7 +19,7 @@ class AuthComponent extends Component {
     return this.state.user ? (
       <strong>
         <p style={{margin: '0px'}}>
-          <Button>
+          {/* <Button>
             <Link
               to={{
                 pathname: `/PlayerView/${this.state.user.uid}`,
@@ -28,7 +28,7 @@ class AuthComponent extends Component {
             >
               My profile
             </Link>
-          </Button>
+          </Button> */}
           {/* {this.state.user.email}{" "} */}
           <Button onClick={() => firebase.auth().signOut()}>Sign out</Button>
         </p>

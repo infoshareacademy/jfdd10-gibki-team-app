@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import firebase from "firebase";
 import "./HomeInfo.css";
 import AuthComponent from '../AuthComponent/AuthComponent';
 import Button from "@material-ui/core/Button";
@@ -7,6 +8,14 @@ import Button from "@material-ui/core/Button";
 
 
 class HomeInfo extends Component {
+    state = {
+        user: null,
+      };
+    
+      componentDidMount() {
+        firebase.auth().onAuthStateChanged(user => this.setState({ user }));
+      }
+    
     static propTypes = {
       
       };
@@ -15,6 +24,16 @@ class HomeInfo extends Component {
 
         <header className="HomeInfo-Header">
          <div className="HomeInfo-Top">
+         {this.state.user ? (<Button>
+            <Link
+              to={{
+                pathname: `/PlayerView/${this.state.user.uid}`,
+                state: { playerId: this.state.user.uid }
+              }}
+            >
+              My profile
+            </Link>
+         </Button>) : ("")}
          <AuthComponent/>
          <Button><Link to={"/PlayersView"}>Players</Link></Button>
 

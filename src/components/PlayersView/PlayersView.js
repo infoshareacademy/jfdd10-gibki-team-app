@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import firebase from "firebase";
 import PlayerList from "../PlayerList/PlayerList";
 import AuthComponent from '../AuthComponent/AuthComponent';
 import "./PlayersView.css";
 import Button from "@material-ui/core/Button";
 class PlayersView extends Component {
   state = {
-    players: []
+    players: [],
+    user: null
   };
 
   componentDidMount() {
@@ -21,6 +23,7 @@ class PlayersView extends Component {
         );
         this.setState({ players: arrayOfPlayers });
       });
+    firebase.auth().onAuthStateChanged(user => this.setState({ user }));
   }
 
   render() {
@@ -28,9 +31,19 @@ class PlayersView extends Component {
       <div>
         <header className="playersView-Header">
           <div className="playersView-top-row">
+          {this.state.user ? (<Button>
+            <Link
+              to={{
+                pathname: `/PlayerView/${this.state.user.uid}`,
+                state: { playerId: this.state.user.uid }
+              }}
+            >
+              My profile
+            </Link>
+         </Button>) : ("")}
             <AuthComponent />
             <strong>
-              <p style={{margin: '0px'}}>
+              <p style={{ margin: '0px' }}>
                 <Button>
                   <Link to="/">Home</Link>
                 </Button>
