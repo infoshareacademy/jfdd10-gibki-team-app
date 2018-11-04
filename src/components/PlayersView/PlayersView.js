@@ -4,6 +4,7 @@ import PlayerList from "../PlayerList/PlayerList";
 import "./PlayersView.css";
 import Button from "@material-ui/core/Button";
 import AuthComponent from '../AuthComponent/AuthComponent';
+import MyProfileButton from '../MyProfileButton/MyProfileButton'
 class PlayersView extends Component {
   state = {
     players: []
@@ -29,6 +30,7 @@ class PlayersView extends Component {
         <header className="playersView-Header">
           <div className="playersView-top-row">
             <AuthComponent />
+            <MyProfileButton/>
             <strong>
               <p style={{margin: '0px'}}>
                 <Button>

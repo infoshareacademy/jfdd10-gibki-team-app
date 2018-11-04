@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import "./PlayerInfo.css";
 import Button from "@material-ui/core/Button";
 import AuthComponent from '../AuthComponent/AuthComponent';
+
 class PlayerInfo extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
@@ -33,8 +34,8 @@ class PlayerInfo extends Component {
           <AuthComponent />
           <strong>
             <p style={{margin: '0px'}}>
-              <Button><Link to="/">Home</Link></Button>
               <Button><Link to="/PlayersView">Players</Link></Button>
+              <Button><Link to="/">Home</Link></Button>
             </p>
           </strong>
         </div>

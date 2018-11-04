@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./HomeInfo.css";
 import AuthComponent from '../AuthComponent/AuthComponent';
 import Button from "@material-ui/core/Button";
-
+import MyProfileButton from '../MyProfileButton/MyProfileButton'
 
 
 class HomeInfo extends Component {
@@ -15,8 +15,9 @@ class HomeInfo extends Component {
 
         <header className="HomeInfo-Header">
          <div className="HomeInfo-Top">
-         <Button><Link to={"/PlayersView"}>Players</Link></Button>
          <AuthComponent/>
+         <MyProfileButton/>
+         <Button><Link to={"/PlayersView"}>Players</Link></Button>
 
          </div>
             <h1 className="HomeInfo-H1">Enter the Tournament and Have Some Fun!</h1>
