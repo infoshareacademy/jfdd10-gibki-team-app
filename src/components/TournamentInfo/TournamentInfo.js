@@ -52,6 +52,16 @@ class TournamentInfo extends Component {
     return (
       <header className="tournamentInfo-Header">
         <div className="tournamentInfo-top-row">
+        {this.state.user ? (<Button>
+            <Link
+              to={{
+                pathname: `/PlayerView/${this.state.user.uid}`,
+                state: { playerId: this.state.user.uid }
+              }}
+            >
+              My profile
+            </Link>
+         </Button>) : ("")}
           <AuthComponent />
           <strong>
             <p style={{margin: '0px'}}>

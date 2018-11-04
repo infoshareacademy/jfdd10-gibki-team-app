@@ -35,7 +35,7 @@ class PlayerView extends Component {
         }
         return ( 
             <div>
-                <PlayerInfo name={player.name} image={player.image} ranking={player.ranking} points={player.points}/>
+                <PlayerInfo name={player.name} image={player.image} ranking={player.ranking} points={player.points} playerId={player.id}/>
                 <div className="myTournament-bar">
                 <h1>My tournaments</h1>
                 <TournamentCreate/>
