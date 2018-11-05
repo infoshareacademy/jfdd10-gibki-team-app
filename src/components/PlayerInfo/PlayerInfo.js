@@ -41,6 +41,11 @@ class PlayerInfo extends Component {
       <header className="playerInfo-Header">
         <div className="PlayerInfoMenu">
           <div>
+          <strong>
+              <p style={{ margin: "0px" }}>
+              <Button>
+                  <Link to="/">Home</Link>
+                </Button>
             {this.state.user && this.state.user.uid !== this.props.playerId ? (
               <Button>
                 <Link
@@ -55,11 +60,8 @@ class PlayerInfo extends Component {
             ) : (
               ""
             )}
-            <strong>
-              <p style={{ margin: "0px" }}>
-                <Button>
-                  <Link to="/">Home</Link>
-                </Button>
+            
+                
                 <Button>
                   <Link to="/PlayersView">Players</Link>
                 </Button>

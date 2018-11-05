@@ -54,44 +54,44 @@ class TournamentInfo extends Component {
         <div className="tournamentInfo-top-row">
           <div>
             <strong>
-              <p style={{ margin: "0px" }}>
+              <p className="menuLeft" style={{ margin: "0px" }}>
                 <Button>
                   <Link to="/">Home</Link>
                 </Button>
                 <Button>
                   <Link to={"/PlayersView"}>Players</Link>
                 </Button>
+                {this.state.user ? (
+                  <Button>
+                    <Link
+                      to={{
+                        pathname: `/PlayerView/${this.state.user.uid}`,
+                        state: { playerId: this.state.user.uid }
+                      }}
+                    >
+                      My profile
+                    </Link>
+                  </Button>
+                ) : (
+                  ""
+                )}
+                {this.props.status === "future" &&
+                this.state.user &&
+                this.state.user.uid === this.props.owner ? (
+                  <TournamentEditForm
+                    tournamentId={this.props.id}
+                    name={this.props.name}
+                    date={this.props.date}
+                    address={this.props.address}
+                    description={this.props.description}
+                  />
+                ) : (
+                  ""
+                )}
               </p>
             </strong>
           </div>
           <div className="tournamentInfo-rightButtons">
-            {this.props.status === "future" &&
-            this.state.user &&
-            this.state.user.uid === this.props.owner ? (
-              <TournamentEditForm
-                tournamentId={this.props.id}
-                name={this.props.name}
-                date={this.props.date}
-                address={this.props.address}
-                description={this.props.description}
-              />
-            ) : (
-              ""
-            )}
-            {this.state.user ? (
-              <Button>
-                <Link
-                  to={{
-                    pathname: `/PlayerView/${this.state.user.uid}`,
-                    state: { playerId: this.state.user.uid }
-                  }}
-                >
-                  My profile
-                </Link>
-              </Button>
-            ) : (
-              ""
-            )}
             <AuthComponent />
           </div>
         </div>

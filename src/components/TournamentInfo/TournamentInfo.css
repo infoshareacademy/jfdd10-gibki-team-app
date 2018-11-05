@@ -16,6 +16,9 @@
 .tournamentInfo-rightButtons{
 	display: flex;
 }
+.menuLeft{
+	display: flex;
+}
 
 .Info-button{
 	background-color: rgb(117, 74, 169);
