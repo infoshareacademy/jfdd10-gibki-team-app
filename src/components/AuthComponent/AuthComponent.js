@@ -4,6 +4,7 @@ import firebase from "firebase";
 import Button from "@material-ui/core/Button";
 import SignIn from "../SignIn/SignIn";
 import SignUp from "../SignUp/SignUp";
+import "./AuthComponent.css";
 
 class AuthComponent extends Component {
   state = {
@@ -35,12 +36,10 @@ class AuthComponent extends Component {
       </strong>
     ) : (
         <>
+        <div className="AuthComponent-cont">
           <SignIn />
           <SignUp />
-
-
-
-
+        </div>
 
         </>
       );
