@@ -13,6 +13,11 @@
 	margin-top: 0px;
 }
 
+.HomeInfo-rightButtons{
+	display: flex;
+
+}
+
 .HomeInfo-Top{
 	display: flex;
 	justify-content: space-between;

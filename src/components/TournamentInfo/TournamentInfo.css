@@ -13,6 +13,9 @@
 	display: flex;
 	justify-content: space-between;
 }
+.tournamentInfo-rightButtons{
+	display: flex;
+}
 
 .Info-button{
 	background-color: rgb(117, 74, 169);
