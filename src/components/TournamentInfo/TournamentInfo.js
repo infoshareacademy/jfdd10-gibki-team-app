@@ -52,7 +52,18 @@ class TournamentInfo extends Component {
     return (
       <header className="tournamentInfo-Header">
         <div className="tournamentInfo-top-row">
-        {this.state.user ? (<Button>
+        
+         
+          <strong>
+            <p style={{margin: '0px'}}>
+              <Button>
+                <Link to="/">Home</Link>
+              </Button>
+              <Button>
+                <Link to={"/PlayersView"}>Players</Link>
+              </Button>
+            
+          {this.state.user ? (<Button>
             <Link
               to={{
                 pathname: `/PlayerView/${this.state.user.uid}`,
@@ -62,17 +73,7 @@ class TournamentInfo extends Component {
               My profile
             </Link>
          </Button>) : ("")}
-          <AuthComponent />
-          <strong>
-            <p style={{margin: '0px'}}>
-              <Button>
-                <Link to="/">Home</Link>
-              </Button>
-              <Button>
-                <Link to={"/PlayersView"}>Players</Link>
-              </Button>
-            </p>
-          </strong>
+         
           {this.props.status === "future" && this.state.user && this.state.user.uid === this.props.owner ? (
             <TournamentEditForm
               tournamentId={this.props.id}
@@ -84,6 +85,10 @@ class TournamentInfo extends Component {
           ) : (
               ""
             )}
+            </p>
+            
+            </strong>
+            <div><AuthComponent /></div> 
         </div>
         <h1 className="playerInfo-h1">{this.props.name}</h1>
         <h1 className="playerInfo-h1">{this.props.description}</h1>
