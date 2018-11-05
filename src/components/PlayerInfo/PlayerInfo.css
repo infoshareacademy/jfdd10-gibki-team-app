@@ -58,6 +58,10 @@
 	padding-right: 20px; 
 	
 }
+.PlayerInfoMenu {
+	display: flex;
+	justify-content: space-between;
+}
 
 @-webkit-keyframes Gradient {
 	0% {
