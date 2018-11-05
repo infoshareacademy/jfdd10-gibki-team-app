@@ -4,6 +4,7 @@ import firebase from "firebase";
 import "./HomeInfo.css";
 import AuthComponent from '../AuthComponent/AuthComponent';
 import Button from "@material-ui/core/Button";
+import {Divider} from '@material-ui/core';
 
 
 
@@ -24,6 +25,12 @@ class HomeInfo extends Component {
 
         <header className="HomeInfo-Header">
          <div className="HomeInfo-Top">
+         <div>
+
+         <Button><Link to={"/PlayersView"}>Players</Link></Button>
+         </div>
+         <div className="HomeInfo-rightButtons" >
+
          {this.state.user ? (<Button>
             <Link
               to={{
@@ -35,7 +42,8 @@ class HomeInfo extends Component {
             </Link>
          </Button>) : ("")}
          <AuthComponent/>
-         <Button><Link to={"/PlayersView"}>Players</Link></Button>
+         </div>
+         
 
          </div>
             <h1 className="HomeInfo-H1">Enter the Tournament and Have Some Fun!</h1>
