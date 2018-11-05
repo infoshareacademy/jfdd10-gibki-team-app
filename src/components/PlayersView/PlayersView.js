@@ -31,24 +31,28 @@ class PlayersView extends Component {
       <div>
         <header className="playersView-Header">
           <div className="playersView-top-row">
+          <div>
+          <strong>
+                  <p style={{ margin: '0px' }}>
+                    <Button>
+                      <Link to="/">Home</Link>
+                    </Button>
+                  
           {this.state.user ? (<Button>
             <Link
               to={{
                 pathname: `/PlayerView/${this.state.user.uid}`,
                 state: { playerId: this.state.user.uid }
               }}
-            >
+              >
               My profile
             </Link>
          </Button>) : ("")}
-            <AuthComponent />
-            <strong>
-              <p style={{ margin: '0px' }}>
-                <Button>
-                  <Link to="/">Home</Link>
-                </Button>
-              </p>
-            </strong>
+         </p>
+                </strong>
+         </div>
+                
+        <div><AuthComponent /></div>
           </div>
           <div className="playersView-container">
             <h1 className="playersView-h1">All Players</h1>

@@ -24,6 +24,7 @@ class HomeInfo extends Component {
 
         <header className="HomeInfo-Header">
          <div className="HomeInfo-Top">
+           <AuthComponent/>
          {this.state.user ? (<Button>
             <Link
               to={{
@@ -34,7 +35,6 @@ class HomeInfo extends Component {
               My profile
             </Link>
          </Button>) : ("")}
-         <AuthComponent/>
          <Button><Link to={"/PlayersView"}>Players</Link></Button>
 
          </div>
